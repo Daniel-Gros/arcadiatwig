@@ -97,7 +97,7 @@ ALTER TABLE CommentaireHabitat ADD FOREIGN KEY (user_id) REFERENCES user (user_i
 ALTER TABLE CommentaireHabitat ADD FOREIGN KEY (habitat_id) REFERENCES habitat (habitat_id);
 
 -- Insertion des données
-INSERT INTO 
+INSERT INTO user
     (name, password, email)
 VALUES
     (
