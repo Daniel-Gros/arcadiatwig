@@ -18,7 +18,7 @@ class CommentaireHabitat
     private ?string $message = null;
 
     #[ORM\Column]
-    private ?bool $imrovement = null;
+    private ?bool $improvment = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
@@ -45,14 +45,14 @@ class CommentaireHabitat
         return $this;
     }
 
-    public function isImrovement(): ?bool
+    public function isimprovment(): ?bool
     {
-        return $this->imrovement;
+        return $this->improvment;
     }
 
-    public function setImrovement(bool $imrovement): static
+    public function setimprovment(bool $improvment): static
     {
-        $this->imrovement = $imrovement;
+        $this->improvment = $improvment;
 
         return $this;
     }
