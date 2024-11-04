@@ -4,82 +4,104 @@ CREATE DATABASE IF NOT EXISTS arcadiadb;
 USE arcadiadb;
 
 -- Création des tables
-
 CREATE TABLE
     IF NOT EXISTS user (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+        user_id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(50) NOT NULL,
         password VARCHAR(50) NOT NULL,
-        email VARCHAR(50) NOT NULL,
+        email VARCHAR(50) NOT NULL
     );
 
 CREATE TABLE
     IF NOT EXISTS animal (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+        animal_id INT AUTO_INCREMENT PRIMARY KEY,
         firstName VARCHAR(50) NOT NULL,
         breed VARCHAR(50) NOT NULL,
-        diet VARCHAR(50) NOT NULL,
+        diet VARCHAR(50) NOT NULL
     );
 
 CREATE TABLE
     IF NOT EXISTS service (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+        service_id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(50) NOT NULL,
-        description TEXT NOT NULL,
+        description TEXT NOT NULL
     );
 
 CREATE TABLE
     IF NOT EXISTS habitat (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+        habitat_id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(50) NOT NULL,
-        description TEXT NOT NULL,
+        description TEXT NOT NULL
     );
 
 CREATE TABLE
     IF NOT EXISTS CompteRenduVétérinaire (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+        compte_rendu_vet_id INT AUTO_INCREMENT PRIMARY KEY,
         date DATE NOT NULL,
-        message TEXT NOT NULL,
+        message TEXT NOT NULL
     );
 
 CREATE TABLE
     IF NOT EXISTS avis (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+        avis_id INT AUTO_INCREMENT PRIMARY KEY,
         note INT NOT NULL,
         message TEXT NOT NULL,
-        validation BOOLEAN NOT NULL,
+        validation BOOLEAN NOT NULL
     );
 
 CREATE TABLE
     IF NOT EXISTS CommentaireHabitat (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+        commentaire_hab_id INT AUTO_INCREMENT PRIMARY KEY,
         message TEXT NOT NULL,
-        imrovemment BOOLEAN NOT NULL,
+        imrovemment BOOLEAN NOT NULL
     );
 
 -- Création des clés étrangères
+USE arcadiadb;
 
-ALTER TABLE animals
-    ADD FOREIGN KEY (user_id) REFERENCES user(id);
-    ADD FOREIGN KEY (habitat_id) REFERENCES habitat(id);
+ALTER TABLE animal ADD user_id INT;
+
+ALTER TABLE animal ADD FOREIGN KEY (user_id) REFERENCES user (user_id);
+
+ALTER TABLE animal ADD habitat_id INT;
+
+ALTER TABLE animal ADD FOREIGN KEY (habitat_id) REFERENCES habitat (habitat_id);
 
 ALTER TABLE service
-    ADD FOREIGN KEY (user_id) REFERENCES user(id);
+ADD COLUMN user_id INT;
 
-ALTER TABLE habitat
-    ADD FOREIGN KEY (user_id) REFERENCES user(id);
+ALTER TABLE service ADD FOREIGN KEY (user_id) REFERENCES user (user_id);
 
-ALTER TABLE CompteRenduVétérinaire
-    ADD FOREIGN KEY (user_id) REFERENCES user(id);
-    ADD FOREIGN KEY (animal_id) REFERENCES animal(id);
+ALTER TABLE habitat ADD user_id INT;
 
-ALTER TABLE avis
-    ADD FOREIGN KEY (user_id) REFERENCES user(id);
-    
-ALTER TABLE CommentaireHabitat
-    ADD FOREIGN KEY (user_id) REFERENCES user(id);
-    ADD FOREIGN KEY (habitat_id) REFERENCES habitat(id);
+ALTER TABLE habitat ADD FOREIGN KEY (user_id) REFERENCES user (user_id);
+
+ALTER TABLE CompteRenduVétérinaire ADD user_id INT;
+
+ALTER TABLE CompteRenduVétérinaire ADD animal_id INT;
+
+ALTER TABLE CompteRenduVétérinaire ADD FOREIGN KEY (user_id) REFERENCES user (user_id);
+
+ALTER TABLE CompteRenduVétérinaire ADD FOREIGN KEY (animal_id) REFERENCES animal (animal_id);
+
+ALTER TABLE avis ADD user_id INT;
+
+ALTER TABLE avis ADD FOREIGN KEY (user_id) REFERENCES user (user_id);
+
+ALTER TABLE CommentaireHabitat ADD user_id INT;
+
+ALTER TABLE CommentaireHabitat ADD habitat_id INT;
+
+ALTER TABLE CommentaireHabitat ADD FOREIGN KEY (user_id) REFERENCES user (user_id);
+
+ALTER TABLE CommentaireHabitat ADD FOREIGN KEY (habitat_id) REFERENCES habitat (habitat_id);
 
 -- Insertion des données
-
-INSERT INTO admin (name, password, email) VALUES ('admin', 'admin', 'josearcadiapersonnefictive@gmail.com');
+INSERT INTO user
+    (name, password, email)
+VALUES
+    (
+        'admin',
+        'admin',
+        'josearcadiapersonnefictive@gmail.com'
+    );
