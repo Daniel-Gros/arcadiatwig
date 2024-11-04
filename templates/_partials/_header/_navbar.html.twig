@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href={{path('app_home')}}>Arcadia</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                {% for item in navItems %}
+                    <li class="nav-item {% if item.submenu is defined %}dropdown{% endif %}">
+                        {% if item.submenu is defined %}
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown{{ loop.index }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ item.label }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown{{ loop.index }}">
+                                {% for subItem in item.submenu %}
+                                    <li><a class="dropdown-item" href="#">{{ subItem }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <a class="nav-link" href="#">{{ item.label }}</a>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+{# path : templates/_partials/_header/_navbar.html.twig #}
