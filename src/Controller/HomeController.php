@@ -12,12 +12,12 @@ class HomeController extends AbstractController
     public function index(): Response
     {
 
-        // NAVBAR CONFIGUREE AVEC LES FUTURES ROUTES DE TOUTES LES PAGES A CONSERVER POUR PLUS TARD
+        // NAVBAR CONFIGUREE AVEC LES FUTURES ROUTES DE TOUTES LES PAGES
         // $navItems = [
         //     [
         //         'label' => 'Découvrir notre Zoo', 
         //         'submenu' => [
-        //             ['label' => 'Animaux', 'route' => 'app_animaux'],
+        //             ['label' => 'Animaux', 'route' => 'app_animal'],
         //             ['label' => 'Habitats', 'route' => 'app_habitats'],
         //             ['label' => 'Engagements', 'route' => 'app_engagements']
         //         ]

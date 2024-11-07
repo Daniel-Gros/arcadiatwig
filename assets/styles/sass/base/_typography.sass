@@ -1,0 +1,40 @@
+@use './_all.sass' as * abs
+
+// Imports des polices
+
+// Lora pour les titres
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap')
+
+// Mochiy Pop P One pour les textes
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Mochiy+Pop+P+One&display=swap')
+
+
+body
+    font-family: abs.$font-text
+    font-size: 1.6rem
+    line-height: 1.6
+    color: abs.$text-primary
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    overflow-x: hidden
+    transition: background-color 0.5s
+    transition: color 0.5s
+    transition: font-size 0.5s
+    transition: line-height 0.5s
+    transition: font-family 0.5s
+    transition: margin 0.5s
+    transition: padding 0.5s
+    transition: box-sizing 0.5s
+    transition: overflow-x 0.5s
+
+h1, h2, h3, h4, h5, h6
+    font-family: abs.$font-title
+    font-size: 2.4rem
+    font-weight: bold
+    color: abs.$text-primary
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    overflow-x: hidden

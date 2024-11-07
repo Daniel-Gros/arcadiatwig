@@ -1,0 +1,10 @@
+@use "./_all.sass" as * abs
+    
+.nav
+    color: abs: . $text-tertiary // noir
+    text-decoration: none
+    & :hover
+        text-decoration: underline
+    &: click
+        background-color: abs.$color-quaternary //verdigris
+        text-decoration: none
