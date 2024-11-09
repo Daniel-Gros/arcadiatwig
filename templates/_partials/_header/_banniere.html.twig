@@ -1,5 +1,12 @@
-<div>
-<img src="{{ asset('images/logo-arcadia.webp') }}" alt="Logo Arcadia">
-
-<img src="{{ asset('images/horizon-background-bandeau-header.webp')}}" alt="sous bannière de la navbar représentant l'horizon de la savane">
+<div class="row align-items-center g-0 position-relative">
+    <div class="col-1 d-flex align-items-center position-absolute top-0 start-0 p-0">
+        <a href="{{ path('app_home') }}">
+            <img src="{{ asset('images/logo-arcadia.webp') }}" alt="Logo Arcadia" class="img-fluid" style="height: 66%; width: auto;">
+        </a>
+    </div>
+    <div class="col-12 p-0">
+        <img src="{{ asset('images/horizon-background-bandeau-header.webp') }}" alt="Sous-bannière de la navbar représentant l'horizon de la savane" class="banniere img-fluid w-100 " style="object-fit: cover">
+    </div>
 </div>
+
+
