@@ -1,0 +1,13 @@
+@use "./_all.sass";
+    
+.nav {
+    color: $text-tertiary; // noir
+    text-decoration: none;
+    &:hover {
+    text-decoration: underline
+    }
+    &:active {
+        background-color: abs.$color-quaternary; //verdigris
+        text-decoration: none;
+    } 
+}

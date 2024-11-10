@@ -1,0 +1,25 @@
+@import './_all.sass';
+
+.button {
+    background-color: $color-primary; // marron foncé
+    color: abs.$text-secondary; // jauune citron
+    border: 1px solid abs.$color-secondary; // jaune citron
+    border-radius: 5px;
+}
+
+
+// bouton des cards animaux représentant un + dans un cercle    
+.button-cross {
+    background-color: $color-primary; // jaune citron
+    color: $color-secondary; // marron foncé
+    border: 1px solid $color-secondary; // marron foncé
+    border-radius: 50%; // rond
+
+}
+
+.button-erase {
+    background-color: $color-secondary; // jaune citron
+    color: $color-primary; // maron foncé
+    border: 1px solid abs.$color-secondary; // marron foncé
+    border-radius: 5px;
+}
