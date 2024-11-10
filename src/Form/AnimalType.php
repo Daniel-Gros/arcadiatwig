@@ -39,3 +39,4 @@ class AnimalType extends AbstractType
         ]);
     }
 }
+
