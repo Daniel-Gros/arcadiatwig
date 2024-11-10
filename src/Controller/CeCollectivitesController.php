@@ -11,7 +11,7 @@ class CeCollectivitesController extends AbstractController
     #[Route('/ce/collectivites', name: 'app_ce_collectivites')]
     public function index(): Response
     {
-        return $this->render('ce_collectivites/index.html.twig', [
+        return $this->render('ce_collectivites/show-ce-collectivites.html.twig', [
             'controller_name' => 'CeCollectivitesController',
         ]);
     }

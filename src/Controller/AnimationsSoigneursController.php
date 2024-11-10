@@ -11,7 +11,7 @@ class AnimationsSoigneursController extends AbstractController
     #[Route('/animations/soigneurs', name: 'app_animations_soigneurs')]
     public function index(): Response
     {
-        return $this->render('animations_soigneurs/index.html.twig', [
+        return $this->render('animations_soigneurs/show-animation-soigneur.html.twig', [
             'controller_name' => 'AnimationsSoigneursController',
         ]);
     }

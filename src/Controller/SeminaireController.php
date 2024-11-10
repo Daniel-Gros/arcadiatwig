@@ -11,7 +11,7 @@ class SeminaireController extends AbstractController
     #[Route('/seminaire', name: 'app_seminaire')]
     public function index(): Response
     {
-        return $this->render('seminaire/index.html.twig', [
+        return $this->render('seminaire/show-seminaire.html.twig', [
             'controller_name' => 'SeminaireController',
         ]);
     }

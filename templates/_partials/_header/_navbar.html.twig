@@ -1,13 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container d-flex justify-content-between">
-        <a class="navbar-brand text-danger" href="{{ path('app_home') }}">Arcadia</a>
-        
+<nav class="navbar navbar-expand-lg w-100">
+    <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
+        </button>       
+        <div class="collapse navbar-collapse justify-content-evenly" id="navbarNavDropdown">
+            <ul class="navbar-nav w-100 justify-content-between">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="{{ path('app_home') }}">Arcadia</a>
+                </li>
                 {% for item in navItems %}
                     <li class="nav-item {% if item.submenu is defined %}dropdown{% endif %}">
                         {% if item.submenu is defined %}
@@ -16,11 +16,11 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown{{ loop.index }}">
                                 {% for subItem in item.submenu %}
-                                    <li><a class="dropdown-item" href="#">{{ subItem }}</a></li>
+                                    <li><a class="dropdown-item" href="{{ path(subItem.route) }}">{{ subItem.label }}</a></li>
                                 {% endfor %}
                             </ul>
                         {% else %}
-                            <a class="nav-link" href="#">{{ item.label }}</a>
+                            <a class="nav-link" href="{{ path(item.route) }}">{{ item.label }}</a>
                         {% endif %}
                     </li>
                 {% endfor %}
@@ -28,6 +28,8 @@
         </div>
     </div>
 </nav>
+
+
 
 
 

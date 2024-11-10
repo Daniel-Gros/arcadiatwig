@@ -7,12 +7,10 @@
 <div class="container my-5">
     <h1 class="text-center mb-4">Découvrez nos restaurants</h1>
 
-
     <div class="card mb-4">
         <div class="row g-0">
             <div class="col-md-4">
-                <!-- Image du Buffet -->
-                <img src="chemin/vers/image-buffet.jpg" class="img-fluid rounded-start" alt="Buffet">
+                <img src="{{asset('images/buffet.webp')}}" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Buffet">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -23,39 +21,35 @@
                     </p>
                     <p class="card-text"><small class="text-muted">Ouvert de 11h à 16h</small></p>
                     <p class="card-text"><small class="text-muted">Réservation au 02.02.02.02.02</small></p>
-                    
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Carte de la Pizzéria -->
     <div class="card mb-4">
         <div class="row g-0">
             <div class="col-md-4">
-                <!-- Image de la Pizzéria -->
-                <img src="chemin/vers/image-pizzeria.jpg" class="img-fluid rounded-start" alt="Pizzéria">
+                <img src="{{asset('images/pizzeria.webp')}}" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Pizzéria">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">La Pizzéria des Flammands roses</h5>
                     <p class="card-text">
                         Venez déguster nos pizzas authentiques cuites au feu de bois, préparées avec des
-                        ingrédients frais et de qualité. Une expérience italienne au cœur d'Arcadia avec notre terrase donnant sur la plaine des flammands roses !
+                        ingrédients frais et de qualité. Une expérience italienne au cœur d'Arcadia avec notre terrasse donnant sur la plaine des flammands roses !
                     </p>
                     <p class="card-text"><small class="text-muted">Ouvert de 11h à 19h</small></p>
+                    <p class="card-text"><small class="text-muted">Réservation au 02.02.02.02.03</small></p>
                     <p class="card-text"><small class="text-muted">Livraison en voiturette dans le zoo possible</small></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Carte de la Sandwicherie -->
     <div class="card mb-4">
         <div class="row g-0">
             <div class="col-md-4">
-                <!-- Image de la Sandwicherie -->
-                <img src="chemin/vers/image-sandwicherie.jpg" class="img-fluid rounded-start" alt="Sandwicherie">
+                <img src="{{asset('images/sandwicherie.webp')}}" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Sandwicherie">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -65,10 +59,14 @@
                         rapide et savoureuse. Idéal pour un repas sur le pouce !
                     </p>
                     <p class="card-text"><small class="text-muted">Ouvert de 8h à 20h</small></p>
+                    <p class="card-text"><small class="text-muted">Réservation au 02.02.02.02.04</small></p>
+                    <p class="card-text"><small class="text-muted">Livraison en voiturette dans le zoo possible</small></p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 
 {% endblock %}
