@@ -1,20 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HorairesController!{% endblock %}
+{% block title %}Horaires du Zoo - Arcadia
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/env/workspace/arcadiaecf/backend/src/Controller/HorairesController.php</code></li>
-        <li>Your template at <code>C:/env/workspace/arcadiaecf/backend/templates/horaires/index.html.twig</code></li>
-    </ul>
-</div>
+	<div class="container">
+		<h1>Horaires d'Ouverture du Zoo</h1>
+		<p class="text-center">Arcadia vous ouvre ses portes tous les jours de l'année de 8h à 19h.</p>
+		<table class="table table-bordered mt-3">
+			<thead>
+				<tr>
+					<th>Jour</th>
+					<th>Horaires du Zoo</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% set jours = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'] %}
+				{% for jour in jours %}
+					<tr>
+						<td>{{ jour }}</td>
+						<td>8h - 19h</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
 {% endblock %}
