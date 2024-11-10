@@ -1,9 +1,9 @@
-@import './_all.sass';
+@import 'variables, mixins';
 
 .button {
     background-color: $color-primary; // marron foncé
-    color: abs.$text-secondary; // jauune citron
-    border: 1px solid abs.$color-secondary; // jaune citron
+    color: $text-secondary; // jauune citron
+    border: 1px solid $color-secondary; // jaune citron
     border-radius: 5px;
 }
 

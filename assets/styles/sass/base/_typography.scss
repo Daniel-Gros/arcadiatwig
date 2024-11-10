@@ -1,4 +1,4 @@
-@import './_all.sass';
+@import 'variables';
 
 // Imports des polices
 
@@ -11,10 +11,10 @@
 
 
 body {
-    font-family: abs.$font-text;
+    font-family: $font-text;
     font-size: 1.6rem;
     line-height: 1.6;
-    color: abs.$text-primary;
+    color: $text-primary;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -31,10 +31,10 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: abs.$font-title;
+    font-family: $font-title;
     font-size: 2.4rem;
     font-weight: bold;
-    color: abs.$text-primary;
+    color: $text-primary;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
