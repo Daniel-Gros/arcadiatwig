@@ -51,23 +51,32 @@ Télécharger le *Symfony CLI* avec la commande dans votre terminal:
 Pour ce projet, j'ai utilisé quelques bundles que vous pourrez télécharger pour la plupart en utilsant *Composer* et/ou *npm*
 
 *AssetMapper* en lançant dans votre terminal à la racine du projet la commande:
+
 ```composer require symfony/asset-mapper symfony/asset symfony/twig-pack ```
 
 *Bootstrap* en lançant dans votre terminal à la racine du projet la commande:
+
 ```php bin/console importmap:require bootstrap/dist/css/bootstrap.min.css```
 
 Importer Bootstrap dans un fichier app.js 
 ```// assets/app.js
 import 'bootstrap/dist/css/bootstrap.min.css';
 ```
-Exécuter la commande : ````php bin/console importmap:require bootstrap``` pour configurer bootstrap dans le fichier importmap.php à la racine du projet.
+
+Exécuter la commande : 
+
+```php bin/console importmap:require bootstrap``` 
+
+Pour configurer bootstrap dans le fichier importmap.php à la racine du projet.
 
 *SymfonyCastsBundle* en lançant dans votre terminal la commande à la racine du projet:
+
 ```composer require symfonycasts/sass-bundle```
 
 Puis éxécuter la commande ```php bin/console sass:build --watch``` pour lancer le watcher de votre préprocesseur de style.
 
 *Symfony-twig-bundle* en lançant dans votre terminal la commande à la racine du projet: 
+
 ```composer require twig/twig symfony/twig-bundle```
 
 
