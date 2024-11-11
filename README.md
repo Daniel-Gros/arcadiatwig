@@ -3,7 +3,7 @@ Arcadia est un project scolaire full stack d'application complète pour un Zoo f
 
 # Environnement de travail
 
-Plusieurs pré-recquis pouvoir faire fonctionner le projet en local (partie backend).
+Plusieurs pré-recquis pouvoir faire fonctionner le projet en local.
 
 # IDE
 
@@ -20,7 +20,7 @@ CLONER LE DÉPÔT DU PROJET:
     ```git clone https://github.com/Daniel-Gros/arcadiabackend.git```
 
 
-# BACKEND SYMFONY
+# SYMFONY
 
 **PRÉREQUIS**
 
@@ -42,9 +42,51 @@ Pour installer le CLI vous devrez vous rendre [sur ce lien](https://symfony.com/
     Télécharger *Scoop*
     Télécharger le *Symfony CLI* avec la commande dans votre terminal: ```scoop install symfony-cli```
 
+**LES DÉPENDANCES**
+
+**LES BUNDLES SYMFONY**
+
+Pour ce projet, j'ai utilisé quelques bundles que vous pourrez télécharger pour la plupart en utilsant *Composer* et/ou *npm*
+
+*AssetMapper* en lançant dans votre terminal à la racine du projet la commande:
+````composer require symfony/asset-mapper symfony/asset symfony/twig-pack ```
+
+*Bootstrap* en lançant dans votre terminal à la racine du projet la commande:
+```php bin/console importmap:require bootstrap/dist/css/bootstrap.min.css```
+
+Importer Bootstrap dans un fichier app.js 
+```// assets/app.js
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
+Exécuter la commande : ````php bin/console importmap:require bootstrap``` pour configurer bootstrap dans le fichier importmap.php à la racine du projet.
+
+*SymfonyCastsBundle* en lançant dans votre terminal la commande à la racine du projet:
+```composer require symfonycasts/sass-bundle```
+
+Puis éxécuter la commande ```php bin/console sass:build --watch``` pour lancer le watcher de votre préprocesseur de style.
+
+*Symfony-twig-bundle* en lançant dans votre terminal la commande à la racine du projet: 
+```composer require twig/twig symfony/twig-bundle```
+
+
 
 *IMPORTANT*
 
 Vous n'avez pas besoin de cloner le dépôt dans le dossier du serveur local associé (htdocs pour XAMPP, www pour WAMP).
 Ce projet étant réalisé avec Symfony, vous devrez juste écrire la commande ```symfony server:start```
 cela ouvrira votre navigateur avec le projet partie frontend à l'adresse [http://localhost:8000]
+
+**Le Projet Arcadia**
+
+Arcadia est un projet fictif, Toute ressemblance avec des applications et des animaux existants ou ayant existé dans différents coins du monde 
+serait purement fortuite et ne pourrait être que le fruit d'une pure coïncidence.
+
+Les images de l'application sont toutes des images libre de droit que l'on peut trouver sur différentes ressources :
+- [Pexels](https://www.pexels.com/fr-fr/)
+- [Pixabay](https://pixabay.com/fr/)
+- [Unsplash]
+
+La charte graphique réalisée grâce à l'outil figma: 
+![Charte Graphique d'Arcadia](https://github.com/user-attachments/assets/4c18eeba-a64a-4e13-b732-e2ade4ad192e)
+
+J'espère que vous aurez autant de plaisir à explorer le code de ce projet, que j'ai eu de plaisir à le concevoir.
