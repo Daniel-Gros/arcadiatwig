@@ -17,7 +17,7 @@ CLONER LE DÉPÔT DU PROJET:
     - rendez-vous dans un terminal de l'IDE de votre choix.
     - vérifier le chemin de dossier de votre machine pour cloner le dépôt où vous le désirez.
     - écrivez cette commande dans votre terminal 
-    ```git clone https://github.com/Daniel-Gros/arcadiabackend.git```
+    ```git clone https://github.com/Daniel-Gros/arcadiatwig.git```
 
 
 # SYMFONY
@@ -87,12 +87,13 @@ Vous n'avez pas besoin de cloner le dépôt dans le dossier du serveur local ass
 Ce projet étant réalisé avec Symfony, vous devrez juste écrire la commande ```symfony server:start```
 cela ouvrira votre navigateur avec le projet partie frontend à l'adresse [http://localhost:8000]
 
-**Le Projet Arcadia**
+# LE PROJET ARCADIA
 
 Arcadia est un projet fictif de fin d'études. Toute ressemblance avec des applications et des animaux existants ou ayant existé dans différents coins du monde 
 serait purement fortuite et ne pourrait être que le fruit d'une pure coïncidence.
 
 Les images de l'application sont toutes des images libre de droit que l'on peut trouver sur différentes ressources :
+
 - [Pexels](https://www.pexels.com/fr-fr/)
 - [Pixabay](https://pixabay.com/fr/)
 - [Unsplash](https://unsplash.com/fr)
@@ -101,6 +102,8 @@ La charte graphique réalisée grâce à l'outil figma:
 
 
 ![Charte Graphique d'Arcadia](https://github.com/user-attachments/assets/4c18eeba-a64a-4e13-b732-e2ade4ad192e)
+
+Les différents éléments de conception seront disponibles dans le dossier technique du repo.
 
 J'espère que vous aurez autant de plaisir à explorer le code de ce projet, que j'ai eu de plaisir à le concevoir.
 
