@@ -39,8 +39,10 @@ Une fois *Composer* installé sur votre machine , vous pouvez passer à l'étape
 *CLI Symfony*
 
 Pour installer le CLI vous devrez vous rendre [sur ce lien](https://symfony.com/download) et suivre les instructions. 
-    Télécharger *Scoop*
-    Télécharger le *Symfony CLI* avec la commande dans votre terminal: ```scoop install symfony-cli```
+Télécharger *Scoop*
+Télécharger le *Symfony CLI* avec la commande dans votre terminal: 
+    
+```scoop install symfony-cli```
 
 **LES DÉPENDANCES**
 
@@ -49,7 +51,7 @@ Pour installer le CLI vous devrez vous rendre [sur ce lien](https://symfony.com/
 Pour ce projet, j'ai utilisé quelques bundles que vous pourrez télécharger pour la plupart en utilsant *Composer* et/ou *npm*
 
 *AssetMapper* en lançant dans votre terminal à la racine du projet la commande:
-````composer require symfony/asset-mapper symfony/asset symfony/twig-pack ```
+```composer require symfony/asset-mapper symfony/asset symfony/twig-pack ```
 
 *Bootstrap* en lançant dans votre terminal à la racine du projet la commande:
 ```php bin/console importmap:require bootstrap/dist/css/bootstrap.min.css```
@@ -78,15 +80,21 @@ cela ouvrira votre navigateur avec le projet partie frontend à l'adresse [http:
 
 **Le Projet Arcadia**
 
-Arcadia est un projet fictif, Toute ressemblance avec des applications et des animaux existants ou ayant existé dans différents coins du monde 
+Arcadia est un projet fictif de fin d'études. Toute ressemblance avec des applications et des animaux existants ou ayant existé dans différents coins du monde 
 serait purement fortuite et ne pourrait être que le fruit d'une pure coïncidence.
 
 Les images de l'application sont toutes des images libre de droit que l'on peut trouver sur différentes ressources :
 - [Pexels](https://www.pexels.com/fr-fr/)
 - [Pixabay](https://pixabay.com/fr/)
-- [Unsplash]
+- [Unsplash](https://unsplash.com/fr)
 
 La charte graphique réalisée grâce à l'outil figma: 
+
+
 ![Charte Graphique d'Arcadia](https://github.com/user-attachments/assets/4c18eeba-a64a-4e13-b732-e2ade4ad192e)
 
 J'espère que vous aurez autant de plaisir à explorer le code de ce projet, que j'ai eu de plaisir à le concevoir.
+
+**Daniel Gros.
+Tous droits réservés.
+Projet crée pour la promotion développeur web et web mobile d'Avril 2025.**
