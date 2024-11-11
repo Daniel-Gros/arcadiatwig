@@ -1,9 +1,14 @@
+{% extends "base.html.twig" %}
+{% block title %}Panneau d'administration{% endblock %}
+{% block body %}
+
 <div class="container">
 	<h1>Panneau d'administration d'Arcadia</h1>
-	<p>Bienvenue. Vous êtes connecté en tant que
+	<h2>Bienvenue. Vous êtes connecté en tant que
 		{{user.role}}
-	</p>
-	<div class="col-md-4">
+	</h2>
+	<h3>Gestion </h3>
+	<div class="section">
 		<ul>
 			<li><ahref="{{path('app_animal_crud_index')}}">Animal</a></li>
 			<li><ahref="{{path('app_habitat_crud_index')}}">Habitat</a></li>
@@ -14,7 +19,7 @@
 			<li><ahref="{{path('app_home')}}">Voir le site</a></li>
 		</ul>
 	</div>
-    <div class="col-md-8">
-    
-    </div>
+
 </div>
+
+{% endblock %}
