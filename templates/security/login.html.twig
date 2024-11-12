@@ -1,16 +1,38 @@
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
+{% extends "base.html.twig" %}
+{% block title %}Connexion{% endblock %}
 
-<form action="{{ path('app_login') }}" method="post">
-    <label for="username">Email :</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required autofocus>
-    
-    <label for="password">Mot de Passe :</label>
-    <input type="password" id="password" name="_password" required>
+{% block body %}
 
-    <button type="submit">Se connecter</button>
-</form>
+
+
+<div class="card mx-auto my-5" style="width: 400px;">
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
+    {% endif %}
+    <form action="{{ path('app_login') }}" method="post">
+        <div class="card-body">
+            <h5 class="card-title">Connexion</h5>
+            <div class="mb-3">
+                <label for="username" class="form-label">Email :</label>
+                <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required autofocus>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mot de Passe :</label>
+                <input type="password" class="form-control" id="password" name="_password" required>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" name="_remember_me" checked>
+                <label class="form-check-label" for="remember">Se souvenir de moi</label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
 
 
 {# Controller path : src/Controller/SecurityController.php #}
