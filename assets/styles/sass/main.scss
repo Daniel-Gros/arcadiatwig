@@ -1,10 +1,8 @@
-@use "./abstracts/_functions.scss";
-@use "./abstracts/_mixins.scss";
-@use "./abstracts/_variables.scss";
-    
-@use "./base/_base.scss";
-@use "./base/_reset.sass";
-@use "./base/_typography.sass";
-
-@use "./components/_button.scss";
-@use "./components/_navbar.scss";
+@import "abstracts/_variables.scss";
+@import "abstracts/_functions.scss";
+@import "abstracts/_mixins.scss";
+@import "base/_base.scss";
+@import "base/_reset.scss";
+@import "base/_typography.scss";
+@import "components/_navbar.scss";
+@import "components/_button.scss";

@@ -1,4 +1,5 @@
-@import 'variables, mixins';
+@import '../abstracts/_variables';
+@import '../abstracts/_mixins';
 
 .button {
     background-color: $color-primary; // marron foncé
@@ -20,6 +21,6 @@
 .button-erase {
     background-color: $color-secondary; // jaune citron
     color: $color-primary; // maron foncé
-    border: 1px solid abs.$color-secondary; // marron foncé
+    border: 1px solid $color-secondary; // marron foncé
     border-radius: 5px;
 }

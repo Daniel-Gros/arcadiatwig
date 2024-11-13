@@ -35,8 +35,14 @@
 					</li>
 				{% endfor %}
 				{% if app.user %}
-					<li>
-						<a href="{{ path('app_admin') }}" class="nav-link">Administration</a>
+				<li>
+					{# {% if is_granted('ROLE_EMPLOYEE') %}
+						<a href="{{ path('app_admin_employee') }}">Admin</a>
+					{% elseif is_granted('ROLE_VETERINAIRE') %}
+						<a href="{{ path('app_admin_veterinaire') }}">Admin</a>
+					{% else %} #}
+						<a href="{{ path('app_admin') }}">Admin</a>
+					{# {% endif %} #}
 					</li>
 				{% else %}
 					<li>
@@ -45,11 +51,11 @@
 				{% endif %}
 				{% if app.user %}
 					<li>
-						<a href="{{ path('app_logout') }}" class="btn btn-primary">Déconnexion</a>
+						<a href="{{ path('app_logout') }}" class="button">Déconnexion</a>
 					</li>
 				{% else %}
 					<li>
-						<a href="{{ path('app_login') }}" class="btn btn-primary">Connexion</a>
+						<a href="{{ path('app_login') }}" class="button">Connexion</a>
 					</li>
 				{% endif %}
 			</ul>

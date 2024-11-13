@@ -1,0 +1,20 @@
+@use "../abstracts/variables";
+
+header {
+    background-color: $color-tertiary; // vert menthe claire
+}
+
+ul {
+    list-style-type: none;
+}
+
+li.hover {
+    background-color: $color-tertiary; // vert menthe claire
+    text-decoration: underline;
+
+    .onclick {
+        color: $color-quaternary; // verdigris
+        text-decoration: underline;
+        border-radius: 10px;
+    }
+}

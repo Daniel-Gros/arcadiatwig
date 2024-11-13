@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "sass": "sass --watch assets/styles/sass/main.scss:public/css"
+    },
+    "dependencies": {
+        "compile-sass": "^2.0.0"
+    }
+}

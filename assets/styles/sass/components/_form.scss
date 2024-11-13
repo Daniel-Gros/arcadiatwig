@@ -1,0 +1,6 @@
+@use ".//abstracts/variables";
+
+.input {
+    background-color: #EDF3EA;
+    border: solid 1px $color-primary;
+}

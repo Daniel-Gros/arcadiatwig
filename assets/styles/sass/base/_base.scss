@@ -1,5 +1,15 @@
-@use "../abstracts/_variables";
+@import "../abstracts/_variables";
 
 body {
-    background-color: $color-quaternary; // verdigris
+    background-color: $color-quaternary;
+    font-family: $font-text;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: $text-primary; // verdigris
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-title;
+    font-size: 2.4rem;
+    font-weight: bold;
 }

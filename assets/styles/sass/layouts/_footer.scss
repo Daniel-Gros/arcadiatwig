@@ -1,0 +1,6 @@
+@use '../abstracts/variables';
+
+footer-infos {
+    background-color: $color-primary; // marron foncé
+    color: $text-secondary; // jaune citron
+}
