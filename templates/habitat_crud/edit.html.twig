@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Habitat{% endblock %}
+{% block title %}Éditer Habitat{% endblock %}
 
 {% block body %}
-    <h1>Edit Habitat</h1>
+    <h1>Éditer Habitat</h1>
 
     {{ include('habitat_crud/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_habitat_crud_index') }}">back to list</a>
+    <a href="{{ path('app_habitat_crud_index') }}">retour à la liste</a>
 
     {{ include('habitat_crud/_delete_form.html.twig') }}
 {% endblock %}

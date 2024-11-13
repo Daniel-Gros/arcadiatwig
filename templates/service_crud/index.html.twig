@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Service index{% endblock %}
+{% block title %}Section Service{% endblock %}
 
 {% block body %}
-    <h1>Service index</h1>
+    <h1>Section Service</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nom</th>
                 <th>Description</th>
                 <th>actions</th>
             </tr>
@@ -21,17 +21,17 @@
                 <td>{{ service.name }}</td>
                 <td>{{ service.description }}</td>
                 <td>
-                    <a href="{{ path('app_service_crud_show', {'id': service.id}) }}">show</a>
-                    <a href="{{ path('app_service_crud_edit', {'id': service.id}) }}">edit</a>
+                    <a href="{{ path('app_service_crud_show', {'id': service.id}) }}">voir</a>
+                    <a href="{{ path('app_service_crud_edit', {'id': service.id}) }}">éditer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">pas d'enregistrements trouvés</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_service_crud_new') }}">Create new</a>
+    <a href="{{ path('app_service_crud_new') }}">Créer nouveau service</a>
 {% endblock %}

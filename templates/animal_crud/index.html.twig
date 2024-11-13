@@ -3,15 +3,15 @@
 {% block title %}Animal index{% endblock %}
 
 {% block body %}
-    <h1>Animal index</h1>
+    <h1>Section Animal</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>FirstName</th>
-                <th>Breed</th>
-                <th>Diet</th>
+                <th>Prénom</th>
+                <th>Espèce</th>
+                <th>Régime</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -23,17 +23,17 @@
                 <td>{{ animal.breed }}</td>
                 <td>{{ animal.diet }}</td>
                 <td>
-                    <a href="{{ path('app_animal_crud_show', {'id': animal.id}) }}">show</a>
-                    <a href="{{ path('app_animal_crud_edit', {'id': animal.id}) }}">edit</a>
+                    <a href="{{ path('app_animal_crud_show', {'id': animal.id}) }}">Voir</a>
+                    <a href="{{ path('app_animal_crud_edit', {'id': animal.id}) }}">Éditer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Pas d'enregistrements trouvés</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_animal_crud_new') }}">Create new</a>
+    <a href="{{ path('app_animal_crud_new') }}">Créer un nouvel animal</a>
 {% endblock %}

@@ -12,21 +12,21 @@
                 <td>{{ animal.id }}</td>
             </tr>
             <tr>
-                <th>FirstName</th>
+                <th>Prénom</th>
                 <td>{{ animal.firstName }}</td>
             </tr>
             <tr>
-                <th>Breed</th>
+                <th>Espèce</th>
                 <td>{{ animal.breed }}</td>
             </tr>
             <tr>
-                <th>Diet</th>
+                <th>Régime</th>
                 <td>{{ animal.diet }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_animal_crud_index') }}">back to list</a>
+    <a href="{{ path('app_animal_crud_index') }}">retour à la liste</a>
 
     <a href="{{ path('app_animal_crud_edit', {'id': animal.id}) }}">edit</a>
 

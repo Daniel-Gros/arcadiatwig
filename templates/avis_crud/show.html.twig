@@ -12,7 +12,7 @@
                 <td>{{ avi.id }}</td>
             </tr>
             <tr>
-                <th>Pseudo</th>
+                <th>Pseudonyme</th>
                 <td>{{ avi.pseudo }}</td>
             </tr>
             <tr>
@@ -30,9 +30,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_avis_crud_index') }}">back to list</a>
+    <a href="{{ path('app_avis_crud_index') }}">retour à la liste</a>
 
-    <a href="{{ path('app_avis_crud_edit', {'id': avi.id}) }}">edit</a>
+    <a href="{{ path('app_avis_crud_edit', {'id': avi.id}) }}">éditer</a>
 
     {{ include('avis_crud/_delete_form.html.twig') }}
 {% endblock %}

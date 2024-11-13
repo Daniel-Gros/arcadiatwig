@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Avis index{% endblock %}
+{% block title %}Section Avis{% endblock %}
 
 {% block body %}
-    <h1>Avis index</h1>
+    <h1>Section Avis</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Pseudo</th>
+                <th>Pseudonyme</th>
                 <th>Message</th>
                 <th>Note</th>
                 <th>Validation</th>
@@ -36,6 +36,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_avis_crud_new') }}">Create new</a>
 {% endblock %}

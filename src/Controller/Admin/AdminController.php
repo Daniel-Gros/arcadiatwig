@@ -9,12 +9,18 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class AdminController extends AbstractController
 {
-    #[Route('/admin/admin', name: 'app_admin_admin')]
+    #[Route('/admin', name: 'app_admin')]
     #[IsGranted('ROLE_ADMIN')]
     public function index(): Response
     {
-        return $this->render('admin/admin/index.html.twig', [
+
+        // $user = $this->getUser();
+        // $role = $user->getRole();
+
+        return $this->render('admin/dashboard/index.html.twig', [
             'controller_name' => 'AdminController',
+            //  'user' => $user,
+            // 'role' => $role
         ]);
     }
 }

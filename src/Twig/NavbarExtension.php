@@ -48,8 +48,6 @@ class NavbarExtension extends AbstractExtension
                 ]
             ],
             ['label' => 'Avis', 'route' => 'app_avis'],
-            ['label' => 'Contact', 'route' => 'app_contact'],
-            ['label' => 'Connexion', 'route' => 'app_login']
         ];
     }
 

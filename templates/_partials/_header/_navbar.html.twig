@@ -34,6 +34,24 @@
 						{% endif %}
 					</li>
 				{% endfor %}
+				{% if app.user %}
+					<li>
+						<a href="{{ path('app_admin') }}" class="nav-link">Administration</a>
+					</li>
+				{% else %}
+					<li>
+						<a href="{{ path('app_contact') }}" class="nav-link">Contact</a>
+					</li>
+				{% endif %}
+				{% if app.user %}
+					<li>
+						<a href="{{ path('app_logout') }}" class="btn btn-primary">Déconnexion</a>
+					</li>
+				{% else %}
+					<li>
+						<a href="{{ path('app_login') }}" class="btn btn-primary">Connexion</a>
+					</li>
+				{% endif %}
 			</ul>
 		</div>
 	</div>

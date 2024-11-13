@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CommentaireHabitat index{% endblock %}
+{% block title %}Section Commentaire Habitat{% endblock %}
 
 {% block body %}
-    <h1>CommentaireHabitat index</h1>
+    <h1>Section Commentaire Habitat</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Message</th>
-                <th>Improvement</th>
+                <th>Amélioration nécessaire</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,17 +21,17 @@
                 <td>{{ commentaire_habitat.message }}</td>
                 <td>{{ commentaire_habitat.improvement ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('app_commentaire_habitat_crud_show', {'id': commentaire_habitat.id}) }}">show</a>
-                    <a href="{{ path('app_commentaire_habitat_crud_edit', {'id': commentaire_habitat.id}) }}">edit</a>
+                    <a href="{{ path('app_commentaire_habitat_crud_show', {'id': commentaire_habitat.id}) }}">voir</a>
+                    <a href="{{ path('app_commentaire_habitat_crud_edit', {'id': commentaire_habitat.id}) }}">éditer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">pas d'enregistrements trouvés</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_commentaire_habitat_crud_new') }}">Create new</a>
+    <a href="{{ path('app_commentaire_habitat_crud_new') }}">Créer nouveau commentaire d'habitat</a>
 {% endblock %}
