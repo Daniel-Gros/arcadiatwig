@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\Habitat;
 use App\Entity\User;
+use Doctrine\DBAL\Types\BlobType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,6 +22,11 @@ class HabitatType extends AbstractType
                 'class' => User::class,
                 'choice_label' => 'id',
             ])
+            ->add('imageFile', FileType::class, [
+                'label' => 'Image (JPG, PNG, WEBP)',
+                'mapped' => false,
+                'required' => false,
+            ]);
         ;
     }
 
