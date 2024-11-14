@@ -96,12 +96,10 @@ ALTER TABLE CommentaireHabitat ADD FOREIGN KEY (user_id) REFERENCES user (id);
 
 ALTER TABLE CommentaireHabitat ADD FOREIGN KEY (habitat_id) REFERENCES habitat (id);
 
--- Insertion des données
-INSERT INTO user
-    (name, password, email)
-VALUES
-    (
-        'admin',
-        'admin',
-        'josearcadiapersonnefictive@gmail.com'
-    );
+-- Suite oubli : Ajout de la colonne image dans les tables animal, service, et habitat
+USE arcadiadb;
+ALTER TABLE animal ADD COLUMN image LONGBLOB;
+ALTER TABLE service ADD COLUMN image LONGBLOB;
+ALTER TABLE habitat ADD COLUMN image LONGBLOB;
+
+-- création du compte admin dans la command app-create-admin , supprimé des requêtes.
