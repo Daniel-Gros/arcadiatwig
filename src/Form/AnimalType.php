@@ -9,6 +9,7 @@ use Doctrine\DBAL\Types\BlobType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
@@ -39,21 +40,13 @@ class AnimalType extends AbstractType
             'label' => 'Habitat',
             'placeholder' => 'Sélectionnez un habitat',
         ])
+        ->add('description', TextareaType::class, [
+            'label' => 'Description',
+        ])
         ->add('imageFile', FileType::class, [
-            'label' => 'Photo de l\'animal (JPEG/PNG/WEBP)',
+            'label' => 'Image (JPG, PNG, WEBP)',
             'mapped' => false,
             'required' => false,
-            'constraints' => [
-                new File([
-                    'maxSize' => '2M',
-                    'mimeTypes' => [
-                        'image/jpeg',
-                        'image/png',
-                        'image/webp',
-                    ],
-                    'mimeTypesMessage' => 'Formats d\'image acceptés : JPG, PNG, WEBP',
-                ])
-            ],
         ]);
     
     }

@@ -102,4 +102,6 @@ ALTER TABLE animal ADD COLUMN image LONGBLOB;
 ALTER TABLE service ADD COLUMN image LONGBLOB;
 ALTER TABLE habitat ADD COLUMN image LONGBLOB;
 
+ALTER TABLE animal ADD COLUMN description TEXT;
+
 -- création du compte admin dans la command app-create-admin , supprimé des requêtes.

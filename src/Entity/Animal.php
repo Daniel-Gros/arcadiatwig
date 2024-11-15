@@ -31,7 +31,10 @@ class Animal
     private ?Habitat $habitat = null;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private ?string $imagePath = null;
+    private ?string $image = null;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private ?string $description = null;
 
     public function getId(): ?int
     {
@@ -98,15 +101,26 @@ class Animal
         return $this;
     }
 
-    public function getImagePath(): ?string
+    public function getImage(): ?string
     {
-        return $this->imagePath;
+        return $this->image;
     }
 
-    public function setImagePath(?string $imagePath): self
+    public function setImage(?string $image): self
     {
-        $this->imagePath = $imagePath;
+        $this->image = $image;
 
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
         return $this;
     }
 }
