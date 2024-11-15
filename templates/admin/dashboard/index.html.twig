@@ -1,23 +1,54 @@
 {% extends "base.html.twig" %}
-{% block title %}Panneau d'administration{% endblock %}
+{% block title %}Panneau d'administration
+{% endblock %}
 {% block body %}
 
-<div class="container">
-	<h1>Panneau d'administration d'Arcadia</h1>
-	<h2>Bienvenue.</h2>
-	<h3>Gestion </h3>
-	<div class="section">
-		<ul>
-			<li><a href="{{path('app_animal_crud_index')}}">Animal</a></li>
-			<li><a href="{{path('app_habitat_crud_index')}}">Habitat</a></li>
-			<li><a href="{{path('app_commentaire_habitat_crud_index')}}">Commentaire Habitat</a></li>
-			<li><a href="{{path('app_compte_rendu_veterinaire_crud_index')}}">Compte Rendu Vétérinaire</a></li>
-			<li><a href="{{path('app_service_crud_index')}}">Service</a></li>
-			<li><a href="{{path('app_animal_crud_index')}}">Avis</a></li>
-            <li><a href="{{path('app_user_crud_index')}}">Personnel</a></li>
-		</ul>
-	</div>
+	<div class="container">
+		<h1 class="text-center">Panneau d'Administration d'Arcadia</h1>
+		<h3 class="my-3">Gestion
+		</h3>
+		<div class="section gestion">
+			<ul>
+				<li><ahref="{{path('app_animal_crud_index')}}">Animal</a></li>
+				<li><ahref="{{path('app_habitat_crud_index')}}">Habitat</a></li>
+				<li><ahref="{{path('app_commentaire_habitat_crud_index')}}">Commentaire Habitat</a></li>
+				<li><ahref="{{path('app_compte_rendu_veterinaire_crud_index')}}">Compte Rendu Vétérinaire</a></li>
+				<li><ahref="{{path('app_service_crud_index')}}">Service</a></li>
+				<li><ahref="{{path('app_animal_crud_index')}}">Avis</a></li>
+				<li><ahref="{{path('app_user_crud_index')}}">Personnel</a></li>
+			</ul>
+		</div>
 
-</div>
+		<div class="section-stats">
+			<h3>Statistiques</h3>
+			<div class="stats">
+				<div class="stat">
+					<h4>Nombre d'animaux</h4>
+					<p>{{animalCount}}</p>
+				</div>
+				<div class="stat">
+					<h4>Nombre d'habitats</h4>
+					<p>{{habitatCount}}</p>
+				</div>
+				<div class="stat">
+					<h4>Nombre de commentaires habitat</h4>
+					<p>{{commentaireHabitatCount}}</p>
+				</div>
+				<div class="stat">
+					<h4>Nombre de comptes rendus vétérinaire</h4>
+					<p>{{compteRenduVeterinaireCount}}</p>
+				</div>
+				<div class="stat">
+					<h4>Nombre de services</h4>
+					<p>{{serviceCount}}</p>
+				</div>
+				<div class="stat">
+					<h4>Nombre d'avis</h4>
+					<p>{{avisCount}}</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
 
 {% endblock %}
