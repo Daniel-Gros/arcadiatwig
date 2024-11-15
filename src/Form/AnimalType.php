@@ -33,6 +33,8 @@ class AnimalType extends AbstractType
             'choice_label' => 'email',
             'label' => 'Responsable de l\'animal',
             'placeholder' => 'Sélectionnez un personnel',
+            'multiple' => true,
+            'expanded' => true,
         ])
         ->add('habitat', EntityType::class, [
             'class' => Habitat::class,

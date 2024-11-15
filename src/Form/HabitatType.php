@@ -21,6 +21,10 @@ class HabitatType extends AbstractType
             ->add('user_id', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'id',
+                'label' => 'Responsable de l\'habitat',
+                'placeholder' => 'Sélectionnez un personnel',
+                'multiple' => true,
+                'expanded' => true,
             ])
             ->add('imageFile', FileType::class, [
                 'label' => 'Image (JPG, PNG, WEBP)',
