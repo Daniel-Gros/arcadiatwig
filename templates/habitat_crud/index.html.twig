@@ -21,17 +21,17 @@
                 <td>{{ habitat.name }}</td>
                 <td>{{ habitat.description }}</td>
                 <td>
-                    <a href="{{ path('app_habitat_crud_show', {'id': habitat.id}) }}">voir</a>
-                    <a href="{{ path('app_habitat_crud_edit', {'id': habitat.id}) }}">éditer</a>
+                    <a href="{{ path('app_habitat_crud_show', {'id': habitat.id}) }}">Voir</a>
+                    <a href="{{ path('app_habitat_crud_edit', {'id': habitat.id}) }}">Éditer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">pas d'enregistrements trouvés</td>
+                <td colspan="4">Pas d'enregistrements trouvés</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_habitat_crud_new') }}">Créer nouvel habitat</a>
+    <a href="{{ path('app_habitat_crud_new') }}">Créer un nouvel habitat</a>
 {% endblock %}
