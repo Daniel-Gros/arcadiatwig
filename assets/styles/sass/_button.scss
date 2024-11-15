@@ -1,11 +1,11 @@
-@import '../abstracts/_variables';
-@import '../abstracts/_mixins';
+@import '_variables';
+@import '_mixins';
 
 .button {
     background-color: $color-primary; // marron foncé
     color: $text-secondary; // jauune citron
     border: 1px solid $color-secondary; // jaune citron
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 

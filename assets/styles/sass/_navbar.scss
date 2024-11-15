@@ -1,7 +1,7 @@
-@import '../abstracts/_variables';
+@import '_variables';
     
 .nav {
-    color: $text-tertiary; // noir
+    color: $text-tertiary;
     text-decoration: none;
     &:hover {
     text-decoration: underline
@@ -10,4 +10,8 @@
         background-color: $color-quaternary; //verdigris
         text-decoration: none;
     } 
+}
+
+nav li {
+    font-size: 75%;
 }

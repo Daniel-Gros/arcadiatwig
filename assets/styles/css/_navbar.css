@@ -1,0 +1,17 @@
+.nav {
+  color: #000000;
+  text-decoration: none;
+}
+.nav:hover {
+  text-decoration: underline;
+}
+.nav:active {
+  background-color: #7EBDC3;
+  text-decoration: none;
+}
+
+nav li {
+  font-size: 75%;
+}
+
+/*# sourceMappingURL=_navbar.css.map */

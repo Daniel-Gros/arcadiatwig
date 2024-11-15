@@ -1,0 +1,22 @@
+.button {
+  background-color: #713800;
+  color: #FFFF4F;
+  border: 1px solid #FFFF4F;
+  border-radius: 10px;
+}
+
+.button-cross {
+  background-color: #713800;
+  color: #FFFF4F;
+  border: 1px solid #FFFF4F;
+  border-radius: 50%;
+}
+
+.button-erase {
+  background-color: #FFFF4F;
+  color: #713800;
+  border: 1px solid #FFFF4F;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=_button.css.map */
