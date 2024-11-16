@@ -41,21 +41,21 @@
 					{% elseif is_granted('ROLE_VETERINAIRE') %}
 						<a href="{{ path('app_admin_veterinaire') }}">Admin</a>
 					{% else %} #}
-						<a href="{{ path('app_admin') }}">Admin</a>
+						<a class="nav-link" href="{{ path('app_admin') }}">Admin</a>
 					{# {% endif %} #}
 					</li>
 				{% else %}
 					<li>
-						<a href="{{ path('app_contact') }}" class="nav-link">Contact</a>
+						<a class="nav-link" href="{{ path('app_contact') }}" class="nav-link">Contact</a>
 					</li>
 				{% endif %}
 				{% if app.user %}
 					<li>
-						<a href="{{ path('app_logout') }}" class="button">Déconnexion</a>
+						<a href="{{ path('app_logout') }}" class="button nav-link">Déconnexion</a>
 					</li>
 				{% else %}
 					<li>
-						<a href="{{ path('app_login') }}" class="button">Connexion</a>
+						<a href="{{ path('app_login') }}" class="button nav-link">Connexion</a>
 					</li>
 				{% endif %}
 			</ul>

@@ -8,7 +8,7 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>N° d'identification (Id)</th>
                 <td>{{ avi.id }}</td>
             </tr>
             <tr>
@@ -25,14 +25,14 @@
             </tr>
             <tr>
                 <th>Validation</th>
-                <td>{{ avi.validation ? 'Yes' : 'No' }}</td>
+                <td>{{ avi.validation ? 'validé' : 'refusé' }}</td>
             </tr>
         </tbody>
     </table>
 
     <a href="{{ path('app_avis_crud_index') }}">retour à la liste</a>
 
-    <a href="{{ path('app_avis_crud_edit', {'id': avi.id}) }}">éditer</a>
+    <a href="{{ path('app_avis_crud_edit', {'id': avi.id}) }}">Éditer</a>
 
     {{ include('avis_crud/_delete_form.html.twig') }}
 {% endblock %}

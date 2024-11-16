@@ -3,4 +3,9 @@
   height: 100%;
 }
 
+.habitat-card {
+  border-radius: 20px;
+  background-color: #7EBDC3;
+}
+
 /*# sourceMappingURL=_card.css.map */

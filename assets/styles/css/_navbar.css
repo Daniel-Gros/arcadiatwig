@@ -1,11 +1,11 @@
-.nav {
+nav a {
   color: #000000;
   text-decoration: none;
 }
-.nav:hover {
+nav a:hover {
   text-decoration: underline;
 }
-.nav:active {
+nav a:active {
   background-color: #7EBDC3;
   text-decoration: none;
 }

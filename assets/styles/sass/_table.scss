@@ -1,0 +1,36 @@
+@import '_variables';
+
+table {
+    width: 100%;
+    border-collapse: collapse; 
+    border: 2px solid $color-primary; // marron foncé
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid $color-primary;
+    text-align: left;
+}
+
+th {
+    background-color: $color-primary; 
+    color: #ffffff; 
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f3ec; 
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; 
+}
+
+tr:hover {
+    background-color: #f1d8b5; 
+}
+
+td {
+    color: #333;
+}

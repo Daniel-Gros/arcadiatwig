@@ -1,6 +1,11 @@
-@use 'variables';
+@import '_variables';
 
-footer-infos {
+.footer {
     background-color: $color-primary; // marron foncé
     color: $text-secondary; // jaune citron
+    position: sticky;
 }
+
+.copyright{
+    background-color: $color-tertiary;
+} 
