@@ -1,0 +1,39 @@
+@import '_variables';
+
+.form-contact-container {
+    width: 33.33%; 
+    margin: 50px auto; 
+    padding: 20px;
+    border: 1px solid var(--color-primary); 
+    border-radius: 10px; 
+    background-color: #f9f9f9; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+
+.form-contact-container input,
+.form-contact-container textarea {
+    width: 90%; 
+    padding: 10px;
+    border: 1px solid $color-primary; 
+    border-radius: 5px; 
+    font-size: 16px;
+    margin-bottom: 15px; 
+}
+
+.form-contact-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px; 
+    color: #333; 
+}
+
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}

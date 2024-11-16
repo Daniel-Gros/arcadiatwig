@@ -1,0 +1,36 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #713800;
+  font-family: Arial, sans-serif;
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid #713800;
+  text-align: left;
+}
+
+th {
+  background-color: #713800;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f3ec;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+tr:hover {
+  background-color: #f1d8b5;
+}
+
+td {
+  color: #333;
+}
+
+/*# sourceMappingURL=_table.css.map */

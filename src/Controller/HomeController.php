@@ -21,7 +21,6 @@ class HomeController extends AbstractController
 
         $website = 'Arcadia';
         return $this->render('home/index.html.twig', [
-            // 'navItems' => $navItems,
             'website' => $website,
             'controller_name' => 'HomeController',
         ]);
@@ -32,7 +31,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function habitatRequest (HabitatRepository $habitatRepository): Response
     {
-        $habitats = $habitatRepository->findAll();
+        $habitats = $habitatRepository->findby(['id' => 'DESC'], 3);
 
         return $this->render('home/index.html.twig', [
             'habitats' => $habitats,

@@ -15,7 +15,7 @@ use Symfony\Component\Mime\Email;
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'app_contact')]
-    public function contact(Request $request): Response
+    public function contact(Request $request, MailerInterface $mailer): Response
     {
         $form = $this->createForm(ContactType::class);
 
@@ -24,8 +24,15 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
 
+            $data = $form->getData();
 
-            // A configurer une fois le mail et les mails employés créés
+            $email = (new Email())
+                ->from($data['email']) 
+                ->to('employeearcadiafictif@outlook.fr') 
+                ->subject('Nouveau message de contact')
+                ->text('Nom: ' . $data['nom'] . "\n" . 'Message: ' . $data['message']); 
+
+            $mailer->send($email);
 
             // $contactData = $form->getData();
 

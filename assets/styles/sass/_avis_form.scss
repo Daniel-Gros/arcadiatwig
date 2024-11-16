@@ -1,0 +1,80 @@
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+textarea.form-control {
+    width: 90%;  
+    height: 150px;  
+    resize: vertical;  
+    margin: 10px 0;  
+}
+
+button[type="reset"], button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.button-erase {
+    float: left;
+}
+
+
+.button {
+    float: right;
+}
+
+.stars {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+}
+
+.star {
+    font-size: 25px;
+    color: #d3d3d3;  /* Couleur des étoiles inactives (gris clair) */
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.star.active {
+    color: #ffcc00;  /* Couleur des étoiles actives (jaune) */
+}
+
+.note-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .col-md-5, .col-md-7 {
+        width: 100%;
+    }
+
+    .textarea.form-control {
+        width: 100%;
+    }
+}

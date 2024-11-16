@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Mochiy+Pop+P+One&display=swap");
 body {
@@ -123,6 +124,123 @@ td {
 .habitat-card {
   border-radius: 20px;
   background-color: #7EBDC3;
+}
+
+.presentation {
+  background-color: #7EBDC3;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+textarea.form-control {
+  width: 90%;
+  height: 150px;
+  resize: vertical;
+  margin: 10px 0;
+}
+
+button[type=reset], button[type=submit] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button-erase {
+  float: left;
+}
+
+.button {
+  float: right;
+}
+
+.stars {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 5px;
+}
+
+.star {
+  font-size: 25px;
+  color: #d3d3d3; /* Couleur des étoiles inactives (gris clair) */
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.star.active {
+  color: #ffcc00; /* Couleur des étoiles actives (jaune) */
+}
+
+.note-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .col-md-5, .col-md-7 {
+    width: 100%;
+  }
+  .textarea.form-control {
+    width: 100%;
+  }
+}
+.form-contact-container {
+  width: 33.33%;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-contact-container input,
+.form-contact-container textarea {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #713800;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.form-contact-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=main.css.map */
