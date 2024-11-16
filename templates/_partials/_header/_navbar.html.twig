@@ -35,18 +35,12 @@
 					</li>
 				{% endfor %}
 				{% if app.user %}
-				<li>
-					{# {% if is_granted('ROLE_EMPLOYEE') %}
-						<a href="{{ path('app_admin_employee') }}">Admin</a>
-					{% elseif is_granted('ROLE_VETERINAIRE') %}
-						<a href="{{ path('app_admin_veterinaire') }}">Admin</a>
-					{% else %} #}
+					<li>
 						<a class="nav-link" href="{{ path('app_admin') }}">Admin</a>
-					{# {% endif %} #}
 					</li>
 				{% else %}
 					<li>
-						<a class="nav-link" href="{{ path('app_contact') }}" class="nav-link">Contact</a>
+						<a class="nav-link" href="{{ path('app_avis') }}" class="nav-link">Avis</a>
 					</li>
 				{% endif %}
 				{% if app.user %}

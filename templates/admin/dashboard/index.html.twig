@@ -8,46 +8,84 @@
 		<h2 class="my-3">Gestion
 		</h2>
 		<div class="section gestion">
-			<ul>
-				<li><a class="nav-link" href="{{path('app_animal_crud_index')}}">Animal</a></li>
-				<li><a class="nav-link" href="{{path('app_habitat_crud_index')}}">Habitat</a></li>
-				<li><a class="nav-link" href="{{path('app_commentaire_habitat_crud_index')}}">Commentaire Habitat</a></li>
-				<li><a class="nav-link" href="{{path('app_compte_rendu_veterinaire_crud_index')}}">Compte Rendu Vétérinaire</a></li>
-				<li><a class="nav-link" href="{{path('app_service_crud_index')}}">Service</a></li>
-				<li><a class="nav-link" href="{{path('app_avis_crud_index')}}">Avis</a></li>
-				<li><a class="nav-link" href="{{path('app_user_crud_index')}}">Personnel</a></li>
+			<ul class="d-flex justify-content-between list-unstyled">
+				{% if is_granted('ROLE_ADMIN') %}
+					<li>
+						<a class="nav-link" href="{{ path('app_animal_crud_index') }}">Animal</a>
+					</li>
+				{% endif %}
+				{% if is_granted('ROLE_ADMIN') %}
+					<li>
+						<a class="nav-link" href="{{ path('app_habitat_crud_index') }}">Habitat</a>
+					</li>
+				{% endif %}
+				{% if is_granted('ROLE_VETERINAIRE') %}
+					<li>
+						<a class="nav-link" href="{{ path('app_commentaire_habitat_crud_index') }}">Commentaire Habitat</a>
+					</li>
+				{% endif %}
+				{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_VETERINAIRE') %}
+					<li>
+						<a class="nav-link" href="{{ path('app_compte_rendu_veterinaire_crud_index') }}">Compte Rendu Vétérinaire</a>
+					</li>
+				{% endif %}
+				{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_EMPLOYEE') %}
+					<li>
+						<a class="nav-link" href="{{ path('app_service_crud_index') }}">Service</a>
+					</li>
+				{% endif %}
+				{% if is_granted('ROLE_EMPLOYEE') %}
+					<li>
+						<a class="nav-link" href="{{ path('app_avis_crud_index') }}">Avis</a>
+					</li>
+				{% endif %}
+				{% if is_granted('ROLE_EMPLOYEE') %}
+					<li>
+						<a class="nav-link" href="{{ path('app_user_crud_index') }}">Personnel</a>
+					</li>
+				{% endif %}
 			</ul>
 		</div>
 
+
 		<div class="section-stats">
 			<h2>Statistiques</h2>
-			<div class="stats">
-				<div class="stat">
-					<h4>Nombre d'animaux</h4>
-					<p>{{animalCount}}</p>
-				</div>
-				<div class="stat">
-					<h4>Nombre d'habitats</h4>
-					<p>{{habitatCount}}</p>
-				</div>
-				<div class="stat">
-					<h4>Nombre de commentaires habitat</h4>
-					<p>{{commentaireHabitatCount}}</p>
-				</div>
-				<div class="stat">
-					<h4>Nombre de comptes rendus vétérinaire</h4>
-					<p>{{compteRenduVeterinaireCount}}</p>
-				</div>
-				<div class="stat">
-					<h4>Nombre de services</h4>
-					<p>{{serviceCount}}</p>
-				</div>
-				<div class="stat">
-					<h4>Nombre d'avis</h4>
-					<p>{{avisCount}}</p>
-				</div>
-			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Statistique</th>
+						<th>Valeur</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Nombre d'animaux</td>
+						<td>{{animalCount}}</td>
+					</tr>
+					<tr>
+						<td>Nombre d'habitats</td>
+						<td>{{habitatCount}}</td>
+					</tr>
+					<tr>
+						<td>Nombre de commentaires habitat</td>
+						<td>{{commentaireHabitatCount}}</td>
+					</tr>
+					<tr>
+						<td>Nombre de comptes rendus vétérinaire</td>
+						<td>{{compteRenduVeterinaireCount}}</td>
+					</tr>
+					<tr>
+						<td>Nombre de services</td>
+						<td>{{serviceCount}}</td>
+					</tr>
+					<tr>
+						<td>Nombre d'avis</td>
+						<td>{{avisCount}}</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
+
 
 	</div>
 

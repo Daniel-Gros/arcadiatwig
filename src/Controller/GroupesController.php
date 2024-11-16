@@ -11,7 +11,7 @@ class GroupesController extends AbstractController
     #[Route('/groupes', name: 'app_groupes')]
     public function index(): Response
     {
-        return $this->render('groupes/index.html.twig', [
+        return $this->render('groupes/show-groupes.html.twig', [
             'controller_name' => 'GroupesController',
         ]);
     }

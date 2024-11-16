@@ -47,7 +47,7 @@ class NavbarExtension extends AbstractExtension
                     ['label' => 'Séminaire', 'route' => 'app_seminaire']
                 ]
             ],
-            ['label' => 'Avis', 'route' => 'app_avis'],
+            ['label' => 'Contact', 'route' => 'app_contact'],
         ];
     }
 

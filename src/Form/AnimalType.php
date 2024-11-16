@@ -9,6 +9,7 @@ use Doctrine\DBAL\Types\BlobType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -49,7 +50,15 @@ class AnimalType extends AbstractType
             'label' => 'Image (JPG, PNG, WEBP)',
             'mapped' => false,
             'required' => false,
-        ]);
+            'constraints' => [
+                    new File([
+                        'maxSize' => '3M',
+                        'mimeTypes' => ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'],
+                        'mimeTypesMessage' => 'Veuillez télécharger une image valide (JPEG, PNG, WEBP).',
+                    ])
+                ],
+            ])
+            ->add('submit', SubmitType::class, ['label' => 'Sauvegarder']);
     
     }
     public function configureOptions(OptionsResolver $resolver): void

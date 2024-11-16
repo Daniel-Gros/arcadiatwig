@@ -1,7 +1,14 @@
-<div class="card col-md-3 col-sm-11 container-fluid habitat-card">
-	<h5 class="card-header text-center">nom d'habitat</h5>
-	<div class="card-body">
-		<a href="#" class="button btn btn-primary text-center d-flex justify-content-center">Sélectionner</a>
-	</div>
+<div class="container-fluid row habitat-list">
+    {% for habitat in habitats %}
+        <div class="col-md-3 col-sm-11 mb-4">
+            <div class="card habitat-card habitat-item">
+                <div class="card-body">
+                    <h5>{{ habitat.nom }}</h5>
+                    <a href="#" class="button btn btn-primary text-center d-flex justify-content-center">Sélectionner</a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p class="col-12">Aucun habitat disponible pour le moment.</p>
+    {% endfor %}
 </div>
-

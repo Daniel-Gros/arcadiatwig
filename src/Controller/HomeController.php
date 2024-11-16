@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Avis;
 use App\Form\AvisType;
+use App\Repository\AnimalRepository;
+use App\Repository\HabitatRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
@@ -24,6 +26,30 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+
+
+
+    #[Route('/', name: 'app_home')]
+    public function habitatRequest (HabitatRepository $habitatRepository): Response
+    {
+        $habitats = $habitatRepository->findAll();
+
+        return $this->render('home/index.html.twig', [
+            'habitats' => $habitats,
+        ]);
+    }
+
+
+    #[Route('/', name: 'app_home')]
+    public function animalRequest (AnimalRepository $animalRepository): Response
+    {
+        $animals = $animalRepository->findAll();
+
+        return $this->render('home/index.html.twig', [
+            'animals' => $animals,
+        ]);
+    }
+
     #[Route('/', name: 'app_home')]
     public function new(Request $request): Response
     {
@@ -43,4 +69,6 @@ class HomeController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    
 }

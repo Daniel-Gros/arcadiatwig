@@ -18,17 +18,14 @@ class AnimalRepository extends ServiceEntityRepository
 
     /**
      * @return Animal[] Returns an array of Animal objects
-     */
-    public function findByExampleField($value): array
+    */
+    public function findLatestAnimals(): array
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
             ->orderBy('a.id', 'DESC')
-            ->setMaxResults(10)
+            ->setMaxResults(4)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
 
     //    public function findOneBySomeField($value): ?Animal

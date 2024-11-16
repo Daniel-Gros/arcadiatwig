@@ -1,18 +1,86 @@
+{% extends "base.html.twig" %}
+{% block title %}Sortie Scolaire au Zoo Arcadia{% endblock %}
+{% block body %}
+
+
 <div class="container py-5">
 	<div class="row justify-content-center">
 		<div class="col-md-8 text-center">
-			<h1 class="display-4 text-primary mb-4">Organisez une Sortie Scolaire Inoubliable au Zoo Arcadia !</h1>
+			<h1 class="display-4 mb-4">Organisez une Sortie Scolaire Inoubliable au Zoo Arcadia !</h1>
 			<p class="lead mb-4">Offrez à vos élèves une journée éducative et amusante au cœur de la nature. Le Zoo Arcadia est l'endroit idéal pour une sortie scolaire, alliant découverte des animaux, sensibilisation à la biodiversité, et activités pédagogiques adaptées à tous les âges.</p>
-			<h2 class="h3 text-primary mb-3">Réservez dès maintenant votre sortie scolaire !</h2>
+			<h2 class="h3 mb-3">Réservez dès maintenant votre sortie scolaire !</h2>
 			<p class="mb-4">Pour organiser votre sortie scolaire au Zoo Arcadia, contactez-nous ou réservez directement en ligne :</p>
 			<div class="list-group mb-4">
 				<ul>
-					<li><a href="tel:+33299919191" class="list-group-item list-group-item-action"><strong>Téléphone :</strong>02 99 91 91 91</a></li>
-					<li><a href="https://wa.me/33999919191" class="list-group-item list-group-item-action"><strong>WhatsApp :</strong>Cliquez ici pour discuter sur WhatsApp</a></li>
+					<li class ="list-unstyled"><a href="tel:+33299919191" class="list-group-item list-group-item-action"><strong>Téléphone :</strong>02 99 91 91 91</a></li>
+					<li class ="list-unstyled"><a href="https://wa.me/33999919191" class="list-group-item list-group-item-action"><strong>WhatsApp :</strong>Cliquez ici pour discuter sur WhatsApp</a></li>
 				</ul>
 			</div>
 			<p class="lead">Pour plus de détails sur les tarifs et les programmes pédagogiques, n'hésitez pas à nous contacter. Nous serons ravis de vous accompagner pour que cette sortie scolaire soit un véritable succès !</p>
-			<a href="#" class="btn btn-primary btn-lg mt-3">Réservez votre sortie scolaire !</a>
+			<a href="#" class="btn button btn-lg mt-3">Réservez votre sortie scolaire !</a>
 		</div>
 	</div>
 </div>
+
+<div class="container accordeon py-5">
+	<div class="row justify-content-center">
+		<div class="col-md-8 text-center">
+			<h2 class="h3 mb-3">Programme de la Sortie Scolaire</h2>
+			<p class="lead mb-4">Découvrez le programme complet de votre sortie scolaire au Zoo Arcadia :</p>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<div class="accordion" id="accordionProgramme">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingOne">
+						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							<strong>Matinée :</strong> Découverte des Animaux
+						</button>
+					</h2>
+					<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionProgramme">
+						<div class="accordion-body">
+							<p>Le matin, les élèves partent à la rencontre des animaux du Zoo Arcadia
+								et découvrent les différentes espèces présentes dans le parc. 
+								Accompagnés par nos soigneurs et nos guides, ils apprennent à observer les animaux, 
+								à comprendre leur mode de vie, et à connaître les enjeux de leur conservation.</p>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingTwo">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							<strong>Après-midi :</strong> Ateliers Pédagogiques
+						</button>
+					</h2>
+					<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionProgramme">
+						<div class="accordion-body">
+							<p>L'après-midi, les élèves participent à des ateliers pédagogiques 
+								et ludiques pour approfondir leurs connaissances sur la biodiversité et la protection de l'environnement. 
+								Ils découvrent les gestes éco-citoyens, les enjeux de la préservation de la nature, 
+								et les actions concrètes à mettre en place pour protéger notre planète.</p>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingThree">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							<strong>Soirée :</strong> Spectacle de Magie
+						</button>
+					</h2>
+					<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionProgramme">
+						<div class="accordion-body">
+							<p>En fin de journée, les élèves assistent à un spectacle de magie 
+								et de jonglerie pour clôturer leur sortie scolaire en beauté. 
+								Un moment de détente et de convivialité pour partager les souvenirs de la journée 
+								et échanger sur les découvertes faites au
+								cours de la visite.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

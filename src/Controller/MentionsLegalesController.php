@@ -9,10 +9,12 @@ use Symfony\Component\Routing\Attribute\Route;
 class MentionsLegalesController extends AbstractController
 {
     #[Route('/mentions/legales', name: 'app_mentions_legales')]
-    public function index(): Response
+    public function mentionsLegales(): Response
     {
+        $mail = "danielgrosbgns@gmail.com";
+
         return $this->render('mentions_legales/index.html.twig', [
-            'controller_name' => 'MentionsLegalesController',
+            'mail' => $mail,
         ]);
     }
 }
