@@ -39,7 +39,7 @@
 						<a class="nav-link" href="{{ path('app_avis_crud_index') }}">Avis</a>
 					</li>
 				{% endif %}
-				{% if is_granted('ROLE_EMPLOYEE') %}
+				{% if is_granted('ROLE_ADMIN') %}
 					<li>
 						<a class="nav-link" href="{{ path('app_user_crud_index') }}">Personnel</a>
 					</li>
