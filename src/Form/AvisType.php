@@ -20,7 +20,12 @@ class AvisType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('pseudo', null, ["label" => "Votre pseudonyme:"])
+            ->add('pseudo', null, [
+                "label" => "Votre pseudonyme:",
+                'attr' => [
+                    'placeholder' => 'Pseudo'
+                ]
+            ])
             ->add('message', null, ["label" => "Votre message:"])
             ->add('note', ChoiceType::class, [
                 'label' => 'Votre note:',
@@ -30,7 +35,7 @@ class AvisType extends AbstractType
                     '3' => 3,
                     '4' => 4,
                     '5' => 5,
-                ],                            
+                ],
             ])
             ->add('validation', HiddenType::class, [
                 'data' => false,
@@ -40,13 +45,13 @@ class AvisType extends AbstractType
             ])
         ;
     }
-    
+
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Avis::class,
-        
+
         ]);
-    } 
+    }
 }

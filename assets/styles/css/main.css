@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Lora", serif;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: bold;
 }
 
@@ -51,7 +51,7 @@ nav li {
 .button-cross {
   background-color: #713800;
   color: #FFFF4F;
-  border: 1px solid #FFFF4F;
+  border: 3px solid #FFFF4F;
   border-radius: 50%;
 }
 
@@ -60,6 +60,9 @@ nav li {
   color: #713800;
   border: 1px solid #FFFF4F;
   border-radius: 5px;
+  width: auto;
+  height: auto;
+  padding: 0;
 }
 
 .footer-contact {
@@ -117,13 +120,19 @@ td {
 }
 
 .animal-card img {
-  object-fit: cover;
-  height: 100%;
+  background-color: #7EBDC3;
+  box-shadow: 1px 9px 12px -3px #000000;
 }
 
 .habitat-card {
   border-radius: 20px;
   background-color: #7EBDC3;
+  border: solid 2px #713800;
+}
+
+.service-card {
+  background-color: #7EBDC3;
+  box-shadow: 1px 9px 12px -3px #000000;
 }
 
 .presentation {
@@ -241,6 +250,35 @@ button[type=reset], button[type=submit] {
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
+}
+
+.bandeau-defilant {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  background-color: #7EBDC3;
+  font-weight: bold;
+}
+
+.bandeau-defilant p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: defilement 25s linear infinite;
+}
+
+@keyframes defilement {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.avis-card {
+  border: solid 2px #713800;
+  background-color: #EDF3EA;
 }
 
 /*# sourceMappingURL=main.css.map */

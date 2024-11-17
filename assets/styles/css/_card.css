@@ -1,11 +1,17 @@
 .animal-card img {
-  object-fit: cover;
-  height: 100%;
+  background-color: #7EBDC3;
+  box-shadow: 1px 9px 12px -3px #000000;
 }
 
 .habitat-card {
   border-radius: 20px;
   background-color: #7EBDC3;
+  border: solid 2px #713800;
+}
+
+.service-card {
+  background-color: #7EBDC3;
+  box-shadow: 1px 9px 12px -3px #000000;
 }
 
 /*# sourceMappingURL=_card.css.map */

@@ -1,11 +1,18 @@
-@import '_variables';
+@import "_variables";
 
 .animal-card img {
-    object-fit: cover;
-    height: 100%;
+    background-color: $color-quaternary;
+    box-shadow: 1px 9px 12px -3px #000000;
+
 }
 
 .habitat-card {
     border-radius: 20px;
     background-color: $color-quaternary;
+    border: solid 2px $color-primary;
+}
+
+.service-card {
+    background-color: $color-quaternary;
+    box-shadow: 1px 9px 12px -3px #000000;
 }

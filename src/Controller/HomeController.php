@@ -8,85 +8,51 @@ use App\Repository\AnimalRepository;
 use App\Repository\HabitatRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-
     private $entityManager;
     private $habitatRepository;
     private $animalRepository;
 
     public function __construct(EntityManagerInterface $entityManager, HabitatRepository $habitatRepository, AnimalRepository $animalRepository)
     {
-
         $this->habitatRepository = $habitatRepository;
         $this->animalRepository = $animalRepository;
     }
 
     #[Route('/', name: 'app_home')]
-    public function index(): Response
+    public function index(Request $request, ParameterBagInterface $parameterBagInterface): Response
     {
-
         $habitats = $this->habitatRepository->findAll();
 
-        $animals = $this->animalRepository->findAll();
-
-        $website = 'Arcadia';
-        return $this->render('home/index.html.twig', [
-            'website' => $website,
-            'habitats' => $habitats,
-            'animals' => $animals,
-
-            'controller_name' => 'HomeController',
-        ]);
-    }
-
-
-
-    #[Route('/', name: 'app_home')]
-    public function habitatRequest (HabitatRepository $habitatRepository): Response
-    {
-        $habitats = $habitatRepository->findby(['id' => 'DESC'], 3);
-
-        return $this->render('home/index.html.twig', [
-            'habitats' => $habitats,
-        ]);
-    }
-
-
-    #[Route('/', name: 'app_home')]
-    public function animalRequest (AnimalRepository $animalRepository): Response
-    {
-        $animals = $animalRepository->findAll();
-
-        return $this->render('home/index.html.twig', [
-            'animals' => $animals,
-        ]);
-    }
-
-    #[Route('/', name: 'app_home')]
-    public function new(Request $request): Response
-    {
-        if ($this->isGranted('ROLE_EMPLOYEE')) {
-            return $this->redirectToRoute('home');
-        }
-
+        $limit = $parameterBagInterface->get('animal_homepage_limit');
+        $animals = $this->animalRepository->findBy([], ['id' => 'DESC'], $limit);
 
         $avis = new Avis();
         $form = $this->createForm(AvisType::class, $avis);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $avis->setUser($this->getUser());
+            $avis->setUserId($this->getUser()); 
+            $this->entityManager->persist($avis);
+            $this->entityManager->flush();
+
+
+            return $this->redirectToRoute('app_home');
         }
+
+
         return $this->render('home/index.html.twig', [
-            'form' => $form->createView(),
+            'website' => 'Arcadia',
+            'habitats' => $habitats,
+            'animals' => $animals,
+            'form' => $form->createView(), 
+            'controller_name' => 'HomeController',
         ]);
     }
-
-    
 }

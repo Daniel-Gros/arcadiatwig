@@ -23,7 +23,7 @@ class AnimalRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
             ->orderBy('a.id', 'DESC')
-            ->setMaxResults(4)
+            ->setMaxResults(2)
             ->getQuery()
             ->getResult();
     }

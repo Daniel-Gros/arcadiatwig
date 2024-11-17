@@ -26,9 +26,6 @@ class Habitat
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user_id = null;
 
-    #[ORM\OneToMany(targetEntity: Animal::class, mappedBy: 'habitat')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Animal $animal = null;
 
     public function getId(): ?int
     {
@@ -84,7 +81,6 @@ class Habitat
     }
 
     private Collection $animals;
-
     public function __construct()
     {
         $this->animals = new ArrayCollection();

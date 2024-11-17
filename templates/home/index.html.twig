@@ -6,17 +6,19 @@
 
 {% block body %}
 
+	{% include "_partials/_about/_about.html.twig" %}
+
 	{% include '_partials/_habitat/_habitat_presentation.html.twig' %}
 
 	{% include '_partials/_habitat/_carousel_habitat.html.twig' %}
 
-	{% include "_partials/_habitat/_habitat_selection_habitat.html.twig" %}
+	{# {% include "_partials/_habitat/_habitat_selection_habitat.html.twig" %}
 
-	{% include "_partials/_habitat/_habitat_card_selection.html.twig" with {'habitats': habitats|default([])} %}
+	{% include "_partials/_habitat/_habitat_card_selection.html.twig" with {'habitats': habitats|default([])} %} #}
 
 	{% include '_partials/_animal/_animal_presentation.html.twig' %}
 
-	{% include '_partials/_animal/_card_animal.html.twig' %}
+	{% include '_partials/_animal/_card_animal.html.twig' with {'animals': animals|default([])} %}
 
 	{% include '_partials/_service/_service_presentation.html.twig' %}
 
@@ -24,9 +26,9 @@
 
 	{% include '_partials/_avis/_avis_presentation.html.twig' %}
 
-	{% include "_partials/_avis/_form_avis.html.twig" %}
-
 	{% include '_partials/_avis/_card_avis.html.twig' %}
+
+	{% include "_partials/_avis/_form_avis.html.twig" %}
 
 	{% include "_partials/_horaires/_horaires_presentation.html.twig" %}
 

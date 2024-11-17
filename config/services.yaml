@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     avis_limit: 1
+    animal_homepage_limit: 2
     contact_email_recipient: 'employeearcadiafictif@outlook.fr'
 
 services:
