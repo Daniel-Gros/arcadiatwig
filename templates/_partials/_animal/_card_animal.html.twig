@@ -5,16 +5,12 @@
 				<div class="animal-card card h-100">
 					<div
 						class="row g-0">
-						<!-- Colonne pour l'image -->
 						<div class="col-4">
-							{# <img src="{{ asset(animal.image) }}" alt="Image d'animal" class="img-fluid h-100 w-100" style="object-fit: cover;"> #}
-							<img src="{{ asset('images/tigre.webp') }}" alt="Image d'animal" class="img-fluid h-100 w-100" style="object-fit: cover;">
+							<img src="{{ asset('uploads/images/' ~ animal.image) }}" alt="Image de {{animal.firstName}} le/la {{animal.breed}}" class="img-fluid h-100 w-100" style="object-fit: cover;">
 						</div>
-						<!-- Colonne pour la description et bouton -->
 						<div class="col-8 p-3 d-flex flex-column justify-content-between">
 							<div class="card-body">
 								<h5 class="card-title text-end">{{ animal.firstName }}</h5>
-								{# <p class="card-text fs-6">{{ animal.description }}</p> #}
 							</div>
 							<div class="text-end">
 								<button class="button-cross btn"> + </button>

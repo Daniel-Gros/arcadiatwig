@@ -26,14 +26,28 @@ final class AnimalCrudController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $animal = new Animal();
+
         $form = $this->createForm(AnimalType::class, $animal);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('image')->getData();
+
+            if ($imageFile) {
+                $newFilename = uniqid().'.'.$imageFile->guessExtension();
+                $imageFile->move(
+                    $this->getParameter('images_directory'),
+                    $newFilename
+                );
+                $animal->setImage($newFilename);
+            }
+
             $entityManager->persist($animal);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_animal_crud_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_animal_crud_index', [
+                
+            ], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('animal_crud/new.html.twig', [
@@ -57,6 +71,12 @@ final class AnimalCrudController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('image')->getData();
+        if ($imageFile) {
+            $imageData = file_get_contents($imageFile->getPathname());
+            $animal->setImage($imageData);
+        }
+            
             $entityManager->flush();
 
             return $this->redirectToRoute('app_animal_crud_index', [], Response::HTTP_SEE_OTHER);

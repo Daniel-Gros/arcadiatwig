@@ -1,39 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Animal index{% endblock %}
+{% block title %}Animal index
+{% endblock %}
 
 {% block body %}
-    <h1>Section Animal</h1>
+	<h1 class="text-center">Section Animal</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Prénom</th>
-                <th>Espèce</th>
-                <th>Régime</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for animal in animals %}
-            <tr>
-                <td>{{ animal.id }}</td>
-                <td>{{ animal.firstName }}</td>
-                <td>{{ animal.breed }}</td>
-                <td>{{ animal.diet }}</td>
-                <td>
-                    <a href="{{ path('app_animal_crud_show', {'id': animal.id}) }}">Voir</a>
-                    <a href="{{ path('app_animal_crud_edit', {'id': animal.id}) }}">Éditer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">Pas d'enregistrements trouvés</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<a class="btn button my-5 mb-5 text-decoration-none my-5" href="{{ path('app_animal_crud_new') }}">Créer un nouvel animal</a>
+	<table class="table my-5">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Prénom</th>
+				<th>Espèce</th>
+				<th>Régime</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for animal in animals %}
+				<tr>
+					<td>{{ animal.id }}</td>
+					<td>{{ animal.firstName }}</td>
+					<td>{{ animal.breed }}</td>
+					<td>{{ animal.diet }}</td>
+					<td>
+						<a href="{{ path('app_animal_crud_show', {'id': animal.id}) }}">Voir</a>
+						<a href="{{ path('app_animal_crud_edit', {'id': animal.id}) }}">Éditer</a>
+                        <a href="{{ path('app_animal_crud_delete',  {'id': animal.id}) }}">Supprimer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">Pas d'enregistrements trouvés</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 
-    <a class="btn button my-5 mb-5 text-decoration-none" href="{{ path('app_animal_crud_new') }}">Créer un nouvel animal</a>
 {% endblock %}

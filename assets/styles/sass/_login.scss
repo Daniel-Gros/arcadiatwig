@@ -1,0 +1,59 @@
+@import '_variables';
+
+
+// Styles du formulaire de login
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 2px solid $color-primary;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+
+
+    label {
+        font-weight: bold;
+        margin-top: 1rem;
+        color: #333;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border: 1px solid $color-primary;
+        border-radius: 4px;
+
+        &:focus {
+            outline: none;
+            border-color: $color-primary;
+            box-shadow: 0 0 5px rgba($color-primary, 0.5);
+        }
+    }
+
+    .checkbox {
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+
+        input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+
+        label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+    }
+
+    .alert {
+        color: #d9534f;
+        background-color: #f2dede;
+        padding: 1rem;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+        border: 1px solid #ebccd1;
+    }
+
+
+}

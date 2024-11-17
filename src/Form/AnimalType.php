@@ -34,7 +34,6 @@ class AnimalType extends AbstractType
             'choice_label' => 'email',
             'label' => 'Responsable de l\'animal',
             'placeholder' => 'Sélectionnez un personnel',
-            'multiple' => true,
             'expanded' => true,
         ])
         ->add('habitat', EntityType::class, [
@@ -46,17 +45,10 @@ class AnimalType extends AbstractType
         ->add('description', TextareaType::class, [
             'label' => 'Description',
         ])
-        ->add('imageFile', FileType::class, [
-            'label' => 'Image (JPG, PNG, WEBP)',
+        ->add('image', FileType::class, [
+            'label' => 'Image',
             'mapped' => false,
-            'required' => false,
-            'constraints' => [
-                    new File([
-                        'maxSize' => '3M',
-                        'mimeTypes' => ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'],
-                        'mimeTypesMessage' => 'Veuillez télécharger une image valide (JPEG, PNG, WEBP).',
-                    ])
-                ],
+            'required' => false
             ])
             ->add('submit', SubmitType::class, ['label' => 'Sauvegarder']);
     

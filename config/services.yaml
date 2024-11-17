@@ -7,6 +7,7 @@ parameters:
     avis_limit: 1
     animal_homepage_limit: 2
     contact_email_recipient: 'employeearcadiafictif@outlook.fr'
+    images_directory: '%kernel.project_dir%/public/uploads/images'
 
 services:
     # default configuration for services in *this* file

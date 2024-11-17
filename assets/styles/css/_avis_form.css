@@ -28,14 +28,6 @@ textarea.form-control {
   margin: 10px 0;
 }
 
-button[type=reset], button[type=submit] {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
 .button-erase {
   float: left;
 }
