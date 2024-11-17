@@ -15,13 +15,32 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
+
+    private $entityManager;
+    private $habitatRepository;
+    private $animalRepository;
+
+    public function __construct(EntityManagerInterface $entityManager, HabitatRepository $habitatRepository, AnimalRepository $animalRepository)
+    {
+
+        $this->habitatRepository = $habitatRepository;
+        $this->animalRepository = $animalRepository;
+    }
+
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
 
+        $habitats = $this->habitatRepository->findAll();
+
+        $animals = $this->animalRepository->findAll();
+
         $website = 'Arcadia';
         return $this->render('home/index.html.twig', [
             'website' => $website,
+            'habitats' => $habitats,
+            'animals' => $animals,
+
             'controller_name' => 'HomeController',
         ]);
     }

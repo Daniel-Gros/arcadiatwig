@@ -67,14 +67,17 @@ ALTER TABLE animal ADD habitat_id INT;
 
 ALTER TABLE animal ADD FOREIGN KEY (habitat_id) REFERENCES habitat (id);
 
-ALTER TABLE service
-ADD COLUMN user_id INT;
+ALTER TABLE service ADD COLUMN user_id INT;
 
 ALTER TABLE service ADD FOREIGN KEY (user_id) REFERENCES user (id);
 
 ALTER TABLE habitat ADD user_id INT;
 
-ALTER TABLE habitat ADD FOREIGN KEY (user_id) REFERENCES user (id);
+ALTER TABLE habitat ADD animal_id INT;
+
+ALTER TABLE habitat ADD FOREIGN KEY (animal_id) REFERENCES animal (id);
+
+ALTER TABLE habitat ADD FOREIGN KEY ;
 
 ALTER TABLE CompteRenduVétérinaire ADD user_id INT;
 

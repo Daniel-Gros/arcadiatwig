@@ -1,7 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ animalTitle}}{% endblock %}
+{% block title %}Animaux par habitat{% endblock %}
 
 {% block body %}
-{% include "_partials/_animal_page/_presentation_animal_page.html.twig" %}
+
+<h1 class="text-center">Animaux classés par habitat</h1>
+
+<div class="habitats-container">
+    {% for habitat in habitats %}
+        <div class="habitat-block">
+            <h2>{{ habitat.name }}</h2>
+            <ul>
+                {% for animal in habitat.animals %}
+                    <li>{{ animal.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+
 {% endblock %}
