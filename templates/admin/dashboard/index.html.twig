@@ -8,7 +8,7 @@
 		<h2 class="my-3">Gestion
 		</h2>
 		<div class="section gestion">
-			<ul class="d-flex justify-content-between list-unstyled">
+			<ul class="d-flex justify-content-around list-unstyled">
 				{% if is_granted('ROLE_ADMIN') %}
 					<li>
 						<a class="nav-link" href="{{ path('app_animal_crud_index') }}">Animal</a>

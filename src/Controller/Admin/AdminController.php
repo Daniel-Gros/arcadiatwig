@@ -11,32 +11,49 @@ use App\Repository\CompteRenduVeterinaireRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class AdminController extends AbstractController
 {
-    #[Route('/admin', name: 'app_admin')]
-    #[IsGranted('ROLE_ADMIN')]
+    private AuthorizationCheckerInterface $authChecker;
+    private AnimalRepository $animalRepository;
+    private HabitatRepository $habitatRepository;
+    private CommentaireHabitatRepository $commentaireHabitatRepository;
+    private CompteRenduVeterinaireRepository $compteRenduVeterinaireRepository;
+    private ServiceRepository $serviceRepository;
+    private AvisRepository $avisRepository;
 
-
-    public function index(
+    public function __construct(
+        AuthorizationCheckerInterface $authChecker,
         AnimalRepository $animalRepository,
         HabitatRepository $habitatRepository,
         CommentaireHabitatRepository $commentaireHabitatRepository,
         CompteRenduVeterinaireRepository $compteRenduVeterinaireRepository,
         ServiceRepository $serviceRepository,
         AvisRepository $avisRepository
-    ): Response {
+    ) {
+        $this->authChecker = $authChecker;
+        $this->animalRepository = $animalRepository;
+        $this->habitatRepository = $habitatRepository;
+        $this->commentaireHabitatRepository = $commentaireHabitatRepository;
+        $this->compteRenduVeterinaireRepository = $compteRenduVeterinaireRepository;
+        $this->serviceRepository = $serviceRepository;
+        $this->avisRepository = $avisRepository;
+    }
 
-        $animalCount = $animalRepository->count([]);
-        $habitatCount = $habitatRepository->count([]);
-        $commentaireHabitatCount = $commentaireHabitatRepository->count([]);
-        $compteRenduVeterinaireCount = $compteRenduVeterinaireRepository->count([]);
-        $serviceCount = $serviceRepository->count([]);
-        $avisCount = $avisRepository->count([]);
+    #[Route('/admin', name: 'app_admin')]
+    #[IsGranted('ROLE_USER')]
+    public function index(): Response
+    {
+        $animalCount = $this->animalRepository->count([]);
+        $habitatCount = $this->habitatRepository->count([]);
+        $commentaireHabitatCount = $this->commentaireHabitatRepository->count([]);
+        $compteRenduVeterinaireCount = $this->compteRenduVeterinaireRepository->count([]);
+        $serviceCount = $this->serviceRepository->count([]);
+        $avisCount = $this->avisRepository->count([]);
 
         return $this->render('admin/dashboard/index.html.twig', [
-            'controller_name' => 'AdminController',
             'animalCount' => $animalCount,
             'habitatCount' => $habitatCount,
             'commentaireHabitatCount' => $commentaireHabitatCount,

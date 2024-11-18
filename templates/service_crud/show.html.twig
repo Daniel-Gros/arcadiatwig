@@ -22,9 +22,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_service_crud_index') }}">back to list</a>
+    <a class="btn btn-dark" href="{{ path('app_service_crud_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('app_service_crud_edit', {'id': service.id}) }}">edit</a>
+    <a class="btn btn-dark" href="{{ path('app_service_crud_edit', {'id': service.id}) }}">Éditer</a>
 
     {{ include('service_crud/_delete_form.html.twig') }}
 {% endblock %}

@@ -24,8 +24,8 @@
                 <td>{{ avi.note }}</td>
                 <td>{{ avi.validation ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('app_avis_crud_show', {'id': avi.id}) }}">show</a>
-                    <a href="{{ path('app_avis_crud_edit', {'id': avi.id}) }}">edit</a>
+                    <a class="btn-dark" href="{{ path('app_avis_crud_show', {'id': avi.id}) }}">show</a>
+                    <a class="btn-dark" href="{{ path('app_avis_crud_edit', {'id': avi.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

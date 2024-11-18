@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Avis{% endblock %}
+{% block title %}Éditer avis{% endblock %}
 
 {% block body %}
-    <h1>Edit Avis</h1>
+    <h1>Éditer avis</h1>
 
     {{ include('avis_crud/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_avis_crud_index') }}">back to list</a>
+    <a href="{{ path('app_avis_crud_index') }}">Retour à la liste</a>
 
     {{ include('avis_crud/_delete_form.html.twig') }}
 {% endblock %}

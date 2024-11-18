@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Éditer un animal</h1>
 
-    {{ include('animal_crud/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('animal_crud/_form.html.twig', {'button_label': 'Mettreà jour'}) }}
 
-    <a href="{{ path('app_animal_crud_index') }}">retour à la liste</a>
+    <a class="btn-dark" href="{{ path('app_animal_crud_index') }}">retour à la liste</a>
 
     {{ include('animal_crud/_delete_form.html.twig') }}
 {% endblock %}
