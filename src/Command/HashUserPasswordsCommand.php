@@ -57,12 +57,40 @@ class HashUserPasswordsCommand extends Command
                 $hashedPassword = $this->passwordHasher->hashPassword($user, $user->getPassword());
                 $user->setPassword($hashedPassword);
                 $user->setPasswordHashed(true);
-                $this->entityManager->persist($user);
             }
         }
+        $this->entityManager->persist($user);
         $this->entityManager->flush();
+        $this->entityManager->clear();
+
 
         $io->success('Le mot de passe utilisateur a été hash avec succès.');
+
+
+        $user = $userRepository->findOneBy(['email' => 'josearcadiapersonnefictive@gmail.com']);
+
+        if ($user) {
+            $io->writeln("L'utilisateur admin a été trouvé.");
+
+            if (!$user->isPasswordHashed()) {
+                $hashedPassword = $this->passwordHasher->hashPassword($user, $user->getPassword());
+                $user->setPassword($hashedPassword);
+                $user->setPasswordHashed(true);
+
+                $io->success("Mot de passe de l'utilisateur admin haché avec succès.");
+            } else {
+                $io->writeln("Mot de passe déjà haché pour l'utilisateur admin.");
+            }
+        } else {
+            $io->error("L'utilisateur admin n'a pas été trouvé.");
+        }
+        $this->entityManager->persist($user);
+        try {
+            $this->entityManager->flush();
+            $io->success('Modifications enregistrées en base de données.');
+        } catch (\Exception $e) {
+            $io->error("Erreur lors de la sauvegarde : " . $e->getMessage());
+        }
 
         return Command::SUCCESS;
     }

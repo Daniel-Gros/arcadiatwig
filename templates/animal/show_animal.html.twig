@@ -5,15 +5,15 @@
 
 {% block body %}
 
-	<h1 class="text-center">Animaux classés par habitat</h1>
+	<h1 class="text-center">Nos Stars</h1>
 
 	<div class="row">
 		{% for animal in animals %}
 			<div class="col-md-4">
 				<div class="card mb-4">
-					<img src="{{ asset('images/' ~ animal.image) }}" class="card-img-top" alt="{{ animal.name }}">
+					<img src="{{ asset('images/' ~ animal.image) }}" class="card-img-top" alt="{{ animal.firstName }}">
 					<div class="card-body">
-						<h5 class="card-title">{{ animal.name }}</h5>
+						<h5 class="card-title">{{ animal.firstName }}</h5>
 						<p class="card-text">{{ animal.description }}</p>
 					</div>
 				</div>

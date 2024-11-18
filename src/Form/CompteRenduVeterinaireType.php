@@ -17,15 +17,19 @@ class CompteRenduVeterinaireType extends AbstractType
         $builder
             ->add('date', null, [
                 'widget' => 'single_text',
+                'data' => new \DateTime(), 
             ])
-            ->add('message')
             ->add('user_id', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'id',
+                'choice_label' => 'email',
+                'label' => 'Vétérinaire',
+                'placeholder' => 'Sélectionnez un vétérinaire',
             ])
+            ->add('message')
             ->add('animal_id', EntityType::class, [
                 'class' => Animal::class,
-                'choice_label' => 'id',
+                'choice_label' => 'firstName',
+                'label' => 'Nom de l\'animal',
             ])
         ;
     }

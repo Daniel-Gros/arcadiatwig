@@ -43,7 +43,7 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin', name: 'app_admin')]
-    #[IsGranted('ROLE_USER')]
+
     public function index(): Response
     {
         $animalCount = $this->animalRepository->count([]);

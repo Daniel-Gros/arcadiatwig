@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Animal;
 use App\Form\AnimalType;
 use App\Repository\AnimalRepository;
+use Doctrine\DBAL\Exception\DriverException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -77,7 +78,11 @@ final class AnimalCrudController extends AbstractController
             $animal->setImage($imageData);
         }
             
+        Try {
             $entityManager->flush();
+            } catch(DriverException $e) {
+              dd($e->getMessage());
+            }
 
             return $this->redirectToRoute('app_animal_crud_index', [], Response::HTTP_SEE_OTHER);
         }

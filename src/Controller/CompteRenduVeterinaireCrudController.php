@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\CompteRenduVeterinaire;
 use App\Form\CompteRenduVeterinaireType;
+use App\Repository\AnimalRepository;
 use App\Repository\CompteRenduVeterinaireRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,9 +16,12 @@ use Symfony\Component\Routing\Attribute\Route;
 final class CompteRenduVeterinaireCrudController extends AbstractController
 {
     #[Route(name: 'app_compte_rendu_veterinaire_crud_index', methods: ['GET'])]
-    public function index(CompteRenduVeterinaireRepository $compteRenduVeterinaireRepository): Response
+    public function index(CompteRenduVeterinaireRepository $compteRenduVeterinaireRepository, AnimalRepository $animalRepository): Response
     {
         return $this->render('compte_rendu_veterinaire_crud/index.html.twig', [
+            'animal' => array_map(function($animal) {
+                return ['firstName' => $animal->getFirstName()];
+            }, $animalRepository->findAll()),
             'compte_rendu_veterinaires' => $compteRenduVeterinaireRepository->findAll(),
         ]);
     }

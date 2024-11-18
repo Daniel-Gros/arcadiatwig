@@ -16,14 +16,19 @@ class CommentaireHabitat1Type extends AbstractType
     {
         $builder
             ->add('message')
-            ->add('improvement')
+            ->add('improvement', null, [
+                'label' => 'Amélioration',
+            ])
             ->add('user_id', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'id',
+                'choice_label' => 'email',
+                'label' => 'Responsable du site',
+                'required' => false,
             ])
             ->add('habitat_id', EntityType::class, [
                 'class' => Habitat::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
+                'label' => 'Habitat',
             ])
         ;
     }
