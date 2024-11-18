@@ -24,10 +24,9 @@
 					<td>{{ animal.firstName }}</td>
 					<td>{{ animal.breed }}</td>
 					<td>{{ animal.diet }}</td>
-					<td>
-						<a href="{{ path('app_animal_crud_show', {'id': animal.id}) }}">Voir</a>
-						<a href="{{ path('app_animal_crud_edit', {'id': animal.id}) }}">Éditer</a>
-                        <a href="{{ path('app_animal_crud_delete',  {'id': animal.id}) }}">Supprimer</a>
+					<td class="d-flex justify-content-around">
+						<a class="btn button" href="{{ path('app_animal_crud_show', {'id': animal.id}) }}">Voir</a>
+						<a class="btn button" href="{{ path('app_animal_crud_edit', {'id': animal.id}) }}">Éditer</a>
 					</td>
 				</tr>
 			{% else %}

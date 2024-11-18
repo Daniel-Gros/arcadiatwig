@@ -18,8 +18,7 @@ class NavbarExtension extends AbstractExtension
                     ['label' => 'Animaux', 'route' => 'app_animal'],
                     ['label' => 'Habitats', 'route' => 'app_habitat'],
                     ['label' => 'Engagements', 'route' => 'app_engagements'],
-                    ['label' => 'Liste des services', 'route' => 'app_service']
-                ]
+                    ]
             ],
             [
                 'label' => 'Venir au Zoo', 

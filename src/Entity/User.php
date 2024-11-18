@@ -31,6 +31,38 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\Column(type: 'boolean')]
+    private bool $passwordHashed = false; 
+
+
+    public function isPasswordHashed(): bool
+    {
+        return $this->passwordHashed;
+    }
+
+    public function setPasswordHashed(bool $passwordHashed): self
+    {
+        $this->passwordHashed = $passwordHashed;
+
+        return $this;
+    }
+
+    // #[ORM\Column]
+    // private bool $passwordHashed = false;
+
+
+    // public function getPasswordHashed(): bool
+    // {
+    //     return $this->passwordHashed;
+    // }
+
+    // public function setPasswordHashed(bool $passwordHashed): static
+    // {
+    //     $this->passwordHashed = $passwordHashed;
+
+    //     return $this;
+    // }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -96,7 +128,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
+ 
     /**
      * @see UserInterface
      */

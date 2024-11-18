@@ -65,10 +65,11 @@ nav li {
   padding: 0;
 }
 
-.footer-contact {
+.footer {
   background-color: #713800;
   color: #FFFF4F;
-  position: sticky;
+  width: 100%;
+  padding: 20px;
 }
 
 .copyright {
@@ -137,6 +138,7 @@ td {
 
 .presentation {
   background-color: #7EBDC3;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .row {
@@ -281,11 +283,6 @@ textarea.form-control {
   border-radius: 5px;
   background-color: #f9f9f9;
 }
-.login-form h1 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #713800;
-}
 .login-form label {
   font-weight: bold;
   margin-top: 1rem;
@@ -322,27 +319,6 @@ textarea.form-control {
   border-radius: 5px;
   margin-bottom: 1rem;
   border: 1px solid #ebccd1;
-}
-.login-form .button {
-  width: 100%;
-  padding: 0.7rem;
-  margin-top: 1rem;
-  background-color: #713800;
-  border: none;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-}
-.login-form .button:hover {
-  background-color: rgb(62, 30.7256637168, 0);
-}
-.login-form .button:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(113, 56, 0, 0.5);
 }
 
 /*# sourceMappingURL=main.css.map */
