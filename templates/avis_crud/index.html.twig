@@ -1,38 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Section Avis{% endblock %}
+{% block title %}Section Avis
+{% endblock %}
 
 {% block body %}
-    <h1>Section Avis</h1>
+	<h1>Section Avis</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>N° d'identification (Id)</th>
-                <th>Pseudonyme</th>
-                <th>Message</th>
-                <th>Note</th>
-                <th>Validation</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for avi in avis %}
-            <tr>
-                <td>{{ avi.id }}</td>
-                <td>{{ avi.pseudo }}</td>
-                <td>{{ avi.message }}</td>
-                <td>{{ avi.note }}</td>
-                <td>{{ avi.validation ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a class="btn-dark" href="{{ path('app_avis_crud_show', {'id': avi.id}) }}">show</a>
-                    <a class="btn-dark" href="{{ path('app_avis_crud_edit', {'id': avi.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">Pas d'enregistrements trouvés</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>N° d'identification (Id)</th>
+				<th>Pseudonyme</th>
+				<th>Message</th>
+				<th>Note</th>
+				<th>Validation</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for avi in avis %}
+				<tr>
+					<td>{{ avi.id }}</td>
+					<td>{{ avi.pseudo }}</td>
+					<td>{{ avi.message }}</td>
+					<td>{{ avi.note }}</td>
+					<td>{{ avi.validation ? 'Yes' : 'No' }}</td>
+					<td>
+						<form method="post" action="{{ path('app_avis_approve', {'id': avis.id}) }}">
+							<button class="btn btn-success btn-sm">Approuver</button>
+						</form>
+						<form method="post" action="{{ path('app_avis_reject', {'id': avis.id}) }}">
+							<button class="btn btn-danger btn-sm">Rejeter</button>
+						</form>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">Pas d'enregistrements trouvés</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 {% endblock %}

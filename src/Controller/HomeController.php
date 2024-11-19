@@ -41,7 +41,7 @@ class HomeController extends AbstractController
     }
 
 
-
+    #[Route('/', name: 'app_home')]
 
 
     public function index(Request $request, ParameterBagInterface $parameterBagInterface): Response
@@ -53,6 +53,8 @@ class HomeController extends AbstractController
 
         $avis = new Avis();
         $form = $this->createForm(AvisType::class, $avis);
+
+        $approvedAvis = $this->entityManager->getRepository(Avis::class)->findBy(['status' => 'approved']);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -75,7 +77,7 @@ class HomeController extends AbstractController
             'habitats' => $habitats,
             'animals' => $animals,
             'form' => $form->createView(), 
-            'controller_name' => 'HomeController',
+            'avis' => $approvedAvis,
         ]);
     }
 }

@@ -15,7 +15,9 @@
 						<img src="{{ asset('uploads/images/' ~ animal.image) }}" class="img-fluid h-100 w-100" style="object-fit: cover;" alt="{{ animal.firstName }}">
 					</div>
 					<div class="card-body w-75 d-flex flex-column">
-						<h5 class="card-title">{{ animal.firstName }}</h5>
+						<h5 class="card-title">{{ animal.firstName }}
+							<a href="{{ path('app_animal_show', {'id': animal.id}) }}" class="btn button">+</a>
+						</h5>
 						<div class="card-text overflow-auto" style="max-height: 120px;">
 							{{ animal.description }}
 						</div>

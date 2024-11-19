@@ -30,6 +30,23 @@ class Avis
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user_id = null;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTime $date = null;
+
+    #[ORM\Column(type: 'string', length: 20, options: ["default" => "pending"])]
+    private ?string $status = "pending";
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+        return $this;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -91,6 +108,23 @@ class Avis
     public function setUserId(?User $user_id): static
     {
         $this->user_id = $user_id;
+
+        return $this;
+    }
+
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

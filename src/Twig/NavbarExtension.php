@@ -23,7 +23,6 @@ class NavbarExtension extends AbstractExtension
             [
                 'label' => 'Venir au Zoo', 
                 'submenu' => [
-                    ['label' => 'Accès', 'route' => 'app_acces'],
                     ['label' => 'Horaires', 'route' => 'app_horaires'],
                     ['label' => 'Plan du Zoo', 'route' => 'app_plan_du_zoo'],
                     ['label' => 'Restaurants', 'route' => 'app_restaurants']
