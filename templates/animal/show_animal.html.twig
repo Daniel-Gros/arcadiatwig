@@ -1,25 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Animaux par habitat
+{% block title %}Les Animaux
 {% endblock %}
 
 {% block body %}
 
 	<h1 class="text-center">Nos Stars</h1>
 
-	<div class="row">
+	<div class="row my-5 d-flex justify-content-center">
 		{% for animal in animals %}
-			<div class="col-md-4">
-				<div class="card mb-4">
-					<img src="{{ asset('images/' ~ animal.image) }}" class="card-img-top" alt="{{ animal.firstName }}">
-					<div class="card-body">
+			<div class="col-md-10 mb-4 d-flex justify-content-center">
+				<div class="card d-flex flex-row" style="height: 200px;">
+					<div class="w-25">
+						<img src="{{ asset('uploads/images/' ~ animal.image) }}" class="img-fluid h-100 w-100" style="object-fit: cover;" alt="{{ animal.firstName }}">
+					</div>
+					<div class="card-body w-75 d-flex flex-column">
 						<h5 class="card-title">{{ animal.firstName }}</h5>
-						<p class="card-text">{{ animal.description }}</p>
+						<div class="card-text overflow-auto" style="max-height: 120px;">
+							{{ animal.description }}
+						</div>
 					</div>
 				</div>
 			</div>
 		{% endfor %}
 	</div>
-</div>
+
 
 {% endblock %}

@@ -20,7 +20,10 @@ class ServiceType extends AbstractType
             ->add('description')
             ->add('user_id', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'id',
+                'choice_label' => function (User $user) {
+                    return $user->getId() . ' - ' . $user->getEmail();
+                },
+                'label' => 'Responsable du service',
             ])
             ->add('imageFile', FileType::class, [
                 'label' => 'Image (JPG, PNG, WEBP)',

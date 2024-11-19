@@ -1,9 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Plan du Zoo{% endblock %}
+{% block title %}Plan du Zoo
+{% endblock %}
 
 {% block body %}
-<h3 class"text-uppercase text-center"> Cette page est en cours de construction</h3>
-<p>Vous pouvez néanmoins télécharger le plan du zoo</p>
-<a href="{{ asset('uploads/plan-du-zoo.pdf') }}" class="button" download="Plan_du_Zoo">Télécharger le plan du zoo</a>
+	<h1 class"text-uppercase text-center">
+		Cette page est en cours de construction</h1>
+	<p>
+		Vous pouvez néanmoins télécharger le plan du zoo
+		<a href="{{ asset('uploads/plan-du-zoo.pdf') }}" class="button btn" download="Plan_du_Zoo">Télécharger le plan du zoo</a>
+	</p>
 {% endblock %}

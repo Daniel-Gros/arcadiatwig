@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Choisissez votre animal préféré{% endblock %}
+
+{% block body %}
+
+
+<h1> {{ animal.firstName }}</h1>
+
+<div>
+    <img src="{{ asset('uploads/images/' ~ animal.image) }}" alt="{{ animal.firstName }}" class="img-fluid">
+</div>
+
+<div>
+    <h3>Son histoire</h3>
+    <p>{{ animal.description }}</p>
+</div>
+
+<div>
+    <h3>Habitat</h3>
+    <p>{{ animal.habitat ? animal.habitat.name : 'Non spécifié' }}</p>
+</div>
+
+
+
+{% endblock %}

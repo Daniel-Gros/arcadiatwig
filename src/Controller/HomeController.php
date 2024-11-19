@@ -21,11 +21,29 @@ class HomeController extends AbstractController
 
     public function __construct(EntityManagerInterface $entityManager, HabitatRepository $habitatRepository, AnimalRepository $animalRepository)
     {
+        $this->entityManager = $entityManager;
         $this->habitatRepository = $habitatRepository;
         $this->animalRepository = $animalRepository;
     }
 
-    #[Route('/', name: 'app_home')]
+    #[Route('/animal/{id}', name: 'app_animal_show')]
+    public function showAnimal(int $id): Response
+    {
+        $animal = $this->animalRepository->find($id);
+
+        if (!$animal) {
+            throw $this->createNotFoundException('Animal non trouvé');
+        }
+
+        return $this->render('animal/select_animal.html.twig', [
+            'animal' => $animal,
+        ]);
+    }
+
+
+
+
+
     public function index(Request $request, ParameterBagInterface $parameterBagInterface): Response
     {
         $habitats = $this->habitatRepository->findAll();
@@ -40,14 +58,19 @@ class HomeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $avis->setUserId($this->getUser()); 
             $this->entityManager->persist($avis);
-            $this->entityManager->flush();
-
-
+            try {
+            } catch (\Exception) {
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Une erreur est survenue lors de l\'ajout de votre avis');
+            }
+            
             return $this->redirectToRoute('app_home');
+
         }
 
 
         return $this->render('home/index.html.twig', [
+            'mentions_legales_path' => $this->generateUrl('app_mentions_legales'),
             'website' => 'Arcadia',
             'habitats' => $habitats,
             'animals' => $animals,

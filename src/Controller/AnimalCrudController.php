@@ -35,7 +35,7 @@ final class AnimalCrudController extends AbstractController
             $imageFile = $form->get('image')->getData();
 
             if ($imageFile) {
-                $newFilename = uniqid().'.'.$imageFile->guessExtension();
+                $newFilename = uniqid() . '.' . $imageFile->guessExtension();
                 $imageFile->move(
                     $this->getParameter('images_directory'),
                     $newFilename
@@ -44,11 +44,13 @@ final class AnimalCrudController extends AbstractController
             }
 
             $entityManager->persist($animal);
-            $entityManager->flush();
+            try {
+                $entityManager->flush();
+            } catch (DriverException $e) {
+                dd($e->getMessage());
+            }
 
-            return $this->redirectToRoute('app_animal_crud_index', [
-                
-            ], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_animal_crud_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('animal_crud/new.html.twig', [
@@ -66,39 +68,57 @@ final class AnimalCrudController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_animal_crud_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Animal $animal, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(AnimalType::class, $animal);
-        $form->handleRequest($request);
+public function edit(Request $request, Animal $animal, EntityManagerInterface $entityManager): Response
+{
+    $form = $this->createForm(AnimalType::class, $animal);
+    $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $imageFile = $form->get('image')->getData();
+    if ($form->isSubmitted() && $form->isValid()) {
+        $imageFile = $form->get('image')->getData();
+
         if ($imageFile) {
-            $imageData = file_get_contents($imageFile->getPathname());
-            $animal->setImage($imageData);
-        }
-            
-        Try {
-            $entityManager->flush();
-            } catch(DriverException $e) {
-              dd($e->getMessage());
+            $oldImage = $animal->getImage();
+            if ($oldImage) {
+                $oldImagePath = $this->getParameter('images_directory') . '/' . $oldImage;
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
             }
 
-            return $this->redirectToRoute('app_animal_crud_index', [], Response::HTTP_SEE_OTHER);
+            $newFilename = uniqid() . '.' . $imageFile->guessExtension();
+            $imageFile->move(
+                $this->getParameter('images_directory'),
+                $newFilename
+            );
+            $animal->setImage($newFilename);
         }
 
-        return $this->render('animal_crud/edit.html.twig', [
-            'animal' => $animal,
-            'form' => $form,
-        ]);
+        try {
+            $entityManager->flush();
+        } catch (DriverException $e) {
+            dd($e->getMessage());
+        }
+
+        return $this->redirectToRoute('app_animal_crud_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    return $this->render('animal_crud/edit.html.twig', [
+        'animal' => $animal,
+        'form' => $form,
+    ]);
+}
+
 
     #[Route('/{id}', name: 'app_animal_crud_delete', methods: ['POST'])]
     public function delete(Request $request, Animal $animal, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$animal->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $animal->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($animal);
-            $entityManager->flush();
+            try {
+                $entityManager->flush();
+            } catch (DriverException $e) {
+                dd($e->getMessage());
+            }
         }
 
         return $this->redirectToRoute('app_animal_crud_index', [], Response::HTTP_SEE_OTHER);

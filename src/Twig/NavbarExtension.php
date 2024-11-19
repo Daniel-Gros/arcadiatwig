@@ -47,6 +47,7 @@ class NavbarExtension extends AbstractExtension
                 ]
             ],
             ['label' => 'Contact', 'route' => 'app_contact'],
+            // ['label' => 'mentions légales', 'route' => 'app_mentions_legales'],
         ];
     }
 
