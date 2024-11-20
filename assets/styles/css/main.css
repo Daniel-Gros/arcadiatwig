@@ -322,4 +322,19 @@ textarea.form-control {
   border: 1px solid #ebccd1;
 }
 
+.horaire {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.horaire td {
+  background-color: #7EBDC3;
+  border: none;
+  color: #333;
+}
+
+.horaire tr {
+  border-bottom: none;
+}
+
 /*# sourceMappingURL=main.css.map */

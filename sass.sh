@@ -22,6 +22,7 @@ sass assets/styles/sass/_avis_form.scss assets/styles/css/_avis_form.css
 sass assets/styles/sass/_contact_form.scss assets/styles/css/_contact_form.css
 sass assets/styles/sass/_avis.scss assets/styles/css/_avis.css
 sass assets/styles/sass/_login.scss assets/styles/css/_login.css
+sass assets/styles/sass/_horaires_table.scss assets/styles/css/_horaires_table.css
 
 
 

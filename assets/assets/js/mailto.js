@@ -7,7 +7,7 @@ export default class ContactFormHandler {
         if (this.form && this.submitButton) {
             this.initialize();
         } else {
-            console.error('Form or button not found!');
+            console.error('formulaire ou bouton indisponible');
         }
     }
 

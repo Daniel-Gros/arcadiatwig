@@ -1,0 +1,16 @@
+.horaire {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.horaire td {
+  background-color: #7EBDC3;
+  border: none;
+  color: #333;
+}
+
+.horaire tr {
+  border-bottom: none;
+}
+
+/*# sourceMappingURL=_horaires_table.css.map */

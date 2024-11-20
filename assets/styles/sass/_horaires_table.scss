@@ -1,0 +1,16 @@
+@import "_variables";
+
+.horaire {
+    border-collapse: collapse; 
+    width: 100%; 
+}
+
+.horaire td {
+    background-color: $color-quaternary; 
+    border: none; 
+    color: #333; 
+}
+
+.horaire tr {
+    border-bottom: none; 
+}

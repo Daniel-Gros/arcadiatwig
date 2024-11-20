@@ -41,7 +41,7 @@ class AvisController extends AbstractController
                 return $this->redirectToRoute('app_home');
             }
 
-            $this->addFlash('success', 'Votre avis a été envoyé avec succès.');
+            $this->addFlash('success', 'Votre avis est en attente de validation.');
             return $this->redirectToRoute('app_home');
         }
 
