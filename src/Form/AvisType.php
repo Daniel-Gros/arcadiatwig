@@ -12,8 +12,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 class AvisType extends AbstractType
 {
@@ -26,7 +29,18 @@ class AvisType extends AbstractType
                     'placeholder' => 'Pseudo'
                 ]
             ])
-            ->add('message', null, ["label" => "Votre message:"])
+            ->add('message', TextType::class, [
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Le message ne peut pas être vide.',
+                    ]),
+                    new Assert\Regex([
+                        'pattern' => '/^[a-zA-Z0-9\s\.,!?-]+$/',
+                        'message' => 'Le message ne peut contenir que des lettres, chiffres, espaces et certains caractères spéciaux (. , ! ? -).',
+                    ]),
+                ],
+                'label' => 'Message',
+            ])
             ->add('note', ChoiceType::class, [
                 'label' => 'Votre note:',
                 'choices' => [

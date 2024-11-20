@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use Doctrine\DBAL\Types\TextType;
 use PhpParser\Node\Stmt\Label;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -9,6 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 class ContactType extends AbstractType
 {
@@ -23,9 +26,18 @@ class ContactType extends AbstractType
                 ['required' => true,
                 'label' => 'Votre email',
                 ])
-            ->add('message', TextareaType::class
-                ,['required' => true,
-                'label' => 'Votre message',
+                ->add('message', TextType::class, [
+                    'required' => true,
+                    'constraints' => [
+                        new Assert\NotBlank([
+                            'message' => 'Le message ne peut pas être vide.',
+                        ]),
+                        new Assert\Regex([
+                            'pattern' => '/^[a-zA-Z0-9\s\.,!?-]+$/',
+                            'message' => 'Le message ne peut contenir que des lettres, chiffres, espaces et certains caractères spéciaux (. , ! ? -).',
+                        ]),
+                    ],
+                    'label' => 'Message',
                 ])
         ;
     }
