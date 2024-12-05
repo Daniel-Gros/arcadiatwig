@@ -54,9 +54,6 @@ class AvisType extends AbstractType
             ->add('validation', HiddenType::class, [
                 'data' => false,
             ])
-            ->add('user_id', HiddenType::class, [
-                'data' => $options['user_id'] ?? null,
-            ])
         ;
     }
 
