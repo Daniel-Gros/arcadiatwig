@@ -1,20 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Animaux de {{ habitat.name }}{% endblock %}
+{% block title %}Animaux de
+	{{ habitat.name }}
+{% endblock %}
 
 {% block body %}
-<div class="container mt-5">
-    <h1 class="mb-4">Animaux de l'habitat : {{ habitat.name }}</h1>
-    <div class="row">
-        {% for animal in animals %}
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">{{ animal.firstName }}</h5>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
+	<div class="container mt-5">
+		<h1 class="mb-4 text-center">Animaux de l'habitat :
+			{{ habitat.name }}</h1>
+		<div class="row justify-content-center">
+			{% for animal in animals %}
+				<div class="col-md-4 d-flex justify-content-center mb-4">
+					<div class="card-body text-center">
+						<a href="{{ path('app_animal_show', {'id': animal.id}) }}" class="d-block text-decoration-none">
+							<div class="rounded-circle shadow animal-image-container">
+								<img src="{{ asset('uploads/images/' ~ animal.image) }}" alt="Image de {{ animal.firstName }} le/la {{ animal.breed }}" class="img-fluid animal-image">
+							</div>
+						</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}

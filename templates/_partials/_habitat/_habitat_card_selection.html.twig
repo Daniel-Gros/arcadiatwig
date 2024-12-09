@@ -1,9 +1,9 @@
 <div class="container mt-5">
 	<div class="row">
 		{% for habitat in habitats %}
-			<div class="col-md-4">
+			<div class="col-md-4 ">
 				<div class="card mb-4 shadow-sm">
-					<div class="card-body text-center">
+					<div class="card-body text-center  service-card">
 						<h5 class="card-title">{{ habitat.name }}</h5>
 						<a href="{{ path('habitat_animals', { id: habitat.id }) }}" class="btn button">Voir les animaux</a>
 					</div>
