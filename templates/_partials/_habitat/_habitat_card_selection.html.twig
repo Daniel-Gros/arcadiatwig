@@ -1,8 +1,14 @@
-<div class="mb-4">
-	<a href="{{ path('app_animal') }}" class="btn button">Tous les habitats</a>
-	{% for habitat in habitats %}
-		<a href="{{ path('animal_list', { habitat: habitat.id }) }}" class="btn button">
-			{{ habitat.name }}
-		</a>
-	{% endfor %}
+<div class="container mt-5">
+	<div class="row">
+		{% for habitat in habitats %}
+			<div class="col-md-4">
+				<div class="card mb-4 shadow-sm">
+					<div class="card-body text-center">
+						<h5 class="card-title">{{ habitat.name }}</h5>
+						<a href="{{ path('habitat_animals', { id: habitat.id }) }}" class="btn button">Voir les animaux</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 </div>
