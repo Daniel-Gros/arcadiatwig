@@ -137,6 +137,14 @@ td {
   box-shadow: 1px 9px 12px -3px #000000;
 }
 
+.engage-card {
+  width: 80%;
+  height: auto;
+  background-color: #7EBDC3;
+  border-radius: 10px;
+  box-shadow: 1px 9px 12px -3px #000000;
+}
+
 .presentation {
   background-color: #7EBDC3;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
