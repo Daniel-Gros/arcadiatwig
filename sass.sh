@@ -1,5 +1,5 @@
 #!/bin/bash
- # Compile SASS to CSS CLASSER LES FICHIERS PAR ORDRE ALPHABÉTIQUE
+# Compile SASS to CSS
 sass assets/styles/sass/_functions.scss assets/styles/css/_functions.css
 sass assets/styles/sass/_mixins.scss assets/styles/css/_mixins.css
 sass assets/styles/sass/_variables.scss assets/styles/css/_variables.css
@@ -33,3 +33,4 @@ sass assets/styles/sass/main.scss assets/styles/css/main.css
 php bin/console asset-map:compile
 # chmod +x sass.sh
 # ./sass.sh
+
