@@ -10,8 +10,8 @@
 			{{ habitat.name }}</h1>
 		<div class="row justify-content-center">
 			{% for animal in animals %}
-				<div class="col-md-4 d-flex justify-content-center mb-4">
-					<div class="card-body text-center">
+				<div class="col-lg-4 col-md-6 col-sm-12 col-12 d-flex justify-content-center mb-4">
+					<div class="card-body d-flex justify-content-center">
 						<a href="{{ path('app_animal_show', {'id': animal.id}) }}" class="d-block text-decoration-none">
 							<div class="rounded-circle shadow animal-image-container">
 								<img src="{{ asset('uploads/images/' ~ animal.image) }}" alt="Image de {{ animal.firstName }} le/la {{ animal.breed }}" class="img-fluid animal-image">
