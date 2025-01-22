@@ -30,6 +30,12 @@ class Animal
     #[ORM\JoinColumn(nullable: false)]
     private ?Habitat $habitat = null;
 
+    #[ORM\OneToOne(mappedBy: 'animal', cascade: ['persist', 'remove'])]
+    private ?Nourrissage $nourrissage_id = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $health = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -91,6 +97,35 @@ class Animal
     public function setHabitat(?Habitat $habitat): static
     {
         $this->habitat = $habitat;
+
+        return $this;
+    }
+
+    public function getNourrissageId(): ?Nourrissage
+    {
+        return $this->nourrissage_id;
+    }
+
+    public function setNourrissageId(Nourrissage $nourrissage_id): static
+    {
+        // set the owning side of the relation if necessary
+        if ($nourrissage_id->getAnimal() !== $this) {
+            $nourrissage_id->setAnimal($this);
+        }
+
+        $this->nourrissage_id = $nourrissage_id;
+
+        return $this;
+    }
+
+    public function getHealth(): ?string
+    {
+        return $this->health;
+    }
+
+    public function setHealth(string $health): static
+    {
+        $this->health = $health;
 
         return $this;
     }
