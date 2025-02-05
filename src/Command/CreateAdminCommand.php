@@ -13,7 +13,7 @@ use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(
     name: 'app:create-admin',
-    description: 'Creates a new admin user'
+    description: 'Création de nouvel utilisateur admin'
 )]
 class CreateAdminCommand extends Command
 {
@@ -27,14 +27,14 @@ class CreateAdminCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setDescription('Creates a new admin user');
+            ->setDescription('Créér un nouvel utilisateur admin');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $email = $io->ask('What is the admin email?', 'admin@example.com');
-        $password = $io->askHidden('What is the admin password?');
+        $email = $io->ask('email de l\'admin?', 'admin@exemple.com');
+        $password = $io->askHidden('Mot de passe Admin?');
 
 
         $user = new User();
@@ -48,13 +48,14 @@ class CreateAdminCommand extends Command
             $this->entityManager->persist($user);
             $this->entityManager->flush();
 
-            $io->success(sprintf('Admin user "%s" was created successfully!', $email));
+            $io->success(sprintf('L\'utilisateur admin "%s" a été créé avec succès !', $email));
             
             return Command::SUCCESS;
         } catch (\Exception $e) {
-            $io->error('Could not create the admin user: ' . $e->getMessage());
+            $io->error('Ne peut pas créer l\'utilisateur admin: ' . $e->getMessage());
             
             return Command::FAILURE;
         }
     }
 }
+

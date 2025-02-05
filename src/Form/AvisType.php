@@ -27,7 +27,16 @@ class AvisType extends AbstractType
                 "label" => "Votre pseudonyme:",
                 'attr' => [
                     'placeholder' => 'Pseudo'
-                ]
+                ],
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Le pseudonyme ne peut pas être vide.',
+                    ]),
+                    new Assert\Regex([
+                        'pattern' => '/^[a-zA-Z0-9_]+$/',
+                        'message' => 'Le pseudonyme ne peut contenir que des lettres, chiffres et underscores (_).',
+                    ]),
+                ],
             ])
             ->add('message', TextType::class, [
                 'constraints' => [
@@ -53,9 +62,6 @@ class AvisType extends AbstractType
             ])
             ->add('validation', HiddenType::class, [
                 'data' => false,
-            ])
-            ->add('user_id', HiddenType::class, [
-                'data' => $options['user_id'] ?? null,
             ])
         ;
     }

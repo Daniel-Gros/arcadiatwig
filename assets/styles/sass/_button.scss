@@ -1,5 +1,4 @@
 @import '_variables';
-@import '_mixins';
 
 .button {
     background-color: $color-primary; // marron foncé
@@ -26,4 +25,11 @@
     width: auto;
     height: auto;
     padding: 0;
+}
+
+.button-crud-menu {
+    background-color: rgb(211, 207, 207);
+    border: 2px solid white;
+    border-radius: 10px;
+    color: black;
 }

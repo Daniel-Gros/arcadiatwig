@@ -22,4 +22,11 @@
   padding: 0;
 }
 
+.button-crud-menu {
+  background-color: rgb(211, 207, 207);
+  border: 2px solid white;
+  border-radius: 10px;
+  color: black;
+}
+
 /*# sourceMappingURL=_button.css.map */
