@@ -22,4 +22,30 @@
   box-shadow: 1px 9px 12px -3px #000000;
 }
 
+.crud-card {
+  width: 150px;
+  height: 150px;
+  background-color: #e5e7eb;
+  border: solid 2px black;
+  box-shadow: 16px 6px 9px -3px #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+.crud-card :hover {
+  transform: scale(1.1);
+}
+.crud-card .icon {
+  font-size: 140px;
+  color: black;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.crud-card .icon:hover {
+  transform: scale(1.1);
+}
+
 /*# sourceMappingURL=_card.css.map */

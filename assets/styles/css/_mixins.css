@@ -1,3 +1,37 @@
+@media (min-width: 768px) {
+  .card {
+    width: 160px;
+    height: 160px;
+  }
+}
+@media (min-width: 1024px) {
+  .card {
+    width: 192px;
+    height: 192px;
+  }
+}
+.icon {
+  font-size: 24px;
+  color: #4b5563;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
 
+.icon:hover {
+  transform: scale(1.1);
+}
+
+@media (min-width: 640px) {
+  .icon {
+    font-size: 32px;
+  }
+}
+@media (min-width: 768px) {
+  .icon {
+    font-size: 40px;
+  }
+}
 
 /*# sourceMappingURL=_mixins.css.map */

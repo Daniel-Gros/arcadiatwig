@@ -24,6 +24,7 @@ sass assets/styles/sass/_avis.scss assets/styles/css/_avis.css
 sass assets/styles/sass/_login.scss assets/styles/css/_login.css
 sass assets/styles/sass/_horaires_table.scss assets/styles/css/_horaires_table.css
 sass assets/styles/sass/_animal.scss assets/styles/css/_animal.css
+sass assets/styles/sass/_statistics_table.scss assets/styles/css/_statistics_table.css
 
 
 
