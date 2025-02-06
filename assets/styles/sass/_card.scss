@@ -39,15 +39,4 @@
     {
         transform: scale(1.1);
     }
-    .icon {
-        font-size: 140px;
-        color: black;
-        background: none;
-        border: none;
-        cursor: pointer;
-        transition: transform 0.2s ease-in-out;
-    }
-    .icon:hover {
-        transform: scale(1.1);
-    }
 }

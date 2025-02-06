@@ -1,41 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Mochiy+Pop+P+One&display=swap");
-@media (min-width: 768px) {
-  .card {
-    width: 160px;
-    height: 160px;
-  }
-}
-@media (min-width: 1024px) {
-  .card {
-    width: 192px;
-    height: 192px;
-  }
-}
-.icon {
-  font-size: 24px;
-  color: #4b5563;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-}
-
-.icon:hover {
-  transform: scale(1.1);
-}
-
-@media (min-width: 640px) {
-  .icon {
-    font-size: 32px;
-  }
-}
-@media (min-width: 768px) {
-  .icon {
-    font-size: 40px;
-  }
-}
 body {
   background-color: #DFF0D8;
   font-family: "Mochiy Pop P One", cursive;
@@ -199,17 +164,6 @@ td {
   transition: all 0.3s ease-in-out;
 }
 .crud-card :hover {
-  transform: scale(1.1);
-}
-.crud-card .icon {
-  font-size: 140px;
-  color: black;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-}
-.crud-card .icon:hover {
   transform: scale(1.1);
 }
 

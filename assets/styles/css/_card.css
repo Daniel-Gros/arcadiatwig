@@ -36,16 +36,5 @@
 .crud-card :hover {
   transform: scale(1.1);
 }
-.crud-card .icon {
-  font-size: 140px;
-  color: black;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-}
-.crud-card .icon:hover {
-  transform: scale(1.1);
-}
 
 /*# sourceMappingURL=_card.css.map */
