@@ -18,7 +18,7 @@ class HabitatController extends AbstractController
         ]);
     }
 
-    #[Route('/habitat/{id}', name: 'habitat_animals')]
+    #[Route('/habitat/{id<\d+>}', name: 'habitat_animals')]
     public function animals(int $id, HabitatRepository $habitatRepository, AnimalRepository $animalRepository): Response
     {
         $habitat = $habitatRepository->find($id);

@@ -99,11 +99,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        $roles[] = 'Utilisateur connecté';
 
         return array_unique($roles);
     }
 
+    public function getNameForRole(): string
+    {
+        $roleAdmin = 'Administrateur';
+        $roleEmployee = 'Employé';
+        $roleVeterinaire = 'Vétérinaire';
+
+        if (in_array('ROLE_ADMIN', $this->roles)) {
+            return $roleAdmin;
+        } elseif (in_array('ROLE_EMPLOYEE', $this->roles)) {
+            return $roleEmployee;
+        } elseif (in_array('ROLE_VETERINAIRE', $this->roles)) {
+            return $roleVeterinaire;
+        } else {
+            return 'Utilisateur connecté';
+        }
+    }
     /**
      * @param list<string> $roles
      */
