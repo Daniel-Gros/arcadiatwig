@@ -1,37 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Section Compte Rendu Vétérinaire{% endblock %}
+{% block title %}Section Compte Rendu Vétérinaire
+{% endblock %}
 
 {% block body %}
-    <h1>Section Compte Rendu Vétérinaire</h1>
+	<h1>Section Compte Rendu Vétérinaire</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Date</th>
-                <th>Message</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for compte_rendu_veterinaire in compte_rendu_veterinaires %}
-            <tr>
-                <td>{{ compte_rendu_veterinaire.id }}</td>
-                <td>{{ compte_rendu_veterinaire.date ? compte_rendu_veterinaire.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ compte_rendu_veterinaire.message }}</td>
-                <td>
-                    <a href="{{ path('app_compte_rendu_veterinaire_crud_show', {'id': compte_rendu_veterinaire.id}) }}">voir</a>
-                    <a href="{{ path('app_compte_rendu_veterinaire_crud_edit', {'id': compte_rendu_veterinaire.id}) }}">éditer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">pas d'enregistrements trouvés</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a class="btn btn-dark" href="{{ path('app_compte_rendu_veterinaire_crud_new') }}">Créer nouveau compte rendu</a>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Date</th>
+				<th>Message</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for compte_rendu_veterinaire in compte_rendu_veterinaires %}
+				<tr>
+					<td>{{ compte_rendu_veterinaire.id }}</td>
+					<td>{{ compte_rendu_veterinaire.date ? compte_rendu_veterinaire.date|date('Y-m-d H:i:s') : '' }}</td>
+					<td>{{ compte_rendu_veterinaire.message }}</td>
+					<td>
+						<a href="{{ path('app_compte_rendu_veterinaire_crud_show', {'id': compte_rendu_veterinaire.id}) }}">voir</a>
+						{% if is_granted('ROLE_VETERINAIRE') %}
+							<a href="{{ path('app_compte_rendu_veterinaire_crud_edit', {'id': compte_rendu_veterinaire.id}) }}">éditer</a>
+						{% endif %}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">pas d'enregistrements trouvés</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{% if is_granted('ROLE_VETERINAIRE') %}
+		<a class="btn btn-dark" href="{{ path('app_compte_rendu_veterinaire_crud_new') }}">Créer nouveau compte rendu</a>
+	{% endif %}
 {% endblock %}
