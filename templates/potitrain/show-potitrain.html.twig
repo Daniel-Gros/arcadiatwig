@@ -1,26 +1,37 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Le Potitrain{% endblock %}
+{% block title %}Le Potitrain
+{% endblock %}
 
 {% block body %}
 
-<div class="container my-5 d-flex justify-content-center">
-    <div class="card" style="width: 60%;">
-        <img src={{asset('images/potitrain.webp')}} class="card-img-top" alt="Le Potitrain - Petit train du zoo">
-        <div class="card-body">
-            <h3 class="card-title text-center">Le Potitrain - Explorez le Zoo en Petit Train !</h3>
-            <p class="card-text">
-                Embarquez à bord du Potitrain, le charmant petit train de notre zoo, pour une aventure unique et relaxante au cœur de la faune et de la flore. Idéal pour les familles, le Potitrain vous offre un moyen agréable de découvrir les animaux sans fatiguer vos jambes, tout en profitant d’une vue panoramique des enclos.
-            </p>
-            <p class="card-text">
-                Avec des arrêts stratégiques tout au long du parcours, le Potitrain vous permet de descendre pour observer de plus près certains des animaux les plus fascinants du zoo, avant de remonter pour poursuivre votre exploration. Vous aurez également accès à des commentaires audio qui racontent l'histoire de chaque animal, leurs habitudes de vie, et les efforts de conservation que notre zoo mène pour les protéger.
-            </p>
-            <p class="card-text">
-                Parfait pour les petits comme pour les grands, le Potitrain promet de transformer votre visite en une expérience inoubliable. Alors, installez-vous confortablement, et laissez-vous guider à travers des paysages enchanteurs et des rencontres animales surprenantes. Embarquez, et laissez le Potitrain vous transporter dans une aventure magique !
-            </p>
-            <p class="card-text text-center"><small class="text-muted">Ouvert tous les jours aux horaires d'ouverture du Zoo.</small></p>
-        </div>
-    </div>
-</div>
+	<div class="container my-5">
+		<div
+			class="row align-items-center">
+			<div class="col-md-6">
+				<img src="{{asset('images/potitrain.webp')}}" class="img-fluid rounded shadow-lg" alt="Le Potitrain - Petit train du zoo">
+			</div>
+			<div class="col-md-6">
+				<div class="card info-card border-0">
+					<div class="card-body">
+						<h3 class="card-title text-center">Explorez le Zoo en Petit Train</h3>
+						<p class="card-text">
+							Embarquez à bord du Potitrain, un charmant petit train touristique qui vous emmène à travers les paysages magnifiques du zoo. Idéal pour toute la famille, ce voyage unique vous permet d'explorer les animaux sans effort !
+						</p>
+						<ul>
+							<li>Découvrez les animaux en toute sérénité</li>
+							<li>Profitez d'un guide audio immersif</li>
+							<li>Arrêts stratégiques pour mieux observer</li>
+							<li>Plongée au cœur de la nature</li>
+						</ul>
+						<p class="text-center">
+							<strong>Ouvert tous les jours aux horaires du zoo.</strong>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 {% endblock %}

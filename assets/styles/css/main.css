@@ -393,4 +393,47 @@ textarea.form-control {
   border: 2px solid black;
 }
 
+.hero {
+  position: relative;
+  background: url("images/potitrain.webp") center/cover no-repeat;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Card Animation */
+.info-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: solid 3px black;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero {
+  position: relative;
+  background: url("images/potitrain.webp") center/cover no-repeat;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Card Animation */
+.info-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
 /*# sourceMappingURL=main.css.map */
