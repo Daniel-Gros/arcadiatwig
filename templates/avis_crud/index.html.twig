@@ -4,9 +4,9 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Section Avis</h1>
+	<h1 class="text-center mt-5">Section Avis</h1>
 
-	<table class="table">
+	<table class="table mt-5">
 		<thead>
 			<tr>
 				<th>N° d'identification (Id)</th>
@@ -23,15 +23,29 @@
 					<td>{{ avi.pseudo }}</td>
 					<td>{{ avi.message }}</td>
 					<td>{{ avi.note }}</td>
-					<td>{{ avi.validation ? 'Yes' : 'No' }}</td>
 					<td>
-						<form method="post" action="{{ path('app_avis_approve', {'id': avis.id}) }}">
-							<button class="btn btn-success btn-sm">Approuver</button>
-						</form>
-						<form method="post" action="{{ path('app_avis_reject', {'id': avis.id}) }}">
-							<button class="btn btn-danger btn-sm">Rejeter</button>
-						</form>
+						{% if avi.status  == 'approved' %}
+							<span class="badge bg-success">Validé</span>
+						{% elseif  avi.status  == 'pending' %}
+							<span class="badge bg-warning">En attente</span>
+						{% elseif  avi.status  == 'rejected' %}
+							<span class="badge bg-danger">Rejeté</span>
+						{% endif %}
 					</td>
+
+					<td>
+						{% if avi.validation == false %}
+							<form method="post" action="{{ path('app_avis_approve', {'id': avi.id}) }}">
+								<button class="btn btn-success btn-sm">Approuver</button>
+							</form>
+							<form method="post" action="{{ path('app_avis_reject', {'id': avi.id}) }}">
+								<button class="btn btn-danger btn-sm text-center">Rejeter</button>
+							</form>
+						{% else %}
+							<span class="text-muted">Action terminée</span>
+						{% endif %}
+					</td>
+
 				</tr>
 			{% else %}
 				<tr>

@@ -43,9 +43,9 @@ class AvisType extends AbstractType
                     new Assert\NotBlank([
                         'message' => 'Le message ne peut pas être vide.',
                     ]),
-                    new Assert\Regex([
-                        'pattern' => '/^[a-zA-Z0-9\s\.,!?-]+$/',
-                        'message' => 'Le message ne peut contenir que des lettres, chiffres, espaces et certains caractères spéciaux (. , ! ? -).',
+                    new Assert\Length([
+                        'max' => 500,
+                        'maxMessage' => 'Le message ne peut pas dépasser 500 caractères.',
                     ]),
                 ],
                 'label' => 'Message',

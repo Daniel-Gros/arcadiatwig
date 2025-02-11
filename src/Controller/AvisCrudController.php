@@ -17,7 +17,8 @@ final class AvisCrudController extends AbstractController
     #[Route('/avis', name: 'app_avis_crud_index', methods: ['GET'])]
     public function index(AvisRepository $avisRepository): Response
     {
-        $pendingAvis = $avisRepository->findBy(['validation' => 'false']);
+        $pendingAvis = $avisRepository->findBy(['validation' => false]);
+        // dd($pendingAvis);
     
         return $this->render('avis_crud/index.html.twig', [
             'avis' => $pendingAvis,

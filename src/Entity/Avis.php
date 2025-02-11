@@ -17,7 +17,7 @@ class Avis
     #[ORM\Column(length: 50)]
     private ?string $pseudo = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: Types::TEXT, length: 500)]
     private ?string $message = null;
 
     #[ORM\Column]

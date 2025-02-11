@@ -58,16 +58,17 @@ class HomeController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $avis->setUserId($this->getUser()); 
+            $avis->setUserId($this->getUser());
+            $avis->setValidation(false);
             $this->entityManager->persist($avis);
             try {
-            } catch (\Exception) {
-            } catch (\Exception $e) {
+                $this->entityManager->flush();
+            } catch (\Doctrine\DBAL\Exception\DriverException $e) {
+                dd ($e->getMessage());
                 $this->addFlash('error', 'Une erreur est survenue lors de l\'ajout de votre avis');
             }
-            
-            return $this->redirectToRoute('app_home');
 
+            return $this->redirectToRoute('app_home');
         }
 
 
@@ -76,7 +77,7 @@ class HomeController extends AbstractController
             'website' => 'Arcadia',
             'habitats' => $habitats,
             'animals' => $animals,
-            'form' => $form->createView(), 
+            'form' => $form->createView(),
             'avis' => $approvedAvis,
         ]);
     }
