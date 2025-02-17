@@ -23,7 +23,7 @@ class HabitatType extends AbstractType
                 'choice_label' => 'id',
                 'label' => 'Responsable de l\'habitat',
                 'placeholder' => 'Sélectionnez un personnel',
-                'multiple' => true,
+                // 'multiple' => true,
                 'expanded' => true,
             ])
             ->add('imageFile', FileType::class, [
