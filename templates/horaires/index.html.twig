@@ -4,25 +4,28 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container">
-		<h1>Horaires d'Ouverture du Zoo</h1>
-		<p class="text-center">Arcadia vous ouvre ses portes tous les jours de l'année de 8h à 19h.</p>
-		<table class="table table-bordered mt-3">
-			<thead>
-				<tr>
-					<th>Jour</th>
-					<th>Horaires du Zoo</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% set jours = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'] %}
-				{% for jour in jours %}
+	<div class="container mt-5">
+		<h1 class="text-center">Horaires d'Ouverture du Zoo</h1>
+		<p class="text-center text-muted">Arcadia vous ouvre ses portes tous les jours de l'année de 8h à 19h.</p>
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped table-hover table-success shadow-lg mt-3">
+				<thead class="table-dark">
 					<tr>
-						<td>{{ jour }}</td>
-						<td>8h - 19h</td>
+						<th class="text-center">Jour</th>
+						<th class="text-center">Horaires du Zoo</th>
 					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					{% set jours = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'] %}
+					{% for jour in jours %}
+						<tr>
+							<td class="text-center">{{ jour }}</td>
+							<td class="text-center">8h00 - 19h00</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
 	</div>
+
 {% endblock %}
