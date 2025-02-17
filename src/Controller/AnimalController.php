@@ -30,13 +30,13 @@ class AnimalController extends AbstractController
     {
 
         $animalTitle = 'Liste des animaux';
-        // $habitatId = $request->query->get('habitat');
+        // $habitat = $request->query->get('habitat');
 
-        // $habitats = $entityManager->getRepository(Habitat::class)->findAll();
+        $habitats = $entityManager->getRepository(Habitat::class)->findAll();
         $animals = $entityManager->getRepository(Animal::class)->findAll();
 
         return $this->render('animal/show_animal.html.twig', [
-            // 'habitats' => $habitats,
+            'habitats' => $habitats,
             'animals' => $animals,
             // 'selectedHabitat' => $habitatId,
             'animalTitle' => $animalTitle,

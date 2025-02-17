@@ -1,8 +1,8 @@
 <div class="card avis-card shadow-sm mb-3">
-    <div class="col-12 d-flex justify-content-between align-items-center">
-        <h5 class="pseudo">{{ avis.pseudo }}</h5>
-        <div class="rate">{{ avis.note }} étoiles</div>
+    <div class="col-11 d-flex justify-content-between align-items-center">
+        <h5 class="pseudo">{{ approvedAvis.pseudo }}</h5>
+        <div class="rate">{{ approvedAvis.note }} étoiles</div>
     </div>
-    <p>{{ avis.message }}</p>
-    <p class="text-end">Posté le {{ avis.createdAt|date('d/m/Y') }}</p>
+    <p>{{ approvedAvis.message }}</p>
+    <p class="text-end">Posté le {{ approvedAvis.createdAt|date('d/m/Y') }}</p>
 </div>

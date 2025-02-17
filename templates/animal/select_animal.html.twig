@@ -6,7 +6,7 @@
 {% block body %}
 
 
-	<div class="container mt-5 mb-5">
+	{# <div class="container mt-5 mb-5">
 		<div class="row justify-content-center">
 			<div class="col-9">
 				<div class="card shadow-lg">
@@ -29,7 +29,33 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> #}
 
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-9">
+            <div class="card shadow-lg p-4">
+                <div class="d-flex align-items-center">
+                    <div class="me-3">
+                        <img src="{{ asset('uploads/images/' ~ animal.image) }}" alt="{{ animal.firstName }}" class="img-fluid rounded" style="width: 120px; height: 120px; object-fit: cover;">
+                    </div>
+                    <div>
+                        <h1 class="text-dark m-0">{{ animal.firstName }}</h1>
+                    </div>
+                </div>
+                <hr>
+                <div class="mt-3">
+                    <h3 class="text-uppercase text-center">Son histoire</h3>
+                    <p class="card-text" style="text-align: justify;">{{ animal.description }}</p>
+                </div>
+				<hr>
+                <div>
+                    <h3>Vous pouvez le retrouver dans l'habitat</h3>
+                    <p class="card-text text-end">{{ animal.habitat ? animal.habitat.name : 'Non spécifié' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
