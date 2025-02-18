@@ -11,8 +11,10 @@ class RestaurantsController extends AbstractController
     #[Route('/restaurants', name: 'app_restaurants')]
     public function index(): Response
     {
+        $restaurantTitle = 'Les Restaurants d\'Arcadia';
         return $this->render('restaurants/show-restaurant.html.twig', [
             'controller_name' => 'RestaurantsController',
+            'restaurantTitle' => $restaurantTitle,
         ]);
     }
 }

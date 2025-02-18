@@ -11,8 +11,10 @@ class PotitrainController extends AbstractController
     #[Route('/potitrain', name: 'app_potitrain')]
     public function index(): Response
     {
+        $potitrainTitle = 'Le Potitrain d\'Arcadia';
         return $this->render('potitrain/show-potitrain.html.twig', [
             'controller_name' => 'PotitrainController',
+            'potitrainTitle' => $potitrainTitle,
         ]);
     }
 }

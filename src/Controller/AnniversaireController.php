@@ -11,8 +11,10 @@ class AnniversaireController extends AbstractController
     #[Route('/anniversaire', name: 'app_anniversaire')]
     public function index(): Response
     {
+        $annivTitle = 'Célébrez Votre Anniversaire au Zoo!';
         return $this->render('anniversaire/index.html.twig', [
             'controller_name' => 'AnniversaireController',
+            'annivTitle' => $annivTitle,
         ]);
     }
 }

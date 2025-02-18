@@ -12,10 +12,12 @@ class HorairesController extends AbstractController
     #[Route('/horaires', name: 'app_horaires')]
     public function index(HorairesRepository $horairesRepository): Response
     {
+        $horairesTitle = 'Les horaires d\'Arcadia';
         $horaires = $horairesRepository->findAll();
         return $this->render('horaires/index.html.twig', [
             'controller_name' => 'HorairesController',
             'horaires' => $horaires,
+            'horairesTitle' => $horairesTitle,
         ]);
     }
 }

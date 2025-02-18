@@ -16,6 +16,7 @@ class ContactController extends AbstractController
     #[Route('/contact', name: 'app_contact')]
     public function contact(Request $request, MailerInterface $mailer): Response
     {
+        $contactTitle = 'Contactez-nous';
         $form = $this->createForm(ContactType::class);
 
         $form->handleRequest($request);
@@ -52,6 +53,7 @@ class ContactController extends AbstractController
 
         return $this->render('contact/index.html.twig', [
             'contactForm' => $form->createView(),
+            'contactTitle' => $contactTitle,
         ]);
     }
 }

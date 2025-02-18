@@ -13,8 +13,10 @@ class HabitatController extends AbstractController
     #[Route('/habitat', name: 'app_habitat')]
     public function index(): Response
     {
+        $habitatTitle = 'Les habitats d\'Arcadia';
         return $this->render('habitat/index.html.twig', [
             'controller_name' => 'HabitatController',
+            'habitatTitle' => $habitatTitle,
         ]);
     }
 

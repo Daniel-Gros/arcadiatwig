@@ -11,8 +11,10 @@ class PlanDuZooController extends AbstractController
     #[Route('/plan/du/zoo', name: 'app_plan_du_zoo')]
     public function index(): Response
     {
+        $planTitle = 'Le plan du zoo d\'Arcadia';
         return $this->render('plan_du_zoo/index.html.twig', [
             'controller_name' => 'PlanDuZooController',
+            'planTitle' => $planTitle,
         ]);
     }
 }
