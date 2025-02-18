@@ -1,24 +1,35 @@
 {% extends "base.html.twig" %}
-{% block title %}Sortie en Groupe au Zoo Arcadia{% endblock %}
+{% block title %}Sortie en Groupe au Zoo Arcadia
+{% endblock %}
 {% block body %}
 
-<div class="container py-5">
-	<div class="row justify-content-center">
-		<div class="col-md-8 text-center">
-			<h1 class="display-4  mb-4">Organisez une Sortie en Groupe au Zoo Arcadia !</h1>
-			<p class="lead mb-4">Vous faites partie d'un groupe et vous souhaitez vivre une expérience unique au Zoo Arcadia ? Que ce soit pour des associations, des entreprises ou des groupes d'amis, le Zoo Arcadia vous propose des visites adaptées à vos besoins, avec des tarifs de groupe avantageux.</p>
-			<h2 class=" mb-3">Réservez dès maintenant pour votre groupe !</h2>
-			<p class="mb-4">Pour organiser une sortie en groupe au Zoo Arcadia, contactez-nous ou réservez directement en ligne :</p>
-			<div class="list-group mb-4">
-				<ul>
-					<li><a href="tel:+33299919191" class="list-group-item list-group-item-action"><strong>Téléphone :</strong>02 99 91 91 91</a></li>
-					<li><a href="https://wa.me/33999919191" class="list-group-item list-group-item-action"><strong>WhatsApp :</strong>Cliquez ici pour discuter sur WhatsApp</a></li>
-				</ul>
-			</div>
-			<p class="lead">Que vous soyez un groupe scolaire, une association ou une entreprise, nous avons des offres sur mesure pour rendre votre sortie au zoo mémorable. N'attendez plus pour réserver une expérience inoubliable !</p>
-			{# <a href="#" class="btn button btn-lg mt-3">Réservez votre sortie de groupe !</a> #}
+	<div class="container py-5 text-center">
+		<h1 class="display-5 mb-3">Sortie en Groupe au Zoo Arcadia</h1>
+		<p class="lead">Vivez une expérience unique en groupe avec des visites adaptées et des tarifs avantageux.</p>
+
+		<div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+			<a href="tel:+33299919191" class="btn button">📞 02 99 91 91 91</a>
+			<a href="https://wa.me/33999919191" class="btn btn-success pro-btn">💬 WhatsApp</a>
 		</div>
 	</div>
-</div>
+
+	<div class="container py-4">
+		<h2 class="text-center mb-3">Pourquoi choisir le Zoo Arcadia ?</h2>
+		<ul class="list-group text-center">
+			<li class="list-group-item">
+				<strong>Visites guidées :</strong>
+				Découvrez les animaux avec nos experts.</li>
+			<li class="list-group-item">
+				<strong>Offres sur mesure :</strong>
+				Adaptées aux associations, groupes d’amis.</li>
+			<li class="list-group-item">
+				<strong>Moments inoubliables :</strong>
+				Une sortie conviviale et enrichissante.</li>
+		</ul>
+	</div>
+
+	<div class="d-flex justify-content-center mb-5">
+		{% include "_partials/_buttons/_button_retour_accueil.html.twig" %}
+	</div>
 
 {% endblock %}

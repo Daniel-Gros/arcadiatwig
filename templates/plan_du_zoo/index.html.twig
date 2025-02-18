@@ -4,10 +4,11 @@
 {% endblock %}
 
 {% block body %}
-	<h1 class"text-uppercase text-center">
+	<h1 class="text-uppercase text-center">
 		Cette page est en cours de construction</h1>
-	<p>
+	<p class="text-center">
 		Vous pouvez néanmoins télécharger le plan du zoo
-		<a href="{{ asset('uploads/plan-du-zoo.pdf') }}" class="button btn" download="Plan_du_Zoo">Télécharger le plan du zoo</a>
+		<br>
+	<a href="{{ asset('uploads/plan-du-zoo.pdf') }}" class="button btn mt-4" download="Plan_du_Zoo">Télécharger le plan du zoo</a>
 	</p>
 {% endblock %}

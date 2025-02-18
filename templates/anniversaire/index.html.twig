@@ -5,37 +5,6 @@
 
 {% block body %}
 
-	{# <div class="container py-5">
-		<div class="row justify-content-center">
-			<div class="card col-8 my-5 mx-auto" style="width: 100%; height: auto;">
-				<img src="{{asset('images/anniversaire.webp')}}" class="card-img-top" alt="anniversaire avec une maman et des enfants autour d'une table" style="width: 100%; height: auto;">
-				<div class="card-body">
-					<h3 class="card-title text-center mb-4">Célébrez Votre Anniversaire au Zoo Arcadia !</h3>
-					<p class="card-text">
-						Venez passer un moment inoubliable entouré de nos magnifiques animaux ! Organisez une fête d'anniversaire unique et immersive au cœur de la nature. Le Zoo Arcadia vous offre une expérience exceptionnelle pour célébrer ce moment spécial avec vos proches.
-					</p>
-					<h4 class="mb-3">Réservez dès maintenant !</h4>
-					<p class="card-text">
-						Pour organiser votre anniversaire, vous pouvez nous contacter via les moyens suivants :
-					</p>
-					<div class="list-group mb-4">
-						<a href="tel:+33299919191" class="list-group-item list-group-item-action">
-							<strong>Téléphone :</strong>
-							02 99 91 91 91
-						</a>
-						<a href="https://wa.me/33999919191" class="list-group-item list-group-item-action">
-							<strong>WhatsApp :</strong>
-							Cliquez ici pour discuter sur WhatsApp
-						</a>
-					</div>
-					<p class="card-text">
-						Réservez votre place pour un anniversaire unique, au plus près des animaux et dans une ambiance festive et conviviale.
-					</p>
-					<a href="mailto:employeearcadiafictif@outlook.fr" class="btn button btn-lg mt-3">Réservez maintenant !</a>
-				</div>
-			</div>
-		</div>
-	</div> #}
 	<div class="container my-5">
 		<div class="row align-items-center">
 			<div class="col-md-6">
@@ -70,6 +39,10 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="d-flex justify-content-center mb-5">
+		{% include "_partials/_buttons/_button_retour_accueil.html.twig" %}
 	</div>
 
 {% endblock %}

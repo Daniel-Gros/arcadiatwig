@@ -1,26 +1,35 @@
 {% extends "base.html.twig" %}
-
-{% block title %}Sortie pour le Comité d'Entreprise au Zoo Arcadia{% endblock %}
+{% block title %}Sortie pour le Comité d'Entreprise au Zoo Arcadia
+{% endblock %}
 {% block body %}
 
-<div class="container py-5">
-	<div class="row justify-content-center">
-		<div class="col-md-8 text-center">
-			<h1 class="display-4 mb-4">Offrez à Vos Salariés une Sortie Exceptionnelle au Zoo Arcadia !</h1>
-			<p class="lead mb-4">Le Zoo Arcadia vous propose des offres spéciales pour les comités d'entreprise. Offrez à vos collaborateurs une journée de détente et de découverte dans un cadre unique, tout en profitant de tarifs préférentiels pour les groupes et les CE.</p>
-			<h2 class="h3  mb-3">Réservez votre sortie pour le comité d'entreprise !</h2>
-			<p class="mb-4">Nous proposons des visites guidées, des ateliers et des activités spéciales adaptées aux besoins de votre comité. Pour organiser votre sortie, contactez-nous ou réservez directement en ligne :</p>
-			<div class="list-group mb-4">
-				<ul>
-					<li><a href="tel:+33299919191" class="list-group-item list-group-item-action"><strong>Téléphone :</strong>02 99 91 91 91</a></li>
-					<li><a href="https://wa.me/33999919191" class="list-group-item list-group-item-action"><strong>WhatsApp :</strong>Cliquez ici pour discuter sur WhatsApp</a></li>
-				</ul>
-			</div>
-			<p class="lead">Pour une sortie conviviale et enrichissante pour votre équipe, n'attendez plus pour réserver une journée inoubliable au Zoo Arcadia. Nous sommes à votre disposition pour répondre à toutes vos questions et personnaliser votre expérience.</p>
-			{# <a href="#" class="btn btn-warning btn-lg mt-3">Réservez pour votre CE !</a> #}
+	<div class="container py-5 text-center">
+		<h1 class="display-5 mb-3">Sortie pour le Comité d'Entreprise</h1>
+		<p class="lead">Offrez à vos salariés une journée unique de découverte et de détente avec des offres spéciales pour les CE.</p>
+
+		<div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+			<a href="tel:+33299919191" class="btn button">📞 02 99 91 91 91</a>
+			<a href="https://wa.me/33999919191" class="btn btn-success pro-btn">💬 WhatsApp</a>
 		</div>
 	</div>
-</div>
 
+	<div class="container py-4">
+		<h2 class="text-center mb-3">Pourquoi choisir le Zoo Arcadia pour votre CE ?</h2>
+		<ul class="list-group text-center">
+			<li class="list-group-item">
+				<strong>Visites guidées :</strong>
+				Profitez d’un parcours encadré par nos experts.</li>
+			<li class="list-group-item">
+				<strong>Activités adaptées :</strong>
+				Ateliers et animations spécialement conçus pour les entreprises.</li>
+			<li class="list-group-item">
+				<strong>Tarifs préférentiels :</strong>
+				Des offres avantageuses pour les groupes de salariés.</li>
+		</ul>
+	</div>
+
+	<div class="d-flex justify-content-center mb-5">
+		{% include "_partials/_buttons/_button_retour_accueil.html.twig" %}
+	</div>
 
 {% endblock %}
