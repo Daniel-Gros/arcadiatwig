@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ avisVisiteurs }}
+{% endblock %}
+
+
+{% block body %}
+	<h1 class="text-center text-uppercase my-4">découvrez les avis sur
+		{{ websiteName}}</h1>
+
+{% if avis is iterable %}
+    {% for avisItem in avis %}
+        <div class="card mb-5 col-10 d-flex justify-content-center mx-auto">
+            <div class="card-header">
+                Note donnée : {{ avisItem.note }}/5
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>{{ avisItem.message }}</p>
+                    <footer class="blockquote-footer text-end">{{ avisItem.pseudo }} a
+                        <cite title="Source Title">écrit cet avis le {{ avisItem.date|date('d/m/Y') }}</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>Aucun avis disponible.</p>
+{% endif %}
+
+
+{% endblock %}

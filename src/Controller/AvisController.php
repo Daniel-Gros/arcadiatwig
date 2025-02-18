@@ -23,9 +23,9 @@ class AvisController extends AbstractController
     #[Route('/avis', name: 'app_avis')]
     public function index(AvisRepository $avisRepository, ParameterBagInterface $parameterBagInterface, Request $request): Response
     {
-
-        $limitOfAvis = $parameterBagInterface->get('avis_limit');
-        $avis = $avisRepository->findBy([], ['id' => 'DESC'], $limitOfAvis);
+        $avisVisiteurs = 'Les Avis Visiteurs';
+        $websiteName = 'Arcadia';
+        $avisList = $avisRepository->findBy(['status' => 'approved'], ['id' => 'DESC']);
 
         $avis = new Avis();
         $form = $this->createForm(AvisType::class, $avis);
@@ -46,10 +46,11 @@ class AvisController extends AbstractController
         }
 
 
-        return $this->render('avis/index.html.twig', [
+        return $this->render('avis/show_avis.html.twig', [
             'controller_name' => 'AvisController',
-            'avis' => $avis,
-            'limitOfAvis' => $limitOfAvis,
+            'avis' => $avisList,
+            'avisVisiteurs' => $avisVisiteurs,
+            'websiteName' => $websiteName,
         ]);
     }
 }

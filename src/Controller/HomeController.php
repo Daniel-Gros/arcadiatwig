@@ -54,6 +54,7 @@ class HomeController extends AbstractController
         $avis = new Avis();
         $form = $this->createForm(AvisType::class, $avis);
 
+        // $limitOfAvis = $parameterBagInterface->get('avis_limit');
         $approvedAvis = $this->entityManager->getRepository(Avis::class)->findBy(['status' => 'approved']);
 
         $form->handleRequest($request);
@@ -64,7 +65,6 @@ class HomeController extends AbstractController
             try {
                 $this->entityManager->flush();
             } catch (\Doctrine\DBAL\Exception\DriverException $e) {
-                dd ($e->getMessage());
                 $this->addFlash('error', 'Une erreur est survenue lors de l\'ajout de votre avis');
             }
 
@@ -79,6 +79,8 @@ class HomeController extends AbstractController
             'animals' => $animals,
             'form' => $form->createView(),
             'avis' => $approvedAvis,
+            // 'limitOfAvis' => $limitOfAvis,
+
         ]);
     }
 }
