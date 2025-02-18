@@ -1,3 +1,12 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  left: 0;
+  right: 0;
+}
+
 .footer-contact {
   background-color: #713800;
   color: #FFFF4F;
