@@ -54,6 +54,7 @@ class HomeController extends AbstractController
         $avis = new Avis();
         $form = $this->createForm(AvisType::class, $avis);
 
+        // $limitOfAvis = $parameterBagInterface->get('avis_limit');
         $approvedAvis = $this->entityManager->getRepository(Avis::class)->findBy(['status' => 'approved']);
 
         $form->handleRequest($request);
@@ -78,6 +79,8 @@ class HomeController extends AbstractController
             'animals' => $animals,
             'form' => $form->createView(),
             'avis' => $approvedAvis,
+            // 'limitOfAvis' => $limitOfAvis,
+
         ]);
     }
 }
