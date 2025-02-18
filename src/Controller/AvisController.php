@@ -25,7 +25,6 @@ class AvisController extends AbstractController
     {
         $avisVisiteurs = 'Les Avis Visiteurs';
         $websiteName = 'Arcadia';
-        // $limitOfAvis = $parameterBagInterface->get('avis_limit');
         $avisList = $avisRepository->findBy(['status' => 'approved'], ['id' => 'DESC']);
 
         $avis = new Avis();
@@ -50,7 +49,6 @@ class AvisController extends AbstractController
         return $this->render('avis/show_avis.html.twig', [
             'controller_name' => 'AvisController',
             'avis' => $avisList,
-            // 'limitOfAvis' => $limitOfAvis,
             'avisVisiteurs' => $avisVisiteurs,
             'websiteName' => $websiteName,
         ]);
