@@ -1,8 +1,24 @@
-<div class="card avis-card shadow-sm mb-3">
-    <div class="col-11 d-flex justify-content-between align-items-center">
-        <h5 class="pseudo">{{ approvedAvis.pseudo }}</h5>
-        <div class="rate">{{ approvedAvis.note }} étoiles</div>
-    </div>
-    <p>{{ approvedAvis.message }}</p>
-    <p class="text-end">Posté le {{ approvedAvis.createdAt|date('d/m/Y') }}</p>
-</div>
+<h3 class="text-center mt-3">Nos commentaires les plus récents</h3>
+
+{% if avis is iterable %}
+	{% for avisItem in avis %}
+		<div class="card my-5 col-10 d-flex justify-content-center mx-auto service-card">
+			<div class="card-header">
+				Note :
+				{{ avisItem.note }}/5
+			</div>
+			<div class="card-body">
+				<blockquote class="blockquote mb-0">
+					<p>{{ avisItem.message }}</p>
+					<footer class="blockquote-footer text-end">{{ avisItem.pseudo }}
+						a
+						<cite title="Source Title">écrit cet avis le
+							{{ avisItem.date|date('d/m/Y') }}</cite>
+					</footer>
+				</blockquote>
+			</div>
+		</div>
+	{% endfor %}
+{% else %}
+	<p>Aucun avis disponible.</p>
+{% endif %}

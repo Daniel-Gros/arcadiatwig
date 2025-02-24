@@ -6,6 +6,7 @@ use App\Entity\Avis;
 use App\Form\AvisType;
 use App\Repository\AnimalRepository;
 use App\Repository\HabitatRepository;
+use App\Repository\AvisRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -18,12 +19,13 @@ class HomeController extends AbstractController
     private $entityManager;
     private $habitatRepository;
     private $animalRepository;
-
-    public function __construct(EntityManagerInterface $entityManager, HabitatRepository $habitatRepository, AnimalRepository $animalRepository)
+    private $avisRepository;
+    public function __construct(EntityManagerInterface $entityManager, HabitatRepository $habitatRepository, AnimalRepository $animalRepository, AvisRepository $avisRepository)
     {
         $this->entityManager = $entityManager;
         $this->habitatRepository = $habitatRepository;
         $this->animalRepository = $animalRepository;
+        $this->avisRepository = $avisRepository;
     }
 
     #[Route('/animal/{id}', name: 'app_animal_show')]
@@ -54,8 +56,8 @@ class HomeController extends AbstractController
         $avis = new Avis();
         $form = $this->createForm(AvisType::class, $avis);
 
-        // $limitOfAvis = $parameterBagInterface->get('avis_limit');
-        $approvedAvis = $this->entityManager->getRepository(Avis::class)->findBy(['status' => 'approved']);
+        $limitOfAvis = $parameterBagInterface->get('avis_limit');
+        $avisList = $this->entityManager->getRepository(Avis::class)->findBy(['status' => 'approved'], ['id' => 'DESC'], $limitOfAvis);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -78,8 +80,8 @@ class HomeController extends AbstractController
             'habitats' => $habitats,
             'animals' => $animals,
             'form' => $form->createView(),
-            'avis' => $approvedAvis,
-            // 'limitOfAvis' => $limitOfAvis,
+            'avis' => $avisList,
+            'limitOfAvis' => $limitOfAvis,
 
         ]);
     }

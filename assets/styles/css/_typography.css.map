@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../sass/_typography.scss"],"names":[],"mappings":"AAMQ;AAIA;AAIR;EACI;EACA;EACA","file":"_typography.css"}
+{"version":3,"sourceRoot":"","sources":["../sass/_typography.scss","../sass/_variables.scss"],"names":[],"mappings":"AAMQ;AAIA;AAIR;EACI;EACA;EACA;;;AAGJ;EACI,aCLQ;EDMR;EACA","file":"_typography.css"}
