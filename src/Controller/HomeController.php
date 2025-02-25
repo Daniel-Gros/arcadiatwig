@@ -6,6 +6,7 @@ use App\Entity\Avis;
 use App\Form\AvisType;
 use App\Repository\AnimalRepository;
 use App\Repository\HabitatRepository;
+use App\Repository\HorairesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -18,12 +19,14 @@ class HomeController extends AbstractController
     private $entityManager;
     private $habitatRepository;
     private $animalRepository;
+    private $horairesRepository;
 
-    public function __construct(EntityManagerInterface $entityManager, HabitatRepository $habitatRepository, AnimalRepository $animalRepository)
+    public function __construct(EntityManagerInterface $entityManager, HabitatRepository $habitatRepository, AnimalRepository $animalRepository, HorairesRepository $horairesRepository)
     {
         $this->entityManager = $entityManager;
         $this->habitatRepository = $habitatRepository;
         $this->animalRepository = $animalRepository;
+        $this->horairesRepository = $horairesRepository;
     }
 
     #[Route('/animal/{id}', name: 'app_animal_show')]
@@ -50,6 +53,7 @@ class HomeController extends AbstractController
 
         $limit = $parameterBagInterface->get('animal_homepage_limit');
         $animals = $this->animalRepository->findBy([], ['id' => 'DESC'], $limit);
+        $horaires = $this->horairesRepository->findValidHoraires();
 
         $avis = new Avis();
         $form = $this->createForm(AvisType::class, $avis);
@@ -78,6 +82,8 @@ class HomeController extends AbstractController
             'animals' => $animals,
             'form' => $form->createView(), 
             'avis' => $approvedAvis,
+            'horaires' => $horaires
+
         ]);
     }
 }
