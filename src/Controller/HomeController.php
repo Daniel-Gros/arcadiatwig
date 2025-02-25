@@ -22,12 +22,14 @@ class HomeController extends AbstractController
     private $animalRepository;
     private $avisRepository;
     private $horairesRepository;
+
     public function __construct(EntityManagerInterface $entityManager, HabitatRepository $habitatRepository, AnimalRepository $animalRepository, AvisRepository $avisRepository, HorairesRepository $horairesRepository)
     {
         $this->entityManager = $entityManager;
         $this->habitatRepository = $habitatRepository;
         $this->animalRepository = $animalRepository;
         $this->avisRepository = $avisRepository;
+        $this->horairesRepository = $horairesRepository;
     }
 
     #[Route('/animal/{id}', name: 'app_animal_show')]

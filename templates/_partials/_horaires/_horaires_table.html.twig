@@ -1,12 +1,6 @@
 <div class="container d-flex justify-content-center align-items-center mb-2">
 	<table class="table w-50 horaire">
 		<tbody>
-			<tr>
-				<th>Jour</th>
-				<th>Horaires du Zoo</th>
-			</tr>
-		</thead>
-		<tbody>
 			{% for horaire in horaires %}
 				<tr>
 					<td class="text-start">{{ horaire.day }}</td>
