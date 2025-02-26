@@ -8,6 +8,7 @@ use App\Repository\ServiceRepository;
 use App\Repository\AvisRepository;
 use App\Repository\CommentaireHabitatRepository;
 use App\Repository\CompteRenduVeterinaireRepository;
+use App\Repository\HorairesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,6 +24,7 @@ class AdminController extends AbstractController
     private CompteRenduVeterinaireRepository $compteRenduVeterinaireRepository;
     private ServiceRepository $serviceRepository;
     private AvisRepository $avisRepository;
+    private HorairesRepository $horairesRepository;
 
     public function __construct(
         AuthorizationCheckerInterface $authChecker,
@@ -31,7 +33,8 @@ class AdminController extends AbstractController
         CommentaireHabitatRepository $commentaireHabitatRepository,
         CompteRenduVeterinaireRepository $compteRenduVeterinaireRepository,
         ServiceRepository $serviceRepository,
-        AvisRepository $avisRepository
+        AvisRepository $avisRepository,
+        HorairesRepository $horairesRepository
     ) {
         $this->authChecker = $authChecker;
         $this->animalRepository = $animalRepository;
@@ -40,6 +43,7 @@ class AdminController extends AbstractController
         $this->compteRenduVeterinaireRepository = $compteRenduVeterinaireRepository;
         $this->serviceRepository = $serviceRepository;
         $this->avisRepository = $avisRepository;
+        $this->horairesRepository = $horairesRepository;
     }
 
     #[Route('/admin', name: 'app_admin')]
