@@ -1,39 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Horaires index{% endblock %}
+{% block title %}Section Horaires{% endblock %}
 
 {% block body %}
-    <h1>Horaires index</h1>
+    <h1 class="text-center text-uppercase mt-4">Section horaires</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Day</th>
-                <th>Open</th>
-                <th>Close</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for horaire in horaires %}
-            <tr>
-                <td>{{ horaire.id }}</td>
-                <td>{{ horaire.day }}</td>
-                <td>{{ horaire.open ? horaire.open|date('H:i:s') : '' }}</td>
-                <td>{{ horaire.close ? horaire.close|date('H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_horaires_crud_show', {'id': horaire.id}) }}">show</a>
-                    <a href="{{ path('app_horaires_crud_edit', {'id': horaire.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="col-10 mx-auto">
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Jour</th>
+                    <th>Ouverture</th>
+                    <th>Fermeture</th>
+                    <th>Action souhaitée</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for horaire in horaires %}
+                <tr>
+                    <td>{{ horaire.day }}</td>
+                    <td>{{ horaire.open ? horaire.open|date('H:i:s') : '' }}</td>
+                    <td>{{ horaire.close ? horaire.close|date('H:i:s') : '' }}</td>
+                    <td>
+                        <a href="{{ path('app_horaires_crud_show', {'id': horaire.id}) }}" class="btn button">Voir</a>
+                        <a href="{{ path('app_horaires_crud_edit', {'id': horaire.id}) }}" class="btn button">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Pas d'enregistrements trouvés</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{{ path('app_horaires_crud_new') }}">Create new</a>
+        {% include '_partials/_buttons/_button_retour_accueil_admin.html.twig' %}
+    </div>
 {% endblock %}

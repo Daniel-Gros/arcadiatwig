@@ -12,12 +12,16 @@ class HorairesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('day')
+            ->add('day', null, [
+            'label' => 'Jour',
+            ])
             ->add('open', null, [
-                'widget' => 'single_text',
+            'widget' => 'single_text',
+            'label' => 'Ouverture',
             ])
             ->add('close', null, [
-                'widget' => 'single_text',
+            'widget' => 'single_text',
+            'label' => 'Fermeture',
             ])
         ;
     }

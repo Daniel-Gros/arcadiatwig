@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Horaires{% endblock %}
+{% block title %}Edit Horaires
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Horaires</h1>
+	<h1 class="text-center mt-4">Modification des Horaires</h1>
 
-    {{ include('horaires_crud/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_horaires_crud_index') }}">back to list</a>
-
-    {{ include('horaires_crud/_delete_form.html.twig') }}
+	{{ include('horaires_crud/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+	<div class="d-flex justify-content-center my-5">
+		<a href="{{ path('app_horaires_crud_index') }}" class="btn button">Retour à la liste</a>
+	</div>
 {% endblock %}
