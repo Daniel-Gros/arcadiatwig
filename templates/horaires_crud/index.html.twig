@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Horaires index{% endblock %}
+
+{% block body %}
+    <h1>Horaires index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Day</th>
+                <th>Open</th>
+                <th>Close</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for horaire in horaires %}
+            <tr>
+                <td>{{ horaire.id }}</td>
+                <td>{{ horaire.day }}</td>
+                <td>{{ horaire.open ? horaire.open|date('H:i:s') : '' }}</td>
+                <td>{{ horaire.close ? horaire.close|date('H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_horaires_crud_show', {'id': horaire.id}) }}">show</a>
+                    <a href="{{ path('app_horaires_crud_edit', {'id': horaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_horaires_crud_new') }}">Create new</a>
+{% endblock %}
