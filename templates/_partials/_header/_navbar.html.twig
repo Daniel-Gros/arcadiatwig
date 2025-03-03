@@ -5,8 +5,10 @@
 		</button>
 		<div class="collapse navbar-collapse justify-content-evenly" id="navbarNavDropdown">
 			<ul class="navbar-nav w-100 justify-content-between">
-				<li class="nav-item">
-					<a class="navbar-brand" href="{{ path('app_home') }}">Arcadia</a>
+				<li class="nav-item d-none d-md-block">
+					<a class="navbar-brand" href="{{ path('app_home') }}">
+						<img src="{{ asset('images/logo-arcadia.webp') }}" alt="Logo Arcadia" class="img-fluid" style="height: 100%; width: auto; object-fit: contain; max-height: 50px;">
+					</a>
 				</li>
 				{% for item in nav_items() %}
 					<li class="nav-item {% if item.submenu is defined %}dropdown{% endif %}">
