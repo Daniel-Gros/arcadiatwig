@@ -17,7 +17,7 @@
 			<tr>
 				<th>Id</th>
 				<th>Date & Heure</th>
-				{# <th>Animal</th> #}
+				<th>Animal</th>
 				<th>Message</th>
 				<th>Actions</th>
 			</tr>
@@ -27,6 +27,7 @@
 				<tr>
 					<td>{{ compte_rendu_veterinaire.id }}</td>
 					<td>{{ compte_rendu_veterinaire.date ? compte_rendu_veterinaire.date|date('Y-m-d H:i') : '' }}</td>
+					<td>{{ compte_rendu_veterinaire.getAnimalId().getfirstName() }}</td>
 					<td>{{ compte_rendu_veterinaire.message }}</td>
 					<td>
 						<a href="{{ path('app_compte_rendu_veterinaire_crud_show', {'id': compte_rendu_veterinaire.id}) }}" class="btn button">Voir</a>

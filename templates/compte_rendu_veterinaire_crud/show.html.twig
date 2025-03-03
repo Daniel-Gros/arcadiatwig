@@ -17,6 +17,9 @@
 				<td>{{ compte_rendu_veterinaire.date ? compte_rendu_veterinaire.date|date('Y-m-d H:i:s') : '' }}</td>
 			</tr>
 			<tr>
+				<th>Animal</th>
+				<td>{{ compte_rendu_veterinaire.getAnimalId().getfirstName() }}</td>
+			<tr>
 				<th>Message</th>
 				<td>{{ compte_rendu_veterinaire.message }}</td>
 			</tr>

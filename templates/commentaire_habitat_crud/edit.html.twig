@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Editer Commentaire Habitat{% endblock %}
+{% block title %}Editer Commentaire Habitat
+{% endblock %}
 
 {% block body %}
-    <h1>Editer Commentaire Habitat</h1>
+	<h1 class="text-center">Editer Commentaire Habitat</h1>
 
-    {{ include('commentaire_habitat_crud/_form.html.twig', {'button_label': 'Update'}) }}
+	{{ include('commentaire_habitat_crud/_form.html.twig', {'button_label': 'Update'}) }}
+	<div class="d-flex justify-content-center gap-5 my-4">
+		<a class="btn button" href="{{ path('app_commentaire_habitat_crud_index') }}">Retour à la liste</a>
 
-    <a class="btn-dark" href="{{ path('app_commentaire_habitat_crud_index') }}">retour à la liste</a>
-
-    {{ include('commentaire_habitat_crud/_delete_form.html.twig') }}
+		{{ include('commentaire_habitat_crud/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

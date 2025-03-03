@@ -7,6 +7,7 @@ use App\Entity\Habitat;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,15 +23,13 @@ class CommentaireHabitat1Type extends AbstractType
                 new Assert\NotBlank([
                     'message' => 'Le message ne peut pas être vide.',
                 ]),
-                new Assert\Regex([
-                    'pattern' => '/^[a-zA-Z0-9\s\.,!?-]+$/',
-                    'message' => 'Le message ne peut contenir que des lettres, chiffres, espaces et certains caractères spéciaux (. , ! ? -).',
-                ]),
             ],
             'label' => 'Message',
         ])
-            ->add('improvement', null, [
+            ->add('improvement', CheckboxType::class, [
                 'label' => 'Amélioration',
+                'required' => false,
+                'mapped' => true,
             ])
             ->add('user_id', EntityType::class, [
                 'class' => User::class,

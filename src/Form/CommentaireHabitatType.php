@@ -20,6 +20,7 @@ class CommentaireHabitatType extends AbstractType
             ->add('improvement', CheckboxType::class, [
                 'label' => 'Amélioration',
                 'required' => false,
+                'mapped' => false,
             ])
             ->add('user_id', EntityType::class, [
                 'class' => User::class,
