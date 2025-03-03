@@ -50,8 +50,10 @@ class AnimalType extends AbstractType
             'mapped' => false,
             'required' => false
             ])
-            ->add('submit', SubmitType::class, ['label' => 'Sauvegarder']);
-    
+            ->add('submit', SubmitType::class, [
+                'label' => 'Sauvegarder',
+                'attr' => ['class' => 'btn button'],
+            ]);
     }
     public function configureOptions(OptionsResolver $resolver): void
     {

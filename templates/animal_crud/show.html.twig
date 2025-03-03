@@ -1,34 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Animal{% endblock %}
+{% block title %}Animal
+{% endblock %}
 
 {% block body %}
-    <h1>Animal</h1>
+	<h1 class="text-center">Animal</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ animal.id }}</td>
-            </tr>
-            <tr>
-                <th>Prénom</th>
-                <td>{{ animal.firstName }}</td>
-            </tr>
-            <tr>
-                <th>Espèce</th>
-                <td>{{ animal.breed }}</td>
-            </tr>
-            <tr>
-                <th>Régime</th>
-                <td>{{ animal.diet }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="d-flex justify-content-center">
+        <div class="col-12 col-md-10">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Numéro d'identification (ID)</th>
+                        <td>{{ animal.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prénom</th>
+                        <td>{{ animal.firstName }}</td>
+                    </tr>
+                    <tr>
+                        <th>Espèce</th>
+                        <td>{{ animal.breed }}</td>
+                    </tr>
+                    <tr>
+                        <th>Régime</th>
+                        <td>{{ animal.diet }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+	<div class="d-flex justify-content-center">
+		<div class="col-6 d-flex justify-content-evenly my-5">
+			<a class="btn button" href="{{ path('app_animal_crud_index') }}">Retour à la liste</a>
 
-    <a class="btn-dark" href="{{ path('app_animal_crud_index') }}">retour à la liste</a>
+			<a class="btn button" href="{{ path('app_animal_crud_edit', {'id': animal.id}) }}">Éditer</a>
 
-    <a class="btn-dark" href="{{ path('app_animal_crud_edit', {'id': animal.id}) }}">Éditer</a>
-
-    {{ include('animal_crud/_delete_form.html.twig') }}
+			{{ include('animal_crud/_delete_form.html.twig') }}
+		</div>
+	</div>
 {% endblock %}

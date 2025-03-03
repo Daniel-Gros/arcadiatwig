@@ -3,9 +3,11 @@
 {% block title %}Nouvel Animal{% endblock %}
 
 {% block body %}
-    <h1>Créér un nouvel animal</h1>
+    <h1 class="text-center">Créér un nouvel animal</h1>
 
     {{ include('animal_crud/_form.html.twig') }}
-
-    <a class="btn btn-dark"href="{{ path('app_animal_crud_index') }}">retour à la liste</a>
+<div class="d-flex justify-content-center mt-2">
+    <a class="btn button"href="{{ path('app_animal_crud_index') }}">retour à la liste</a>
+</div>
+    {% include "_partials/_buttons/_button_retour_accueil_admin.html.twig" %}
 {% endblock %}

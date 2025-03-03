@@ -5,8 +5,9 @@
 
 {% block body %}
 	<h1 class="text-center">Section Animal</h1>
-
-	<a class="btn button my-5 mb-5 text-decoration-none my-5" href="{{ path('app_animal_crud_new') }}">Créer un nouvel animal</a>
+	<div class="d-flex justify-content-center">
+		<a class="btn button mt-5 text-decoration-none" href="{{ path('app_animal_crud_new') }}">Créer un nouvel animal</a>
+	</div>
 	<table class="table my-5">
 		<thead>
 			<tr>
@@ -36,5 +37,7 @@
 			{% endfor %}
 		</tbody>
 	</table>
+
+	{% include "_partials/_buttons/_button_retour_accueil_admin.html.twig" %}
 
 {% endblock %}
