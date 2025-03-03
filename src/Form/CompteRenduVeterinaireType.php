@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Animal;
 use App\Entity\CompteRenduVeterinaire;
 use App\Entity\User;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -27,6 +28,11 @@ class CompteRenduVeterinaireType extends AbstractType
                 'choice_label' => 'email',
                 'label' => 'Vétérinaire',
                 'placeholder' => 'Sélectionnez un vétérinaire',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->where('u.roles LIKE :role')
+                        ->setParameter('role', '%ROLE_VETERINAIRE%');
+                },
             ])
             ->add('message', TextType::class, [
                 'constraints' => [

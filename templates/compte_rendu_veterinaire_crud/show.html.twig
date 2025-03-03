@@ -1,30 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CompteRenduVeterinaire{% endblock %}
+{% block title %}CompteRenduVeterinaire
+{% endblock %}
 
 {% block body %}
-    <h1>CompteRenduVeterinaire</h1>
+	<h1 class="text-center">CompteRenduVeterinaire</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>N° d'identifcation (id)</th>
-                <td>{{ compte_rendu_veterinaire.id }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ compte_rendu_veterinaire.date ? compte_rendu_veterinaire.date|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Message</th>
-                <td>{{ compte_rendu_veterinaire.message }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<table class="table mt-5">
+		<tbody>
+			<tr>
+				<th>N° d'identifcation (id)</th>
+				<td>{{ compte_rendu_veterinaire.id }}</td>
+			</tr>
+			<tr>
+				<th>Date</th>
+				<td>{{ compte_rendu_veterinaire.date ? compte_rendu_veterinaire.date|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+			<tr>
+				<th>Message</th>
+				<td>{{ compte_rendu_veterinaire.message }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="d-flex justify-content-center gap-5 my-4">
+		<a class="btn button" href="{{ path('app_compte_rendu_veterinaire_crud_index') }}">Retour à la liste</a>
 
-    <a class="btn btn-dark" href="{{ path('app_compte_rendu_veterinaire_crud_index') }}">Retour à la liste</a>
+		<a class="btn button" href="{{ path('app_compte_rendu_veterinaire_crud_edit', {'id': compte_rendu_veterinaire.id}) }}">Éditer</a>
 
-    <a class="btn btn-dark" href="{{ path('app_compte_rendu_veterinaire_crud_edit', {'id': compte_rendu_veterinaire.id}) }}">Éditer</a>
-
-    {{ include('compte_rendu_veterinaire_crud/_delete_form.html.twig') }}
+		{{ include('compte_rendu_veterinaire_crud/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

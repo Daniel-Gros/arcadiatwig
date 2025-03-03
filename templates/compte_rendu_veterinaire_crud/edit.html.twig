@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Éditer Compte Rendu Vétérinaire{% endblock %}
+{% block title %}Éditer Compte Rendu Vétérinaire
+{% endblock %}
 
 {% block body %}
-    <h1>Éditer Compte Rendu Vétérinaire</h1>
+	<h1 class="text-center">Éditer Compte Rendu Vétérinaire</h1>
 
-    {{ include('compte_rendu_veterinaire_crud/_form.html.twig', {'button_label': 'Update'}) }}
+	{{ include('compte_rendu_veterinaire_crud/_form.html.twig', {'button_label': 'Update'}) }}
+	<div class="d-flex justify-content-center gap-5 my-4">
+		<a class="btn button" href="{{ path('app_compte_rendu_veterinaire_crud_index') }}">Retour à la liste</a>
 
-    <a class="btn btn-dark" href="{{ path('app_compte_rendu_veterinaire_crud_index') }}">retour à la liste</a>
-
-    {{ include('compte_rendu_veterinaire_crud/_delete_form.html.twig') }}
+		{{ include('compte_rendu_veterinaire_crud/_delete_form.html.twig') }}
+	</div>
 {% endblock %}
