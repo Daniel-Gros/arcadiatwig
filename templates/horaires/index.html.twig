@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ horairesTitle }}
+{% block title %}
+	{{ horairesTitle }}
 {% endblock %}
 
 {% block body %}
 	<div class="container mt-5">
 		<h1 class="text-center">Horaires d'Ouverture du Zoo</h1>
-		<p class="text-center text-muted">Arcadia vous ouvre ses portes tous les jours de l'année de 8h à 19h.</p>
+		<p class="text-center text-muted">Arcadia vous ouvre ses portes tous les jours de l'année de 8h à 19h.<sup>*</sup>
+		</p>
 		<div class="table-responsive">
 			<table class="table table-bordered table-striped table-hover table-success shadow-lg mt-3">
 				<thead class="table-dark">
@@ -16,19 +18,21 @@
 					</tr>
 				</thead>
 				<tbody>
-					{% set jours = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'] %}
-					{% for jour in jours %}
+					{% for horaire in horaires %}
 						<tr>
-							<td class="text-center">{{ jour }}</td>
-							<td class="text-center">8h00 - 19h00</td>
+							<td class="text-center">{{ horaire.day }}</td>
+							<td class="text-center">{{ horaire.open|date('H:i') }}
+								-
+								{{ horaire.close|date('H:i') }}</td>
 						</tr>
 					{% endfor %}
 				</tbody>
 			</table>
 		</div>
 	</div>
-
-	<div class="d-flex justify-content-center mb-5">
+	<p class="my-5 fs-6">* :Les horaires peuvent être soumis à changement selon les évènements liés au Zoo (travaux, événements spéciaux, événements saisonniers)
+	</p>
+	<div class="d-flex justify-content-center my-5">
 		{% include "_partials/_buttons/_button_retour_accueil.html.twig" %}
 	</div>
 
