@@ -38,6 +38,9 @@
 				{% endfor %}
 				{% if app.user %}
 					<li>
+						<a class="nav-link" href="{{ path('app_avis') }}" class="nav-link">Avis</a>
+					</li>
+					<li>
 						<a class="nav-link" href="{{ path('app_admin') }}">Admin</a>
 					</li>
 				{% else %}
