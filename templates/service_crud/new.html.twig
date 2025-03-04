@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
 
-
 {% block body %}
 
 
-    {{ include('service_crud/_form.html.twig') }}
+	{{ include('service_crud/_form.html.twig') }}
 
-    <a class="btn btn-dark" href="{{ path('app_service_crud_index') }}">Retour à la liste</a>
+	<div class="d-flex justify-content-center my-4">
+		<a class="btn button" href="{{ path('app_service_crud_index') }}">Retour à la liste</a>
+	</div>
 {% endblock %}

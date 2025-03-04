@@ -16,7 +16,9 @@ class ServiceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
+            ->add('name', null, [
+                'label' => 'Nom du Service',
+            ])
             ->add('description')
             ->add('user_id', EntityType::class, [
                 'class' => User::class,

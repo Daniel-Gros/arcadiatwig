@@ -1,37 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Section Service{% endblock %}
+{% block title %}Section Service
+{% endblock %}
 
 {% block body %}
-    <h1>Section Service</h1>
+	<h1 class="text-center">Section Service</h1>
+	<div class="d-flex justify-content-center my-4">
+		<a class="btn button" href="{{ path('app_service_crud_new') }}">Créer un nouveau service</a>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Description</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for service in services %}
+				<tr>
+					<td>{{ service.id }}</td>
+					<td>{{ service.name }}</td>
+					<td>{{ service.description }}</td>
+					<td>
+						<a href="{{ path('app_service_crud_show', {'id': service.id}) }}" class="btn button">Voir</a>
+						<a href="{{ path('app_service_crud_edit', {'id': service.id}) }}" class="btn button">Éditer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">pas d'enregistrements trouvés</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for service in services %}
-            <tr>
-                <td>{{ service.id }}</td>
-                <td>{{ service.name }}</td>
-                <td>{{ service.description }}</td>
-                <td>
-                    <a href="{{ path('app_service_crud_show', {'id': service.id}) }}">voir</a>
-                    <a href="{{ path('app_service_crud_edit', {'id': service.id}) }}">éditer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">pas d'enregistrements trouvés</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{% include "_partials/_buttons/_button_retour_accueil_admin.html.twig" %}
 
-    <a class="btn btn-dark" href="{{ path('app_service_crud_new') }}">Créer nouveau service</a>
 {% endblock %}
