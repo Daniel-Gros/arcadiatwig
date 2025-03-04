@@ -1,37 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Section Utilisateur{% endblock %}
+{% block title %}Section Utilisateur
+{% endblock %}
 
 {% block body %}
-    <h1>Section Utilisateur</h1>
+	<h1 class="text-center">Section Utilisateur</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>N° d'identification (Id)</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.roles | join(', ')}}</td>
-                <td>
-                    <a href="{{ path('app_user_crud_show', {'id': user.id}) }}" class="btn button">Voir</a>
-                    <a href="{{ path('app_user_crud_edit', {'id': user.id}) }}" class="btn button">Éditer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">Pas d'enregistrements trouvés</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<div class="d-flex justify-content-center my-4">
+		<a href="{{ path('app_user_crud_new') }}" class="btn button">Créer nouvel utilisateur</a>
+	</div>
 
-    <a href="{{ path('app_user_crud_new') }}" class="btn button">Créer nouvel utilisateur</a>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>N° d'identification (Id)</th>
+				<th>Email</th>
+				<th>Role</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.id }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.getNameForRole()}}</td>
+					<td>
+						<a href="{{ path('app_user_crud_show', {'id': user.id}) }}" class="btn button">Voir</a>
+						<a href="{{ path('app_user_crud_edit', {'id': user.id}) }}" class="btn button">Éditer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">Pas d'enregistrements trouvés</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% include "_partials/_buttons/_button_retour_accueil_admin.html.twig" %}
 {% endblock %}

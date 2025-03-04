@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Éditer Utilisateur{% endblock %}
+{% block title %}Éditer Utilisateur
+{% endblock %}
 
 {% block body %}
-    <h1>Éditer Utilisateur</h1>
+	<h1 class="text-center">Éditer Utilisateur</h1>
 
-    {{ include('user_crud/_form.html.twig', {'button_label': 'Update'}) }}
+	{{ include('user_crud/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('app_user_crud_index') }}">Retour à la liste</a>
+	<div class="d-flex justify-content-center gap-5 my-4">
+		<a href="{{ path('app_user_crud_index') }}" class="btn button">Retour à la liste</a>
 
-    {{ include('user_crud/_delete_form.html.twig') }}
+		{{ include('user_crud/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

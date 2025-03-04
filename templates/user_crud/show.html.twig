@@ -1,30 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Utilisateur{% endblock %}
+{% block title %}Utilisateur
+{% endblock %}
 
 {% block body %}
-    <h1>Utilisateur</h1>
+	<h1 class="text-center">Utilisateur</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Role</th>
-                <td>{{ user.role }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<table class="table mt-4">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ user.id }}</td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td>{{ user.email }}</td>
+			</tr>
+			<tr>
+				<th>Rôle</th>
+				<td>{{ user.getNameForRole()}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="d-flex justify-content-center my-4 gap-5">
+		<a href="{{ path('app_user_crud_index') }}" class="btn button">Retour à la liste</a>
 
-    <a href="{{ path('app_user_crud_index') }}">Retour à la liste</a>
+		<a href="{{ path('app_user_crud_edit', {'id': user.id}) }}" class="btn button">Éditer</a>
 
-    <a href="{{ path('app_user_crud_edit', {'id': user.id}) }}">Éditer</a>
-
-    {{ include('user_crud/_delete_form.html.twig') }}
+		{{ include('user_crud/_delete_form.html.twig') }}
+	</div>
 {% endblock %}
