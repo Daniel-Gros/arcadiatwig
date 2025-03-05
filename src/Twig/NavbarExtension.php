@@ -25,7 +25,7 @@ class NavbarExtension extends AbstractExtension
                 'submenu' => [
                     ['label' => 'Horaires', 'route' => 'app_horaires'],
                     ['label' => 'Plan du Zoo', 'route' => 'app_plan_du_zoo'],
-                    ['label' => 'Restaurants', 'route' => 'app_restaurants']
+                    ['label' => 'Services', 'route' => 'app_service']
                 ]
             ],
             [
