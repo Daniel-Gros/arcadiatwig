@@ -24,7 +24,10 @@
 
 	{% include '_partials/_avis/_card_avis.html.twig' %}
 
-	{% include "_partials/_avis/_form_avis.html.twig" %}
+	<div class="d-flex justify-content-center">
+		<button id="load-avis-form" class="btn button text-uppercase">Laisser un avis</button>
+	</div>
+	<div id="avis-container"></div>
 
 	{% include "_partials/_horaires/_horaires_presentation.html.twig" %}
 

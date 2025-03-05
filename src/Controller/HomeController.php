@@ -45,7 +45,21 @@ class HomeController extends AbstractController
             'animal' => $animal,
         ]);
     }
-
+    
+    #[Route('/avis/form', name: 'load_avis_form')]
+    public function loadAvisForm(Request $request): Response
+    {
+        if (!$request->isXmlHttpRequest()) {
+            throw $this->createNotFoundException("Accès interdit");
+        }
+    
+        $avis = new Avis();
+        $form = $this->createForm(AvisType::class, $avis);
+    
+        return $this->render('_partials/_avis/_form_avis.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
 
     #[Route('/', name: 'app_home')]
 
