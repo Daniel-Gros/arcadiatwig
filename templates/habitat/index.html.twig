@@ -1,37 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ habitatTitle}}
+{% block title %}
+	{{ habitatTitle}}
 {% endblock %}
 
 {% block body %}
-	<div class="container d-flex justify-content-around my-5">
-		<div class="card habitat-card" style="width: 22rem;">
-			<img src="{{asset('images/enclos-tigre.webp')}}" class="card-img-top" alt="photo d'un tigre devant une étendue d'eau">
-			<div class="card-body d-flex flex-column">
-				<h5 class="card-title">La Savane</h5>
-				<p class="card-text">Découvrez l'immensité de la savane, où vivent lions, éléphants et girafes. Ce paysage ensoleillé et infini recrée l'essence de la vie sauvage africaine. Approchez-vous des majestueux prédateurs et herbivores dans un espace naturel captivant, conçu pour offrir un aperçu authentique de leur habitat d'origine.</p>
+	<h1 class="text-center">Les 3 habitats d'Arcadia</h1>
+	<div class="container d-flex flex-column flex-md-row justify-content-around my-5 gap-5">
+		{% for habitat in habitat %}
+			<div class="card habitat-card" style="width: 22rem;">
+				<div class="card-body d-flex flex-column">
+					<h5 class="card-title">{{ habitat.name }}</h5>
+					<p class="card-text">{{ habitat.description }}</p>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="{{ path('habitat_animals', { id: habitat.id }) }}" class="btn button mt-3">Voir les animaux de cet habitat</a>
+				</div>
 			</div>
-		</div>
-
-		<div class="card habitat-card" style="width: 22rem;">
-			<img src="{{asset('images/habitat-tortue.webp')}}" class="card-img-top" alt="photo d'une tortue">
-			<div class="card-body d-flex flex-column">
-				<h5 class="card-title">Le Vivarium</h5>
-				<p class="card-text">Plongez dans un univers mystérieux de reptiles et d'amphibiens. Ce vivarium abrite des créatures fascinantes, des serpents aux grenouilles tropicales, en passant par des lézards exotiques. Observez de près les différentes espèces dans un espace conçu pour leur offrir un environnement sûr et adapté.</p>
-			</div>
-		</div>
-
-		<div class="card habitat-card" style="width: 22rem;">
-			<img src="{{asset('images/raccoon.webp')}}" class="card-img-top" alt="photo d'un raton laveur">
-			<div class="card-body d-flex flex-column">
-				<h5 class="card-title">La Bambouseraie</h5>
-				<p class="card-text">Entrez dans la fraîcheur de la bambouseraie, un sanctuaire de tranquillité pour nos pandas et lémuriens. Ce jardin exotique, ombragé et verdoyant, vous transporte dans un cadre paisible et immersif, rappelant les forêts de bambous d'Asie.</p>
-			</div>
-		</div>
+		{% endfor %}
 	</div>
-	<div class="d-flex justify-content-center mb-5">
+	<div class="d-flex justify-content-center my-5">
 		{% include "_partials/_buttons/_button_retour_accueil.html.twig" %}
 	</div>
-	
-
 {% endblock %}
