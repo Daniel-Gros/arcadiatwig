@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Éditer Service{% endblock %}
+{% block title %}Éditer Service
+{% endblock %}
 
 {% block body %}
-    <h1>Éditer Service</h1>
+	<h1>Éditer Service</h1>
 
-    {{ include('service_crud/_form.html.twig', {'button_label': 'Update'}) }}
+	{{ include('service_crud/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+	<div class="d-flex justify-content-center gap-5 my-4">
+		<a class="btn button" href="{{ path('app_service_crud_index') }}">Retour à la liste</a>
 
-    <a class="btn button"href="{{ path('app_service_crud_index') }}">retour à la liste</a>
-
-    {{ include('service_crud/_delete_form.html.twig') }}
+		{{ include('service_crud/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

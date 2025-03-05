@@ -7,6 +7,7 @@ use App\Form\ServiceType;
 use App\Repository\ServiceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -30,6 +31,19 @@ final class ServiceCrudController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form->get('imageFile')->getData();
+
+            if ($imageFile) {
+                $newFilename = uniqid() . '.' . $imageFile->guessExtension();
+                try {
+                    $imageFile->move($this->getParameter('services_images_directory'), $newFilename);
+                    $service->setImage($newFilename);
+                } catch (FileException $e) {
+                    $this->addFlash('error', 'Impossible d’enregistrer l’image.');
+                }
+            }
+
             $entityManager->persist($service);
             $entityManager->flush();
 
@@ -57,10 +71,23 @@ final class ServiceCrudController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('imageFile')->getData();
+        
+            if ($imageFile) {
+                $newFilename = uniqid().'.'.$imageFile->guessExtension();
+                try {
+                    $imageFile->move($this->getParameter('services_images_directory'), $newFilename);
+                    $service->setImage($newFilename);
+                } catch (FileException $e) {
+                    $this->addFlash('error', 'Impossible d’enregistrer l’image.');
+                }
+            }
+        
             $entityManager->flush();
-
+        
             return $this->redirectToRoute('app_service_crud_index', [], Response::HTTP_SEE_OTHER);
         }
+        
 
         return $this->render('service_crud/edit.html.twig', [
             'service' => $service,
@@ -71,7 +98,7 @@ final class ServiceCrudController extends AbstractController
     #[Route('/{id}', name: 'app_service_crud_delete', methods: ['POST'])]
     public function delete(Request $request, Service $service, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$service->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $service->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($service);
             $entityManager->flush();
         }

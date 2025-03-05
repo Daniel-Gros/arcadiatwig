@@ -1,20 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos Services{% endblock %}
+{% block title %}Nos Services
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<div class="container my-5">
+		<h1 class="text-center mb-4">Découvrez les services que propose Arcadia</h1>
+		{% for service in services %}
+			<div class="card mb-4">
+				<div class="row g-0 h-100">
+					<div class="col-md-4">
+						<img src="{{ asset('uploads/services/' ~ service.image) }}" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Image représentant le service: {{ service.name }}">
+					</div>
+					<div class="col-md-8 d-flex flex-column">
+						<div class="card-body d-flex flex-column">
+							<h5 class="card-title text-center">{{ service.name }}</h5>
+							<p class="card-text overflow-auto" style="max-height: 200px;">{{ service.description }}</p>
+							<p class="card-text">
+								<small class="text-muted">Renseignements et réservation au 02.02.02.02.02</small>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/env/workspace/arcadiaecf/backend/src/Controller/ServiceController.php</code></li>
-        <li>Your template at <code>C:/env/workspace/arcadiaecf/backend/templates/service/index.html.twig</code></li>
-    </ul>
-</div>
-{% endblock %}
+		{% endfor %}
+		<div class="d-flex justify-content-center my-4">
+			{% include "_partials/_buttons/_button_retour_accueil.html.twig" %}
+		</div>
+	{% endblock %}

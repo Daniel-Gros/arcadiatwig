@@ -6,7 +6,7 @@
 	<h1 class="text-center">Panneau d'Administration d'Arcadia</h1>
 	<div>
 		<div class="row">
-			<div class="col-2 bg-dark text-white p-3 my-5">
+			<div class="col-12 col-md-2 bg-dark text-white p-3 my-5">
 				<h2 class="my-3 text-center">Gestion
 				</h2>
 				<div class="section gestion">
@@ -57,7 +57,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-10 d-flex justify-content-evenly mt-5">
+			<div class="col-12 col-md-10 d-flex justify-content-evenly mt-5 d-none d-md-block">
 				{% if is_granted('ROLE_ADMIN') %}
 					<div class="crud-card">
 						<a class="nav-link text-center" href="{{ path('app_animal_crud_index') }}">Section Animal</a>

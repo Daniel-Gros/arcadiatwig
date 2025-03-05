@@ -11,12 +11,14 @@ use Symfony\Component\Routing\Attribute\Route;
 class HabitatController extends AbstractController
 {
     #[Route('/habitat', name: 'app_habitat')]
-    public function index(): Response
+    public function index(HabitatRepository $habitatRepository): Response
     {
+        $habitat = $habitatRepository->findAll();
         $habitatTitle = 'Les habitats d\'Arcadia';
         return $this->render('habitat/index.html.twig', [
             'controller_name' => 'HabitatController',
             'habitatTitle' => $habitatTitle,
+            'habitat' => $habitat,
         ]);
     }
 
