@@ -4,27 +4,27 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container my-5">
-		<h1 class="text-center mb-4">Découvrez les services que propose Arcadia</h1>
-		{% for service in services %}
-			<div class="card mb-4">
-				<div class="row g-0 h-100">
-					<div class="col-md-4">
-						<img src="{{ asset('uploads/services/' ~ service.image) }}" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Image représentant le service: {{ service.name }}">
-					</div>
-					<div class="col-md-8 d-flex flex-column">
-						<div class="card-body d-flex flex-column">
-							<h5 class="card-title text-center">{{ service.name }}</h5>
-							<p class="card-text overflow-auto" style="max-height: 200px;">{{ service.description }}</p>
-							<p class="card-text">
-								<small class="text-muted">Renseignements et réservation au 02.02.02.02.02</small>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		{% endfor %}
+	<h1 class="text-center mb-4 text-uppercase">Découvrez les services que propose Arcadia</h1>
+    {% for service in services %}
+        <div class="container my-5">
+            <div class="card mb-4" style="width: 100%;">
+                <div class="row g-0 h-100">
+                    <div class="col-md-4">
+                        <img src="{{ asset('uploads/services/' ~ service.image) }}" class="img-fluid rounded-start h-100" style="object-fit: cover; width: 100%;" alt="Image représentant le service: {{ service.name }}">
+                    </div>
+                    <div class="col-md-8 d-flex flex-column">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-center">{{ service.name }}</h5>
+                            <p class="card-text overflow-auto" style="max-height: 200px;">{{ service.description }}</p>
+                            <p class="card-text">
+                                <small class="text-muted">Renseignements et réservation au 02.02.02.02.02</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 		<div class="d-flex justify-content-center my-4">
 			{% include "_partials/_buttons/_button_retour_accueil.html.twig" %}
 		</div>
