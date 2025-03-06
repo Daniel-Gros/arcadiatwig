@@ -95,6 +95,7 @@ class HomeController extends AbstractController
 
         return $this->render('home/index.html.twig', [
             'mentions_legales_path' => $this->generateUrl('app_mentions_legales'),
+            
             'website' => 'Arcadia',
             'habitats' => $habitats,
             'animals' => $animals,
