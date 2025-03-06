@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AnimalRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AnimalRepository::class)]
@@ -35,6 +37,9 @@ class Animal
 
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $description = null;
+
+    #[ORM\OneToMany(mappedBy: 'animal', targetEntity: Nourrissage::class)]
+    private Collection $nourrissages;
 
     public function getId(): ?int
     {
@@ -123,4 +128,18 @@ class Animal
         $this->description = $description;
         return $this;
     }
+
+    public function __construct()
+    {
+        $this->nourrissages = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|Nourrissage[]
+     */
+    public function getNourrissages(): Collection
+    {
+        return $this->nourrissages;
+    }
+
 }

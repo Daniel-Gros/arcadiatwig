@@ -15,29 +15,12 @@ class NourrissageRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Nourrissage::class);
     }
-
-    //    /**
-    //     * @return Nourrissage[] Returns an array of Nourrissage objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('n')
-    //            ->andWhere('n.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('n.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?Nourrissage
-    //    {
-    //        return $this->createQueryBuilder('n')
-    //            ->andWhere('n.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    public function findAllWithAnimal(): array
+    {
+        return $this->createQueryBuilder('n')
+            ->leftJoin('n.animal', 'a')  
+            ->addSelect('a')             
+            ->getQuery()
+            ->getResult();
+    }
 }

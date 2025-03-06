@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Nourrissage
+{% endblock %}
+
+{% block body %}
+	<h1>Edit Nourrissage</h1>
+
+	{{ include('nourrissage_crud/_form.html.twig', {'button_label': 'Update'}) }}
+	<div class="d-flex justify-content-center gap-5 my-4">
+		<a href="{{ path('app_nourrissage_crud_index') }}" class="btn button">Retour à la liste</a>
+
+		{{ include('nourrissage_crud/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

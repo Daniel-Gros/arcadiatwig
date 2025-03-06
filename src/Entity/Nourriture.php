@@ -13,17 +13,12 @@ class Nourriture
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: "string", length: 100)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $type = null;
-
-    #[ORM\OneToOne(targetEntity: self::class, mappedBy: 'nourriture_id', cascade: ['persist', 'remove'])]
-    private ?self $nourrissage = null;
-
-    #[ORM\OneToOne(mappedBy: 'nourriture', cascade: ['persist', 'remove'])]
-    private ?Typenourriture $typenourriture = null;
+    #[ORM\ManyToOne(targetEntity: TypeNourriture::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?TypeNourriture $type = null;
 
     public function getId(): ?int
     {
@@ -42,48 +37,14 @@ class Nourriture
         return $this;
     }
 
-    public function getType(): ?string
+    public function getType(): ?TypeNourriture
     {
         return $this->type;
     }
 
-    public function setType(string $type): static
+    public function setType(TypeNourriture $type): static
     {
         $this->type = $type;
-
-        return $this;
-    }
-
-    public function getNourrissage(): ?self
-    {
-        return $this->nourrissage;
-    }
-
-    public function setNourrissage(self $nourrissage): static
-    {
-        // set the owning side of the relation if necessary
-        if ($nourrissage->getNourritureId() !== $this) {
-            $nourrissage->setNourritureId($this);
-        }
-
-        $this->nourrissage = $nourrissage;
-
-        return $this;
-    }
-
-    public function getTypenourriture(): ?Typenourriture
-    {
-        return $this->typenourriture;
-    }
-
-    public function setTypenourriture(Typenourriture $typenourriture): static
-    {
-        // set the owning side of the relation if necessary
-        if ($typenourriture->getNourriture() !== $this) {
-            $typenourriture->setNourriture($this);
-        }
-
-        $this->typenourriture = $typenourriture;
 
         return $this;
     }

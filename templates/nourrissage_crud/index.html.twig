@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration - Nourrissage des Animaux
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">Nourrissage des Animaux</h1>
+
+	{% if is_granted('ROLE_EMPLOYEE') %}
+		<div class="d-flex justify-content-center my-4">
+			<a href="{{ path('app_nourrissage_crud_new') }}" class="btn button">Créer une nouvelle donnée de nourrissage</a>
+		</div>
+	{% endif %}
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Date</th>
+				<th>Animal</th>
+				<th>Nourriture</th>
+				<th>Quantité</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for nourrissage in nourrissages %}
+				<tr>
+					<td>{{ nourrissage.id }}</td>
+					<td>{{ nourrissage.datetime ? nourrissage.datetime|date('d-m-Y H:i:s') : '' }}</td>
+					<td>{{ nourrissage.getAnimal().getfirstName() }}</td>
+					<td>{{ nourrissage.getNourriture().getName() }}</td>
+					<td>{{ nourrissage.quantity }}
+						gr</td>
+					<td>
+						<a href="{{ path('app_nourrissage_crud_show', {'id': nourrissage.id}) }}" class="btn button">Voir</a>
+						{% if is_granted('ROLE_EMPLOYEE') %}
+							<a href="{{ path('app_nourrissage_crud_edit', {'id': nourrissage.id}) }}" class="btn button">Éditer</a>
+						{% endif %}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">Pas d'enregistrements trouvés</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	{% include "_partials/_buttons/_button_retour_accueil_admin.html.twig" %}
+
+{% endblock %}

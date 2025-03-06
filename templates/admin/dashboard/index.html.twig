@@ -31,6 +31,9 @@
 								<a class="nav-link button-crud-menu mt-3 text-center" href="{{ path('app_compte_rendu_veterinaire_crud_index') }}">Compte Rendu Vétérinaire</a>
 							</li>
 						{% endif %}
+						<li>
+							<a class="nav-link button-crud-menu mt-3 text-center" href="{{ path('app_nourrissage_crud_index') }}">Nourrissage des animaux</a>
+						</li>
 						{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_EMPLOYEE') %}
 							<li>
 								<a class="nav-link button-crud-menu mt-3 text-center" href="{{ path('app_service_crud_index') }}">Service</a>
@@ -79,6 +82,9 @@
 						<a class="nav-link text-center" href="{{ path('app_compte_rendu_veterinaire_crud_index') }}">Section Compte Rendu Vétérinaire</a>
 					</div>
 				{% endif %}
+				<div class="crud-card">
+					<a class="nav-link text-center" href="{{ path('app_nourrissage_crud_index') }}">Section Nourrissage des animaux</a>
+				</div>
 				{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_EMPLOYEE') %}
 					<div class="crud-card">
 						<a class="nav-link text-center" href="{{ path('app_service_crud_index') }}">Section Service</a>

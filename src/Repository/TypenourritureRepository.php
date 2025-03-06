@@ -2,14 +2,14 @@
 
 namespace App\Repository;
 
-use App\Entity\Typenourriture;
+use App\Entity\TypeNourriture;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @extends ServiceEntityRepository<Typenourriture>
  */
-class TypenourritureRepository extends ServiceEntityRepository
+class TypeNourritureRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

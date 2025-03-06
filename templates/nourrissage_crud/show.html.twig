@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nourrissage
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">Nourrissage</h1>
+
+	<div class="col-10 mx-auto">
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Id</th>
+					<td>{{ nourrissage.id }}</td>
+				</tr>
+                <tr>
+                    <th>Animal</th>
+                    <td>{{ nourrissage.getAnimal().getfirstName() }}</td>
+				<tr>
+                <tr>
+                    <th>Nourriture</th>
+                    <td>{{ nourrissage.getNourriture().getName() }}</td>
+                </tr>
+					<th>Date & Heure</th>
+					<td>Le {{ nourrissage.datetime ? nourrissage.datetime|date(' d-m-Y à H:i:s') : '' }}</td>
+				</tr>
+				<tr>
+					<th>Quantité</th>
+					<td>{{ nourrissage.quantity }}
+						grammes</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="d-flex justify-content-center gap-5 my-4">
+		<a href="{{ path('app_nourrissage_crud_index') }}" class="btn button">Retour à la liste</a>
+
+		<a href="{{ path('app_nourrissage_crud_edit', {'id': nourrissage.id}) }}" class="btn button">Éditer</a>
+
+		{{ include('nourrissage_crud/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

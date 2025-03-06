@@ -20,9 +20,13 @@ class Nourrissage
     #[ORM\Column]
     private ?int $quantity = null;
 
-    #[ORM\OneToOne(inversedBy: 'nourrissage_id', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(targetEntity: Animal::class, inversedBy: 'nourrissages')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?animal $animal = null;
+    private ?Animal $animal = null;
+
+    #[ORM\ManyToOne(targetEntity: Nourriture::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Nourriture $nourriture = null;
 
     public function getId(): ?int
     {
@@ -60,14 +64,26 @@ class Nourrissage
         return $this;
     }
 
-    public function getAnimal(): ?animal
+    public function getAnimal(): ?Animal
     {
         return $this->animal;
     }
 
-    public function setAnimal(animal $animal): static
+    public function setAnimal(Animal $animal): static
     {
         $this->animal = $animal;
+
+        return $this;
+    }
+
+    public function getNourriture(): ?Nourriture
+    {
+        return $this->nourriture;
+    }
+
+    public function setNourriture(Nourriture $nourriture): static
+    {
+        $this->nourriture = $nourriture;
 
         return $this;
     }
