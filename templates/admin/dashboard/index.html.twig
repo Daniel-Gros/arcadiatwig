@@ -57,7 +57,8 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-12 col-md-10 d-flex justify-content-evenly mt-5 d-none d-md-block">
+			<div class="col-md-10 d-flex justify-content-evenly mt-5 flex-wrap">
+
 				{% if is_granted('ROLE_ADMIN') %}
 					<div class="crud-card">
 						<a class="nav-link text-center" href="{{ path('app_animal_crud_index') }}">Section Animal</a>
