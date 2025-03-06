@@ -22,10 +22,6 @@ class CommentaireHabitatType extends AbstractType
                 'required' => false,
                 'mapped' => false,
             ])
-            ->add('user_id', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'id',
-            ])
             ->add('habitat_id', EntityType::class, [
                 'class' => Habitat::class,
                 'choice_label' => 'id',

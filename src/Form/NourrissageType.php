@@ -21,6 +21,7 @@ class NourrissageType extends AbstractType
                 'widget' => 'single_text',
                 'label' => 'Date et Heure du nourrissage',
                 'required' => true,
+                'data' => new \DateTime(),
             ])
             ->add('quantity', IntegerType::class, [
                 'label' => 'Quantité de nourriture (en grammes)',

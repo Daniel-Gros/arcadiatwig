@@ -31,12 +31,6 @@ class CommentaireHabitat1Type extends AbstractType
                 'required' => false,
                 'mapped' => true,
             ])
-            ->add('user_id', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'email',
-                'label' => 'Responsable du site',
-                'required' => false,
-            ])
             ->add('habitat_id', EntityType::class, [
                 'class' => Habitat::class,
                 'choice_label' => 'name',

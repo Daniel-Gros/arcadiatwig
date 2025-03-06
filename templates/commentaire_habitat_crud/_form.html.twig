@@ -1,26 +1,29 @@
 <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-sm p-4">
-                <h4 class="text-center mb-4">Formulaire</h4>
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<div class="card shadow-sm p-4">
+				<h4 class="text-center mb-4">Formulaire</h4>
 
-                {{ form_start(form, { 'attr': { 'class': 'needs-validation', 'novalidate': 'novalidate' } }) }}
+				{{ form_start(form, { 'attr': { 'class': 'needs-validation', 'novalidate': 'novalidate' } }) }}
 
-                {% for field in form %}
-                    {% if field.vars.name != '_token' and field.vars.block_prefixes[1] != 'submit' %}
-                        <div class="form-group mb-3">
-                            {{ form_label(field, null, {'label_attr': {'class': 'form-label'}}) }}
-                            {% if field.vars.block_prefixes[1] == 'checkbox' %}
-                                {{ form_widget(field, {'attr': {'class': 'form-check-input'}}) }}
-                            {% else %}
-                                {{ form_widget(field, {'attr': {'class': 'form-control'}}) }}
-                            {% endif %}
-                            {{ form_errors(field) }}
-                        </div>
-                    {% endif %}
-                {% endfor %}
-                {{ form_end(form) }}
-            </div>
-        </div>
-    </div>
+				{% for field in form %}
+					{% if field.vars.name != '_token' and field.vars.block_prefixes[1] != 'submit' %}
+						<div class="form-group mb-3">
+							{{ form_label(field, null, {'label_attr': {'class': 'form-label'}}) }}
+							{% if field.vars.block_prefixes[1] == 'checkbox' %}
+								{{ form_widget(field, {'attr': {'class': 'form-check-input'}}) }}
+							{% else %}
+								{{ form_widget(field, {'attr': {'class': 'form-control'}}) }}
+							{% endif %}
+							{{ form_errors(field) }}
+						</div>
+					{% endif %}
+				{% endfor %}
+				<div class="form-group mb-3 d-flex justify-content-center">
+					<button type="submit" class="btn button">Enregistrer</button>
+				</div>
+				{{ form_end(form) }}
+			</div>
+		</div>
+	</div>
 </div>
