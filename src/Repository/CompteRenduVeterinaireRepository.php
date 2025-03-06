@@ -19,7 +19,9 @@ class CompteRenduVeterinaireRepository extends ServiceEntityRepository
 
     public function findByFilter(?string $animal, ?string $date)
     {
-        $queryBuilder = $this->createQueryBuilder('c');
+        $queryBuilder = $this->createQueryBuilder('c')
+            ->leftJoin('c.animal_id', 'a')
+            ->addSelect('a');
 
         if ($animal) {
             $queryBuilder->join('c.animal_id', 'a')

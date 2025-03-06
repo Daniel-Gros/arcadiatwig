@@ -28,7 +28,7 @@
 	<div class="d-flex justify-content-center gap-5 my-4">
 		<a class="btn button" href="{{ path('app_compte_rendu_veterinaire_crud_index') }}">Retour à la liste</a>
 
-		<a class="btn button" href="{{ path('app_compte_rendu_veterinaire_crud_edit', {'id': compte_rendu_veterinaire.id}) }}">Éditer</a>
+		<a class="btn button" href="{{ path('app_compte_rendu_veterinaire_crud_edit', {'compteRenduVeterinaire': compte_rendu_veterinaire.id}) }}">Éditer</a>
 
 		{{ include('compte_rendu_veterinaire_crud/_delete_form.html.twig') }}
 	</div>

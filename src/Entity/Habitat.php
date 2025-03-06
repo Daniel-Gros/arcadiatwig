@@ -80,6 +80,7 @@ class Habitat
         return $this;
     }
 
+    private ?Animal $animal = null;
     private Collection $animals;
     public function __construct()
     {

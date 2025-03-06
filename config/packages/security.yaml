@@ -39,11 +39,41 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/animal/delete, roles : ROLE_ADMIN}
-        - { path: ^/animal/edit, roles : ROLE_ADMIN}
-        - { path: ^/animal/new , roles: ROLE_ADMIN}
         - { path: ^/admin, roles: [ROLE_ADMIN, ROLE_EMPLOYEE, ROLE_VETERINAIRE] }
-        - { path: ^/ , roles: PUBLIC_ACCESS }
+        - { path: ^/animal/crud, roles: [ROLE_ADMIN, ROLE_EMPLOYEE, ROLE_VETERINAIRE] }
+        - { path: ^/animal/\d+/crud, roles: [ROLE_ADMIN, ROLE_EMPLOYEE, ROLE_VETERINAIRE] } # route fichier show
+        - { path: ^/animal/crud/\d+/delete, roles: ROLE_ADMIN }
+        - { path: ^/animal/crud/\d+/edit, roles: ROLE_ADMIN }
+        - { path: ^/animal/crud/new, roles: ROLE_ADMIN }
+        - { path: ^/habitat/crud, roles: ROLE_ADMIN }
+        - { path: ^/habitat/\d+/crud, roles: ROLE_ADMIN } # route fichier show
+        - { path: ^/habitat/crud/\d+/delete, roles: ROLE_ADMIN }
+        - { path: ^/habitat/crud/\d+/edit, roles: ROLE_ADMIN }
+        - { path: ^/habitat/new, roles: ROLE_ADMIN }
+        - { path: ^/compte/rendu/veterinaire/crud, roles: [ROLE_ADMIN, ROLE_VETERINAIRE] }
+        - { path: ^/compte/rendu/veterinaire/\d+/crud, roles: [ROLE_ADMIN, ROLE_VETERINAIRE] } # route fichier show
+        - { path: ^/compte/rendu/veterinaire/\d+/crud/delete, roles: [ROLE_ADMIN, ROLE_VETERINAIRE] }
+        - { path: ^/compte/rendu/veterinaire/crud/\d+/edit, roles: [ROLE_ADMIN, ROLE_VETERINAIRE] }
+        - { path: ^/commentaire/habitat/crud, roles: ROLE_VETERINAIRE }
+        - { path: ^/commentaire/habitat/\d+/crud, roles: ROLE_VETERINAIRE } # route fichier show
+        - { path: ^/commentaire/habitat/crud/\d+/delete, roles: ROLE_VETERINAIRE }
+        - { path: ^/commentaire/habitat/crud/\d+/edit, roles: ROLE_VETERINAIRE }        
+        - { path: ^/service/crud, roles: [ROLE_ADMIN, ROLE_EMPLOYEE] }
+        - { path: ^/service/\d+/crud, roles: [ROLE_ADMIN, ROLE_EMPLOYEE] } # route fichier show
+        - { path: ^/service/crud/\d+/delete, roles: ROLE_ADMIN }
+        - { path: ^/service/crud/\d+/edit, roles: [ROLE_ADMIN, ROLE_EMPLOYEE] }
+        - { path: ^/service/crud/new, roles: [ROLE_ADMIN, ROLE_EMPLOYEE] }
+        - { path: ^/user/crud, roles: ROLE_ADMIN }
+        - { path: ^/user/crud/\d+, roles: ROLE_ADMIN } # route fichier show
+        - { path: ^/user/crud/\d+/delete, roles: ROLE_ADMIN }
+        - { path: ^/user/crud/\d+/edit, roles: ROLE_ADMIN }
+        - { path: ^/user/crud/new, roles: ROLE_ADMIN }
+        - { path: ^/horaires/crud, roles: ROLE_ADMIN }
+        - { path: ^/horaires/crud/\d+, roles: ROLE_ADMIN } # route fichier show
+        - { path: ^/horaires/crud/\d+/delete, roles: ROLE_ADMIN }
+        - { path: ^/horaires/crud/\d+/edit, roles: ROLE_ADMIN }
+
+
 
 when@test:
     security:
