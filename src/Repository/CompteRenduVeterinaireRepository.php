@@ -16,28 +16,22 @@ class CompteRenduVeterinaireRepository extends ServiceEntityRepository
         parent::__construct($registry, CompteRenduVeterinaire::class);
     }
 
-    //    /**
-    //     * @return CompteRenduVeterinaire[] Returns an array of CompteRenduVeterinaire objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('c.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
 
-    //    public function findOneBySomeField($value): ?CompteRenduVeterinaire
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    public function findByFilter(?string $animal, ?string $date)
+    {
+        $queryBuilder = $this->createQueryBuilder('c');
+
+        if ($animal) {
+            $queryBuilder->join('c.animal_id', 'a')
+                ->andWhere('a.firstName LIKE :animal')
+                ->setParameter('animal', '%' . $animal . '%');
+        }
+
+        if ($date) {
+            $queryBuilder->andWhere('DATE(c.date) = :date')
+                ->setParameter('date', $date);
+        }
+
+        return $queryBuilder->getQuery()->getResult();
+    }
 }

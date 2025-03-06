@@ -12,6 +12,31 @@
 		</div>
 	{% endif %}
 
+	{% if is_granted('ROLE_ADMIN') %}
+		<form method="POST" action="{{ path('app_compte_rendu_veterinaire_crud_filter') }}">
+			<div class="row mb-3">
+				<div class="col-6">
+					{{ form_label(form.animal) }}
+					{{ form_widget(form.animal, {'attr': {'class': 'form-control'}}) }}
+				</div>
+				<div class="col-6">
+					{{ form_label(form.date) }}
+					{{ form_widget(form.date, {'attr': {'class': 'form-control'}}) }}
+				</div>
+			</div>
+
+			<div class="row mb-3">
+				<div class="col-6">
+					<button type="submit" class="btn button w-100">Filtrer</button>
+				</div>
+				<div class="col-6">
+					<a href="{{ path('app_compte_rendu_veterinaire_crud_index') }}" class="btn button w-100">Afficher tous les comptes rendus</a>
+				</div>
+			</div>
+		</form>
+	{% endif %}
+
+
 	<table class="table">
 		<thead>
 			<tr>
@@ -26,13 +51,13 @@
 			{% for compte_rendu_veterinaire in compte_rendu_veterinaires %}
 				<tr>
 					<td>{{ compte_rendu_veterinaire.id }}</td>
-					<td>{{ compte_rendu_veterinaire.date ? compte_rendu_veterinaire.date|date('Y-m-d H:i') : '' }}</td>
+					<td>{{ compte_rendu_veterinaire.date ? compte_rendu_veterinaire.date|date('d-m-Y - H:i') : '' }}</td>
 					<td>{{ compte_rendu_veterinaire.getAnimalId().getfirstName() }}</td>
 					<td>{{ compte_rendu_veterinaire.message }}</td>
 					<td>
-						<a href="{{ path('app_compte_rendu_veterinaire_crud_show', {'id': compte_rendu_veterinaire.id}) }}" class="btn button">Voir</a>
+						<a href="{{ path('app_compte_rendu_veterinaire_crud_show', {'compteRenduVeterinaire': compte_rendu_veterinaire.id}) }}" class="btn button">Voir</a>
 						{% if is_granted('ROLE_VETERINAIRE') %}
-							<a href="{{ path('app_compte_rendu_veterinaire_crud_edit', {'id': compte_rendu_veterinaire.id}) }}" class="btn button">Éditer</a>
+							<a href="{{ path('app_compte_rendu_veterinaire_crud_edit', {'compteRenduVeterinaire': compte_rendu_veterinaire.id}) }}" class="btn button">Éditer</a>
 						{% endif %}
 					</td>
 				</tr>
