@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ contactTitle }}
+{% block title %}
+	{{ contactTitle }}
 {% endblock %}
 
 {% block body %}
@@ -9,18 +10,27 @@
 		<p class="text-center">Remplissez notre formulaire de contact</p>
 	</div>
 
-	<div class="form-contact-container">
-		{% for message in app.flashes('success') %}
-			<div class="alert alert-success">{{ message }}</div>
-		{% endfor %}
-		{{ form_start(contactForm) }}
-		{{ form_row(contactForm.nom) }}
-		{{ form_row(contactForm.email) }}
-		{{ form_row(contactForm.message) }}
-		<div class="d-flex justify-content-center align-items-center">
-			<button type="submit" class="btn button" id="mailtoButton">Envoyer</button>
-		</div>
-		{{ form_end(contactForm) }}
-	</div>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-8 col-lg-6">
+				{% for message in app.flashes('success') %}
+					<div class="alert alert-success">{{ message }}</div>
+				{% endfor %}
 
-{% endblock %}
+				{{ form_start(contactForm, {'attr': {'class': 'row g-3'}}) }}
+				<div class="col-12">
+					{{ form_row(contactForm.nom, {'attr': {'class': 'form-control'}}) }}
+				</div>
+				<div class="col-12">
+					{{ form_row(contactForm.email, {'attr': {'class': 'form-control'}}) }}
+				</div>
+				<div class="col-12">
+					{{ form_row(contactForm.message, {'attr': {'class': 'form-control'}}) }}
+				</div>
+				<div class="d-flex justify-content-center align-items-center">
+					<button type="submit" class="btn button my-4" id="mailtoButton">Envoyer</button>
+				</div>
+				{{ form_end(contactForm) }}
+
+
+			{% endblock %}
