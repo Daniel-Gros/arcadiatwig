@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Nourriture
+{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Créer une nouvelle donnée Aliment</h1>
+
+{{ include('nourriture_crud/_form.html.twig') }}
+<div class="d-flex justify-content-center">
+	<Retour <a href="{{ path('app_nourriture_crud_index') }}" class="btn button my-4">Retour à la liste</a> </div> {% endblock %}

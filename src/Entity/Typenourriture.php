@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+#[ORM\Table(name: "typenourriture")]
 #[ORM\Entity]
 class TypeNourriture
 {

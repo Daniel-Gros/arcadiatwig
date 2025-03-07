@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nourriture index
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">Gestion des aliments</h1>
+	<div class="d-flex justify-content-center my-4">
+		<a href="{{ path('app_nourriture_crud_new') }}" class="btn button my-4">Créer une nouvelle donnée Aliment</a>
+	</div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nom</th>
+				<th>Type</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for nourriture in nourritures %}
+				<tr>
+					<td>{{ nourriture.id }}</td>
+					<td>{{ nourriture.name }}</td>
+                    <td>{{ nourriture.type.getName() }}</td>
+					<td>
+						<a href="{{ path('app_nourriture_crud_show', {'id': nourriture.id}) }}" class="btn button">Voir</a>
+						<a href="{{ path('app_nourriture_crud_edit', {'id': nourriture.id}) }}" class="btn button">Éditer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">Pas d'enregistrements trouvés.</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

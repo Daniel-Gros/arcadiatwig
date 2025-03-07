@@ -38,6 +38,9 @@
 							<li>
 								<a class="nav-link button-crud-menu mt-3 text-center" href="{{ path('app_service_crud_index') }}">Service</a>
 							</li>
+							<li>
+								<a class="nav-link button-crud-menu mt-3 text-center" href="{{ path('app_nourriture_crud_index') }}">Aliments</a>
+							</li>
 						{% endif %}
 						{% if is_granted('ROLE_EMPLOYEE') %}
 							<li>
@@ -60,48 +63,51 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-md-10 d-flex justify-content-evenly mt-5 flex-wrap">
+			<div class="col-md-10 d-flex justify-content-center mt-5 flex-wrap gap-3">
 
 				{% if is_granted('ROLE_ADMIN') %}
-					<div class="crud-card">
+					<div class="col-12 col-md-3 crud-card">
 						<a class="nav-link text-center" href="{{ path('app_animal_crud_index') }}">Section Animal</a>
 					</div>
 				{% endif %}
 				{% if is_granted('ROLE_ADMIN') %}
-					<div class="crud-card">
+					<div class="col-12 col-md-3 crud-card">
 						<a class="nav-link text-center" href="{{ path('app_habitat_crud_index') }}">Section Habitat</a>
 					</div>
 				{% endif %}
 				{% if is_granted('ROLE_VETERINAIRE') %}
-					<div class="crud-card">
+					<div class="col-12 col-md-3 crud-card">
 						<a class="nav-link text-center" href="{{ path('app_commentaire_habitat_crud_index') }}">Section Commentaire Habitat</a>
 					</div>
 				{% endif %}
 				{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_VETERINAIRE') %}
-					<div class="crud-card">
+					<div class="col-12 col-md-3 crud-card">
 						<a class="nav-link text-center" href="{{ path('app_compte_rendu_veterinaire_crud_index') }}">Section Compte Rendu Vétérinaire</a>
 					</div>
 				{% endif %}
-				<div class="crud-card">
+				<div class="col-12 col-md-3 crud-card">
 					<a class="nav-link text-center" href="{{ path('app_nourrissage_crud_index') }}">Section Nourrissage des animaux</a>
 				</div>
 				{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_EMPLOYEE') %}
-					<div class="crud-card">
+					<div class="col-12 col-md-3 crud-card">
 						<a class="nav-link text-center" href="{{ path('app_service_crud_index') }}">Section Service</a>
+					</div>
+					<div class="col-12 col-md-3 crud-card">
+						<a class="nav-link text-center" href="{{ path('app_nourriture_crud_index') }}">Section Aliments</a>
 					</div>
 				{% endif %}
 				{% if is_granted('ROLE_EMPLOYEE') %}
-					<div class="crud-card">
+					<div class="col-12 col-md-3 crud-card">
 						<a class="nav-link text-center" href="{{ path('app_avis_crud_index') }}">Section Avis</a>
 					</div>
 				{% endif %}
 				{% if is_granted('ROLE_ADMIN') %}
-					<div class="crud-card">
+					<div class="col-12 col-md-3 crud-card">
 						<a class="nav-link text-center" href="{{ path('app_user_crud_index') }}">Section Personnel</a>
 					</div>
 				{% endif %}
 				{% if is_granted('ROLE_ADMIN') %}
-					<div class="crud-card">
+					<div class="col-12 col-md-3 crud-card">
 						<a class="nav-link text-center" href="{{ path('app_horaires_crud_index') }}">Section Horaires</a>
 					</div>
 				{% endif %}
