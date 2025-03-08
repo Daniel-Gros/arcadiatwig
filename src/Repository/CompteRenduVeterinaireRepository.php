@@ -23,10 +23,6 @@ class CompteRenduVeterinaireRepository extends ServiceEntityRepository
             ->leftJoin('c.animal_id', 'a')
             ->addSelect('a');
 
-        
-            // $expr = $qb->expr();
-            // $qb->andWhere($expr->andX("DATE(c.date) = :date"))
-
         if ($date) {
             $date = new DateTime($date);
 
