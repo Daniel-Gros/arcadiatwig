@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\CompteRenduVeterinaire;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -16,22 +17,29 @@ class CompteRenduVeterinaireRepository extends ServiceEntityRepository
         parent::__construct($registry, CompteRenduVeterinaire::class);
     }
 
-
     public function findByFilter(?string $animal, ?string $date)
     {
-        $queryBuilder = $this->createQueryBuilder('c');
+        $qb = $this->createQueryBuilder('c')
+            ->leftJoin('c.animal_id', 'a')
+            ->addSelect('a');
 
-        if ($animal) {
-            $queryBuilder->join('c.animal_id', 'a')
-                ->andWhere('a.firstName LIKE :animal')
-                ->setParameter('animal', '%' . $animal . '%');
-        }
+        
+            // $expr = $qb->expr();
+            // $qb->andWhere($expr->andX("DATE(c.date) = :date"))
 
         if ($date) {
-            $queryBuilder->andWhere('DATE(c.date) = :date')
-                ->setParameter('date', $date);
+            $date = new DateTime($date);
+
+            $qb->where('c.date BETWEEN :fromDate AND :toDate')
+                ->setParameter('fromDate', $date->format("Y-m-d")." 00:00:00")
+                ->setParameter('toDate', $date->format("Y-m-d")." 23:59:59");
         }
 
-        return $queryBuilder->getQuery()->getResult();
+        if ($animal) {
+            $qb->andWhere('a.firstName = :animalName')
+                ->setParameter('animalName', $animal);
+        }
+
+        return $qb->getQuery()->getResult();
     }
 }

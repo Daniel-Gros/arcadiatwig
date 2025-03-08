@@ -7,6 +7,7 @@ use App\Form\CompteRenduFilterType;
 use App\Form\CompteRenduVeterinaireType;
 use App\Repository\AnimalRepository;
 use App\Repository\CompteRenduVeterinaireRepository;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -89,11 +90,17 @@ final class CompteRenduVeterinaireCrudController extends AbstractController
     #[Route(path:'/compte/rendu/veterinaire/crud/filter', name: 'app_compte_rendu_veterinaire_crud_filter', methods: ['POST'])]
     public function filter(Request $request, CompteRenduVeterinaireRepository $compteRenduVeterinaireRepository): Response
     {
-        $animal = $request->get('animal');        error_log($animal);
-        $date = $request->get('date');
-        error_log($animal);
-        $compteRenduVeterinaires = $compteRenduVeterinaireRepository->findByFilter($animal, $date);
+        $animalName = $request->get("compte_rendu_filter")['animal'] ?? null;   
+        $date = $request->get("compte_rendu_filter")['date'] ?? new DateTime();
 
-        return $this->json($compteRenduVeterinaires);
+        $animalName = $animalName !== "" ? $animalName : null;
+
+        $compteRenduVeterinaires = $compteRenduVeterinaireRepository->findByFilter($animalName, $date);
+
+        // error_log('$compteRenduVeterinaires');
+        return $this->render('compte_rendu_veterinaire_crud/index.html.twig', [
+            'compte_rendu_veterinaires' => $compteRenduVeterinaires,
+            'form' => $this->createForm(CompteRenduFilterType::class)->createView(),
+        ]);
     }
 }

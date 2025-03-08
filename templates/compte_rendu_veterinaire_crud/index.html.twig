@@ -40,7 +40,6 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Id</th>
 				<th>Date & Heure</th>
 				<th>Animal</th>
 				<th>Message</th>
@@ -50,7 +49,6 @@
 		<tbody>
 			{% for compte_rendu_veterinaire in compte_rendu_veterinaires %}
 				<tr>
-					<td>{{ compte_rendu_veterinaire.id }}</td>
 					<td>{{ compte_rendu_veterinaire.date ? compte_rendu_veterinaire.date|date('d-m-Y - H:i') : '' }}</td>
 					<td>{{ compte_rendu_veterinaire.getAnimalId().getfirstName() }}</td>
 					<td>{{ compte_rendu_veterinaire.message }}</td>
