@@ -15,6 +15,7 @@
 				<th>Prénom</th>
 				<th>Espèce</th>
 				<th>Régime</th>
+				<th>Nombre de consultations</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
@@ -25,6 +26,7 @@
 					<td>{{ animal.firstName }}</td>
 					<td>{{ animal.breed }}</td>
 					<td>{{ animal.diet }}</td>
+					<td>{{ clickService.getClickCount(animal.id) }} clic(s)</td>
 					<td class="d-flex justify-content-around">
 						<a class="btn button" href="{{ path('app_animal_crud_show', {'id': animal.id}) }}">Voir</a>
 						<a class="btn button" href="{{ path('app_animal_crud_edit', {'id': animal.id}) }}">Éditer</a>

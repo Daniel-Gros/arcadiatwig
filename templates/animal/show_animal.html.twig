@@ -16,7 +16,7 @@
 					</div>
 					<div class="card-body w-75 d-flex flex-column">
 						<h5 class="card-title">{{ animal.firstName }}
-							<a href="{{ path('app_animal_show', {'id': animal.id}) }}" class="btn button">+</a>
+							<a href="{{ path('app_animal_show', {'id': animal.id}) }}" class="btn button track-click" data-animal-id="{{ animal.id }}">+</a>
 						</h5>
 						<div class="card-text overflow-auto" style="max-height: 120px;">
 							{{ animal.description }}

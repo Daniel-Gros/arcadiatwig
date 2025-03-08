@@ -13,7 +13,7 @@
 								<h5 class="card-title text-end text-nowrap">{{ animal.firstName }}</h5>
 							</div>
 							<div class="text-end">
-								<a href="{{ path('app_animal_show', {'id': animal.id}) }}" class="btn button-cross">+</a>
+								<a href="{{ path('app_animal_show', {'id': animal.id}) }}" class="btn button-cross" data-animal-id="{{ animal.id }}">+</a>
 							</div>
 						</div>
 					</div>

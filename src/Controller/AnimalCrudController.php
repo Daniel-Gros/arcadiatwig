@@ -5,9 +5,11 @@ namespace App\Controller;
 use App\Entity\Animal;
 use App\Form\AnimalType;
 use App\Repository\AnimalRepository;
+use App\Service\ClickService;
 use Doctrine\DBAL\Exception\DriverException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -15,11 +17,18 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/animal/crud')]
 final class AnimalCrudController extends AbstractController
 {
+    private ClickService $clickService;
+
+    public function __construct(ClickService $clickService)
+    {
+        $this->clickService = $clickService;
+    }
     #[Route(name: 'app_animal_crud_index', methods: ['GET'])]
     public function index(AnimalRepository $animalRepository): Response
     {
         return $this->render('animal_crud/index.html.twig', [
             'animals' => $animalRepository->findAll(),
+            'clickService' => $this->clickService,
         ]);
     }
 
@@ -62,51 +71,54 @@ final class AnimalCrudController extends AbstractController
     #[Route('/{id}', name: 'app_animal_crud_show', methods: ['GET'])]
     public function show(Animal $animal): Response
     {
+        $this->clickService->registerClick($animal->getId());
+
         return $this->render('animal_crud/show.html.twig', [
             'animal' => $animal,
         ]);
     }
 
+
     #[Route('/{id}/edit', name: 'app_animal_crud_edit', methods: ['GET', 'POST'])]
-public function edit(Request $request, Animal $animal, EntityManagerInterface $entityManager): Response
-{
-    $form = $this->createForm(AnimalType::class, $animal);
-    $form->handleRequest($request);
+    public function edit(Request $request, Animal $animal, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(AnimalType::class, $animal);
+        $form->handleRequest($request);
 
-    if ($form->isSubmitted() && $form->isValid()) {
-        $imageFile = $form->get('image')->getData();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('image')->getData();
 
-        if ($imageFile) {
-            $oldImage = $animal->getImage();
-            if ($oldImage) {
-                $oldImagePath = $this->getParameter('images_directory') . '/' . $oldImage;
-                if (file_exists($oldImagePath)) {
-                    unlink($oldImagePath);
+            if ($imageFile) {
+                $oldImage = $animal->getImage();
+                if ($oldImage) {
+                    $oldImagePath = $this->getParameter('images_directory') . '/' . $oldImage;
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath);
+                    }
                 }
+
+                $newFilename = uniqid() . '.' . $imageFile->guessExtension();
+                $imageFile->move(
+                    $this->getParameter('images_directory'),
+                    $newFilename
+                );
+                $animal->setImage($newFilename);
             }
 
-            $newFilename = uniqid() . '.' . $imageFile->guessExtension();
-            $imageFile->move(
-                $this->getParameter('images_directory'),
-                $newFilename
-            );
-            $animal->setImage($newFilename);
+            try {
+                $entityManager->flush();
+            } catch (DriverException $e) {
+                dd($e->getMessage());
+            }
+
+            return $this->redirectToRoute('app_animal_crud_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        try {
-            $entityManager->flush();
-        } catch (DriverException $e) {
-            dd($e->getMessage());
-        }
-
-        return $this->redirectToRoute('app_animal_crud_index', [], Response::HTTP_SEE_OTHER);
+        return $this->render('animal_crud/edit.html.twig', [
+            'animal' => $animal,
+            'form' => $form,
+        ]);
     }
-
-    return $this->render('animal_crud/edit.html.twig', [
-        'animal' => $animal,
-        'form' => $form,
-    ]);
-}
 
 
     #[Route('/{id}', name: 'app_animal_crud_delete', methods: ['POST'])]
@@ -122,5 +134,20 @@ public function edit(Request $request, Animal $animal, EntityManagerInterface $e
         }
 
         return $this->redirectToRoute('app_animal_crud_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/{id}/register-click', name: 'app_animal_register_click', methods: ['POST'])]
+    public function registerClick(string $id, ClickService $clickService): JsonResponse
+    {
+        if (!$id) {
+            return new JsonResponse(['error' => 'ID de l\'animal manquant'], Response::HTTP_BAD_REQUEST);
+        }
+
+        try {
+            $clickService->registerClick($id);
+            return new JsonResponse(['message' => 'Clic enregistré avec succès'], Response::HTTP_OK);
+        } catch (\Exception $e) {
+            return new JsonResponse(['error' => 'Erreur lors de l\'enregistrement du clic'], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 }
