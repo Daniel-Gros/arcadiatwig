@@ -77,7 +77,7 @@ ALTER TABLE habitat ADD animal_id INT;
 
 ALTER TABLE habitat ADD FOREIGN KEY (animal_id) REFERENCES animal (id);
 
-ALTER TABLE habitat ADD FOREIGN KEY ;
+ALTER TABLE habitat ADD FOREIGN KEY (user_id) REFERENCES user (id);
 
 ALTER TABLE CompteRenduVétérinaire ADD user_id INT;
 
@@ -101,9 +101,9 @@ ALTER TABLE CommentaireHabitat ADD FOREIGN KEY (habitat_id) REFERENCES habitat (
 
 -- Suite oubli : Ajout de la colonne image dans les tables animal, service, et habitat
 USE arcadiadb;
-ALTER TABLE animal ADD COLUMN image LONGBLOB;
-ALTER TABLE service ADD COLUMN image LONGBLOB;
-ALTER TABLE habitat ADD COLUMN image LONGBLOB;
+ALTER TABLE animal ADD COLUMN image VARCHAR(255);
+ALTER TABLE service ADD COLUMN image VARCHAR(255);
+ALTER TABLE habitat ADD COLUMN image VARCHAR(255);
 
 ALTER TABLE animal ADD COLUMN description TEXT;
 
