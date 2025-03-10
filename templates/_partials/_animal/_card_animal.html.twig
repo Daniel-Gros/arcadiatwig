@@ -9,8 +9,11 @@
 							<img src="{{ asset('uploads/images/' ~ animal.image) }}" alt="Image de {{animal.firstName}} le/la {{animal.breed}}" class="img-fluid h-100 w-100" style="object-fit: cover; height: 100%; width: 100%;">
 						</div>
 						<div class="col-8 p-3 d-flex flex-column justify-content-between animal-card">
-							<div class="card-body ">
-								<h5 class="card-title text-end text-nowrap">{{ animal.firstName }}</h5>
+							<div class="card-body">
+								<h5 class="card-title text-end text-nowrap">
+									<span class="d-none d-sm-inline">{{ animal.firstName }}</span>
+									<span class="d-inline d-sm-none" style="font-size: 60%;">{{ animal.firstName }}</span>
+								</h5>
 							</div>
 							<div class="text-end">
 								<a href="{{ path('app_animal_show', {'id': animal.id}) }}" class="btn button-cross" data-animal-id="{{ animal.id }}">+</a>
