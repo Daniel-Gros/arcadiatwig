@@ -28,8 +28,8 @@ class UsersAuthenticator extends AbstractLoginFormAuthenticator
 
     public function supports(Request $request): bool
     {
-        // "auth-token" is an example of a custom, non-standard HTTP header used in this application
-        return $request->headers->has('auth-token');
+        return $request->isMethod('POST') && $request->attributes->get('_route') === self::LOGIN_ROUTE;
+            
     }
 
     public function authenticate(Request $request): Passport

@@ -97,7 +97,6 @@ final class CompteRenduVeterinaireCrudController extends AbstractController
 
         $compteRenduVeterinaires = $compteRenduVeterinaireRepository->findByFilter($animalName, $date);
 
-        // error_log('$compteRenduVeterinaires');
         return $this->render('compte_rendu_veterinaire_crud/index.html.twig', [
             'compte_rendu_veterinaires' => $compteRenduVeterinaires,
             'form' => $this->createForm(CompteRenduFilterType::class)->createView(),
